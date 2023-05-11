@@ -4,10 +4,6 @@ import { NextSeo } from "next-seo";
 import { useEffect, useRef, useCallback } from "react";
 import useWindowSize from "@rooks/use-window-size";
 
-export const metadata = {
-	title: "The Cynaptics Club - Our Projects",
-	description: "The Cynaptics Club(AI/ML) - IIT INDORE",
-};
 
 const Stars = ({ vel = 1, radius = 1, starsCounter = 300 }) => {
 	const canvasRef = useRef(null);
