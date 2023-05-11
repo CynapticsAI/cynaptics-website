@@ -107,84 +107,20 @@ Listeners
 			<div>
 				<h1 className="font-bold text-3xl text-center pt-20 md:text-5xl">Our Projects</h1>
 				<div className="carousel">
-					<div className="carousel-item">
+					{[1,2,3,4,5,6,7,8,9,10,11].map((ele,index)=>{
+						return (
+<div key="index" className="carousel-item">
 						<div className="carousel-box">
-							<div className="title">Moon Unit</div>
+							<div className="title">Project {ele}</div>
 							<div className="num">01</div>
-							<img src="https://i.pinimg.com/474x/4f/22/2d/4f222dfc7d37b9ccda5fa79a9bd6017d.jpg" />
+							<img src={`/images/Project${ele}.jpg`} alt="loading..."/>
 						</div>
 					</div>
+						)
+					})}
+					
 
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Dark Sideræl</div>
-							<div className="num">02</div>
-							<img src="https://i.pinimg.com/474x/46/e9/b4/46e9b4b11a18d42757a4a585362f662a.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Hellzel</div>
-							<div className="num">03</div>
-							<img src="https://i.pinimg.com/564x/0e/77/3c/0e773ca89030835e764cd6ca2c306fa8.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Cyanide</div>
-							<div className="num">04</div>
-							<img src="https://i.pinimg.com/564x/89/78/39/897839f6e3caee85972478a8b77c5f5b.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Shanda</div>
-							<div className="num">05</div>
-							<img src="https://i.pinimg.com/564x/34/d6/de/34d6dea0a2988772e2a163f81a70d749.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Portabella</div>
-							<div className="num">06</div>
-							<img src="https://i.pinimg.com/564x/cb/e0/b1/cbe0b127c0639a265bed9eb49099a0d9.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Phelony</div>
-							<div className="num">07</div>
-							<img src="https://i.pinimg.com/564x/bc/f3/37/bcf337beb41792fabc26da33c53099e9.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Maybelline</div>
-							<div className="num">08</div>
-							<img src="https://i.pinimg.com/564x/c2/18/58/c2185831e764e2db0256668ff2e8dc5d.jpg" />
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Cinnamon</div>
-							<div className="num">09</div>
-							<img src="https://i.pinimg.com/736x/d8/bb/c2/d8bbc264892b640e3218e78ee3e9a29d.jpg" />
-						</div>
-					</div>
-					<div className="carousel-item">
-						<div className="carousel-box">
-							<div className="title">Ima</div>
-							<div className="num">10</div>
-							<img src="https://i.pinimg.com/564x/af/d0/33/afd0332acdac4c32e44dce6e7c094857.jpg" />
-						</div>
-					</div>
+					
 				</div>
 
 				

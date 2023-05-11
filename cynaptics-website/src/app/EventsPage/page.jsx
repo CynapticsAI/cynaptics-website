@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
@@ -103,62 +104,24 @@ export default function EventsPage() {
 	}, []);
 	return (
 		<div className="body ">
-			<h1 className="my-32 md:text-5xl font-bold text-center text-3xl">Our Events</h1>
+			<h1 className="my-32 md:text-5xl font-bold text-center text-3xl">
+				Our Events
+			</h1>
 			<div className="menu ">
 				<div className="menu--wrapper">
-					<div className="menu--item">
-						<figure>
-							<img
-								src="https://images.unsplash.com/photo-1529971071135-c1982792bb96?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-								alt=""
-							/>
-						</figure>
-					</div>
-
-					<div className="menu--item">
-						<figure>
-							<img
-								src="https://images.unsplash.com/photo-1552793084-49132af00ff1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-								alt=""
-							/>
-						</figure>
-					</div>
-
-					<div className="menu--item">
-						<figure>
-							<img
-								src="https://images.unsplash.com/photo-1509679708047-e0e562d21e44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-								alt=""
-							/>
-						</figure>
-					</div>
-
-					<div className="menu--item">
-						<figure>
-							<img
-								src="https://images.unsplash.com/photo-1542513217-0b0eedf7005d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-								alt=""
-							/>
-						</figure>
-					</div>
-
-					<div className="menu--item">
-						<figure>
-							<img
-								src="https://images.unsplash.com/photo-1512633017083-67231aba710d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
-								alt=""
-							/>
-						</figure>
-					</div>
-
-					<div className="menu--item">
-						<figure>
-							<img
-								src="https://images.unsplash.com/photo-1531300185372-b7cbe2eddf0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-								alt=""
-							/>
-						</figure>
-					</div>
+					{[1, 2, 3, 4, 5, 6].map((ele, index) => {
+						return (
+							// eslint-disable-next-line react/jsx-key
+							<div key={index} className="menu--item">
+								<figure>
+									<img
+										src={`./images/Event${ele}.jpg`}
+										alt=""
+									/>
+								</figure>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-
+import me from '../../public/images/me.jpg'
 export default function Card({id}) {
 	useEffect(() => {
 		const buttons = document.querySelectorAll(`.card-buttons${id} button`);
@@ -30,11 +30,11 @@ export default function Card({id}) {
 				<div className="card-header">
 					<div
 						className="card-cover"
-						style={{backgroundImage: "url('https://i.pinimg.com/originals/1b/b3/56/1bb35636d4d5e2b7bf40afd8e014eda0.gif')"}}
+						style={{backgroundImage: "/images/me.jpg"}}
 					></div>
 					<img
 						className="card-avatar"
-						src="https://i.pinimg.com/originals/1b/b3/56/1bb35636d4d5e2b7bf40afd8e014eda0.gif"
+						src="/images/me.jpg"
 						alt="avatar"
 					/>
 					<h1 className="card-fullname">Jagan Javid</h1>
@@ -45,9 +45,7 @@ export default function Card({id}) {
 						<div className="card-content">
 							<div className="card-subtitle">ABOUT</div>
 							<p className="card-desc">
-								Contrary to popular belief, Lorem Ipsum is not simply random
-								text. It has roots in a piece of classical Latin literature from
-								45 BC, making it over 2000
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis amet dignissimos vero, commodi nihil quod labore deserunt fuga placeat voluptates.
 							</p>
 						</div>
 						<div className="card-social">
@@ -81,26 +79,26 @@ export default function Card({id}) {
 							<div className="card-timeline">
 								<div className="card-item" data-year="2018">
 									<div className="card-item-title">
-										Front-end Developer at <span>JotForm</span>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
 									</div>
 									<div className="card-item-desc">
-										Disrupt stumptown retro everyday carry unicorn.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
 									</div>
 								</div>
 								<div className="card-item" data-year="2020">
 									<div className="card-item-title">
-										UI Developer at <span>GitHub</span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
 									</div>
 									<div className="card-item-desc">
-										Developed new conversion funnels and disrupt.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
 									</div>
 								</div>
 								<div className="card-item" data-year="2022">
 									<div className="card-item-title">
-										Full-Stack Developer at <span>CodePen</span>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
 									</div>
 									<div className="card-item-desc">
-										Responsible for the encomposing brand expreience.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
 									</div>
 								</div>
 							</div>
@@ -123,7 +121,7 @@ export default function Card({id}) {
 										<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
 										<circle cx="12" cy="10" r="3" />
 									</svg>
-									Algonquin Rd, Three Oaks Vintage, MI, 49128
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, nobis.
 								</div>
 								<div className="card-contact">
 									<svg
@@ -152,9 +150,9 @@ export default function Card({id}) {
 										<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
 										<path d="M22 6l-10 7L2 6" />
 									</svg>
-									jaganjavid@gmail.com
+									email@gmail.com
 								</div>
-								<button className="contact-me">WORK TOGETHER</button>
+								<button className="contact-me">CONNECT</button>
 							</div>
 						</div>
 					</div>
