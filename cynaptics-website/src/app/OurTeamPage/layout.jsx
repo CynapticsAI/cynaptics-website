@@ -1,10 +1,7 @@
 "use client"
 import { useEffect } from "react";
 import useWindowSize from "@rooks/use-window-size";
-export const metadata = {
-	title: "The Cynaptics Club - Our Team",
-	description: "The Cynaptics Club(AI/ML) - IIT INDORE",
-  };
+
 export default function RootLayout({
     children,
 }) {
