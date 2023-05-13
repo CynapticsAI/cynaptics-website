@@ -6,10 +6,7 @@ import VideoPage from "../components/VideoPage";
 import TextAnimation from "@/components/TextAnimation";
 import Model from "../components/Model";
 
-export const metadata = {
-	title: 'Home',
-	description: 'Welcome to Next.js',
-  };
+
 
 export default function Home() {
 	return (
