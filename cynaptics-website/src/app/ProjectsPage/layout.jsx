@@ -120,7 +120,7 @@ export default function ProjectLayout({ children }) {
 				title="The Cynaptics Club - Our Projects"
 				description="The Cynaptics Club(AI/ML) - IIT INDORE"
 			/>
-			<Stars vel={1} radius={1} starsCounter={300} />
+			<Stars vel={1} radius={2} starsCounter={500} />
 			{children}
 		</div>
 	);

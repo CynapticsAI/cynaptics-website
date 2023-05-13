@@ -11,7 +11,7 @@ export default function TextAnimation(props:{text:string}) {
                         {props.text}
                     </text>
                 </svg>
-
+    
 
                 <style jsx>
                     {`
@@ -26,16 +26,18 @@ export default function TextAnimation(props:{text:string}) {
             stroke-width: 2;
             margin:0px;
             padding:0px;
-            stroke: blue;
+            stroke: white;
             
         }
         @keyframes stroke {
-            0%   {
+            10%   {
                 fill: rgba(72,138,20,0); stroke: #ffffff;
-                stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+                stroke-dashoffset: 25%; stroke-dasharray: 0 100%; stroke-width: 3;
             }
-            70%  {fill: rgba(72,138,20,0); stroke: #ffffff; }
-            80%  {fill: rgba(72,138,20,0); stroke: rgb(255, 255, 255); stroke-width: 3; }
+            20%  {fill: rgba(72,138,20,0); stroke: #ffffff; }
+            30%  {fill: rgba(72,138,20,0); stroke: #ffffff; }
+            40%  {fill: rgba(72,138,20,0); stroke: #ffffff; }
+            70%  {fill: rgba(72,138,20,0); stroke: rgb(255, 255, 255); stroke-width: 3; }
             100% {
                 fill: #ffffff; stroke: rgba(54,95,160,0); 
                 stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;

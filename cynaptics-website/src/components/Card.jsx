@@ -1,16 +1,18 @@
+"use client"
 import React from "react";
 import { useEffect } from "react";
-import me from '../../public/images/me.jpg'
-export default function Card({id}) {
+import me from "../../public/images/me.jpg";
+import Image from "next/image";
+export default function Card({ ele }) {
 	useEffect(() => {
-		const buttons = document.querySelectorAll(`.card-buttons${id} button`);
-		const sections = document.querySelectorAll(`.card-section${id}`);
-		const card = document.querySelector(`.card${id}`);
+		const buttons = document.querySelectorAll(`.card-buttons${ele.id} button`);
+		const sections = document.querySelectorAll(`.card-section${ele.id}`);
+		const card = document.querySelector(`.card${ele.id}`);
 
 		const handleButtonClick = (e) => {
 			const targetSection = e.target.getAttribute("data-section");
 			const section = document.querySelector(targetSection);
-			targetSection !== `#about${id}`
+			targetSection !== `#about${ele.id}`
 				? card.classList.add("is-active")
 				: card.classList.remove("is-active");
 			card.setAttribute("data-state", targetSection);
@@ -25,28 +27,24 @@ export default function Card({id}) {
 		});
 	}, []);
 	return (
-		<div className="my-10 " id={id}>
-			<div className={`card${id} card`} data-state={`#about${id}`}>
+		<div className="my-10 " id={ele.id}>
+			<div className={`card${ele.id} card`} data-state={`#about${ele.id}`}>
 				<div className="card-header">
 					<div
 						className="card-cover"
-						style={{backgroundImage: "/images/me.jpg"}}
+						style={{ backgroundImage: "/images/me.jpg" }}
 					></div>
-					<img
-						className="card-avatar"
-						src="/images/me.jpg"
-						alt="avatar"
-					/>
-					<h1 className="card-fullname">Jagan Javid</h1>
-					<h2 className="card-jobtitle">Front-End Developer</h2>
+					<div className="card-avatar ">
+					<Image width={500} height={500} className="rounded-full"  src={ele.image} alt="avatar" />
+					</div>
+					<h1 className="card-fullname !text-black">{ele.name}</h1>
+					<h2 className="card-jobtitle !text-black ">{ele.position}</h2>
 				</div>
 				<div className="card-main">
-					<div className={`card-section${id} is-active`} id={`about${id}`}>
+					<div className={`card-section${ele.id} is-active`} id={`about${ele.id}`}>
 						<div className="card-content">
-							<div className="card-subtitle">ABOUT</div>
-							<p className="card-desc">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis amet dignissimos vero, commodi nihil quod labore deserunt fuga placeat voluptates.
-							</p>
+							<div className="card-subtitle !text-black">ABOUT</div>
+							<p className="card-desc">I am a {ele.year==1 && "1st"} {ele.year==2 && "2nd"} {ele.year==3 && "3rd"} {ele.year==4 && "4th"} Year Student, Currently Pursuing My B.Tech In {ele.branch}</p>
 						</div>
 						<div className="card-social">
 							<a href="#">
@@ -73,45 +71,16 @@ export default function Card({id}) {
 							</a>
 						</div>
 					</div>
-					<div className={`card-section${id} card-section`} id={`experience${id}`}>
+					
+					<div className={`card-section${ele.id} card-section`} id={`contact${ele.id}`}>
 						<div className="card-content">
-							<div className="card-subtitle">WORK EXPERIENCE</div>
-							<div className="card-timeline">
-								<div className="card-item" data-year="2018">
-									<div className="card-item-title">
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
-									</div>
-									<div className="card-item-desc">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
-									</div>
-								</div>
-								<div className="card-item" data-year="2020">
-									<div className="card-item-title">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
-									</div>
-									<div className="card-item-desc">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
-									</div>
-								</div>
-								<div className="card-item" data-year="2022">
-									<div className="card-item-title">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
-									</div>
-									<div className="card-item-desc">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ipsa!
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className={`card-section${id} card-section`} id={`contact${id}`}>
-						<div className="card-content">
-							<div className="card-subtitle">CONTACT</div>
+							<div className="card-subtitle !text-black">CONTACT</div>
 							<div className="card-contact-wrapper">
-								<div className="card-contact">
+								<div className="card-contact ">
 									<svg
+                                    className=""
 										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
+										viewBox="0 0 30 30"
 										fill="none"
 										stroke="currentColor"
 										strokeWidth="2"
@@ -121,7 +90,7 @@ export default function Card({id}) {
 										<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
 										<circle cx="12" cy="10" r="3" />
 									</svg>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, nobis.
+									Persons Location
 								</div>
 								<div className="card-contact">
 									<svg
@@ -135,7 +104,10 @@ export default function Card({id}) {
 									>
 										<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
 									</svg>
-									(269) 756-9809
+									<div className="text-start">
+										<div>Phone Number Of The Person</div>
+										
+									</div>
 								</div>
 								<div className="card-contact">
 									<svg
@@ -152,338 +124,343 @@ export default function Card({id}) {
 									</svg>
 									email@gmail.com
 								</div>
-								<button className="contact-me">CONNECT</button>
+								
 							</div>
 						</div>
 					</div>
-					<div className={`card-buttons${id} card-buttons`}>
-						<button data-section={`#about${id}`} className="is-active">
+					<div className={`card-buttons${ele.id} card-buttons`}>
+						<button data-section={`#about${ele.id}`} className="is-active">
 							ABOUT
 						</button>
-						<button data-section={`#experience${id}`}>EXPERIENCE</button>
-						<button data-section={`#contact${id}`}>CONTACT</button>
+						
+						<button data-section={`#contact${ele.id}`}>CONTACT</button>
 					</div>
 				</div>
 			</div>
 			<style jsx>
 				{`
 					@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap");
-                    * {
-                        box-sizing: border-box;
-                   }
-                    body {
-                        color: #2b2c48;
-                        font-family: "Jost", sans-serif;
-                        background: #134935;
-                        min-height: 100vh;
-                        display: flex;
-                        flex-wrap: wrap;
-                        padding: 20px;
-                   }
-                    .card {
-                        max-width: 340px;
-                        margin: auto;
-                        overflow-y: auto;
-                        position: relative;
-                        z-index: 1;
-                        overflow-x: hidden;
-                        background-color: rgba(255, 255, 255, 1);
-                        display: flex;
-                        transition: 0.3s;
-                        flex-direction: column;
-                        border-radius: 10px;
-                        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
-                   }
-                    .card[data-state="#about"] {
-                        height: 450px;
-                   }
-                    .card[data-state="#about"] .card-main {
-                        padding-top: 0;
-                   }
-                    .card[data-state="#contact"] {
-                        height: 430px;
-                   }
-                    .card[data-state="#experience"] {
-                        height: 550px;
-                   }
-                    .card.is-active .card-header {
-                        height: 80px;
-                   }
-                    .card.is-active .card-cover {
-                        height: 100px;
-                        top: -50px;
-                   }
-                    .card.is-active .card-avatar {
-                        transform: none;
-                        left: 20px;
-                        width: 50px;
-                        height: 50px;
-                        bottom: 10px;
-                   }
-                    .card.is-active .card-fullname, .card.is-active .card-jobtitle {
-                        left: 86px;
-                        transform: none;
-                   }
-                    .card.is-active .card-fullname {
-                        bottom: 18px;
-                        font-size: 19px;
-                   }
-                    .card.is-active .card-jobtitle {
-                        bottom: 16px;
-                        letter-spacing: 1px;
-                        font-size: 10px;
-                   }
-                    .card-header {
-                        position: relative;
-                        display: flex;
-                        height: 200px;
-                        flex-shrink: 0;
-                        width: 100%;
-                        transition: 0.3s;
-                   }
-                    .card-header * {
-                        transition: 0.3s;
-                   }
-                    .card-cover {
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        height: 98px;
-                        top: -20%;
-                        filter: blur(12px);
-                        left: 0;
-                        background-position: center;
-                        transform: scale(1.2);
-                        transition: 0.5s;
-                   }
-                    .card-avatar {
-                        width: 100px;
-                        height: 100px;
-                        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
-                        border-radius: 50%;
-                        object-position: center;
-                        object-fit: cover;
-                        position: absolute;
-                        bottom: 0;
-                        left: 50%;
-                        transform: translateX(-50%) translateY(-64px);
-                   }
-                    .card-fullname {
-                        position: absolute;
-                        bottom: 0;
-                        font-size: 22px;
-                        font-weight: 700;
-                        text-align: center;
-                        white-space: nowrap;
-                        transform: translateY(-10px) translateX(-50%);
-                        left: 50%;
-                   }
-                    .card-jobtitle {
-                        position: absolute;
-                        bottom: 0;
-                        font-size: 11px;
-                        white-space: nowrap;
-                        font-weight: 500;
-                        opacity: 0.7;
-                        text-transform: uppercase;
-                        letter-spacing: 1.5px;
-                        margin: 0;
-                        left: 50%;
-                        transform: translateX(-50%) translateY(-7px);
-                   }
-                    .card-main {
-                        position: relative;
-                        flex: 1;
-                        display: flex;
-                        padding-top: 10px;
-                        flex-direction: column;
-                   }
-                    .card-subtitle {
-                        font-weight: 700;
-                        font-size: 13px;
-                        margin-bottom: 8px;
-                   }
-                    .card-content {
-                        padding: 20px;
-                   }
-                    .card-desc {
-                        line-height: 1.6;
-                        color: #636b6f;
-                        font-size: 14px;
-                        margin: 0;
-                        font-weight: 400;
-                        font-family: "DM Sans", sans-serif;
-                   }
-                    .card-social {
-                        display: flex;
-                        align-items: center;
-                        padding: 0 20px;
-                        margin-bottom: 30px;
-                   }
-                    .card-social svg {
-                        fill: #a5b5ce;
-                        width: 16px;
-                        display: block;
-                        transition: 0.3s;
-                   }
-                    .card-social a {
-                        color: #8797a1;
-                        height: 32px;
-                        width: 32px;
-                        border-radius: 50%;
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                        transition: 0.3s;
-                        background-color: rgba(93, 133, 193, 0.05);
-                        border-radius: 50%;
-                        margin-right: 10px;
-                   }
-                    .card-social a:hover svg {
-                        fill: #637faa;
-                   }
-                    .card-social a:last-child {
-                        margin-right: 0;
-                   }
-                    .card-buttons${id} {
-                        display: flex;
-                        background-color: #fff;
-                        margin-top: auto;
-                        position: sticky;
-                        bottom: 0;
-                        left: 0;
-                   }
-                    .card-buttons${id} button {
-                        flex: 1 1 auto;
-                        user-select: none;
-                        background: 0;
-                        font-size: 13px;
-                        border: 0;
-                        padding: 15px 5px;
-                        cursor: pointer;
-                        color: #5c5c6d;
-                        transition: 0.3s;
-                        font-family: "Jost", sans-serif;
-                        font-weight: 500;
-                        outline: 0;
-                        border-bottom: 3px solid transparent;
-                   }
-                    .card-buttons${id} button.is-active, .card-buttons${id} button:hover {
-                        color: #2b2c48;
-                        border-bottom: 3px solid #8a84ff;
-                        background: #ffff71;
-                   }
-                    .card-section${id} {
-                        display: none;
-                   }
-                    .card-section${id}.is-active {
-                        display: block;
-                        animation: fadeIn 0.6s both;
-                   }
-                    @keyframes fadeIn {
-                        0% {
-                            opacity: 0;
-                            transform: translatey(40px);
-                       }
-                        100% {
-                            opacity: 1;
-                       }
-                   }
-                    .card-timeline {
-                        margin-top: 30px;
-                        position: relative;
-                   }
-                    .card-timeline:after {
-                        background: linear-gradient(to top, rgba(134, 214, 243, 0) 0%, rgba(81, 106, 204, 1) 100%);
-                        content: "";
-                        left: 42px;
-                        width: 2px;
-                        top: 0;
-                        height: 100%;
-                        position: absolute;
-                        content: "";
-                   }
-                    .card-item {
-                        position: relative;
-                        padding-left: 60px;
-                        padding-right: 20px;
-                        padding-bottom: 30px;
-                        z-index: 1;
-                   }
-                    .card-item:last-child {
-                        padding-bottom: 5px;
-                   }
-                    .card-item:after {
-                        content: attr(data-year);
-                        width: 10px;
-                        position: absolute;
-                        top: 0;
-                        left: 37px;
-                        width: 8px;
-                        height: 8px;
-                        line-height: 0.6;
-                        border: 2px solid #fff;
-                        font-size: 11px;
-                        text-indent: -35px;
-                        border-radius: 50%;
-                        color: rgba(134, 134, 134, 0.7);
-                        background: linear-gradient(to bottom, #a0aee3 0%, #516acc 100%);
-                   }
-                    .card-item-title {
-                        font-weight: 500;
-                        font-size: 14px;
-                        margin-bottom: 5px;
-                   }
-                    .card-item-desc {
-                        font-size: 13px;
-                        color: #6f6f7b;
-                        line-height: 1.5;
-                        font-family: "DM Sans", sans-serif;
-                   }
-                    .card-contact-wrapper {
-                        margin-top: 20px;
-                   }
-                    .card-contact {
-                        display: flex;
-                        align-items: center;
-                        font-size: 13px;
-                        color: #6f6f7b;
-                        font-family: "DM Sans", sans-serif;
-                        line-height: 1.6;
-                        cursor: pointer;
-                   }
-                    .card-contact + .card-contact {
-                        margin-top: 16px;
-                   }
-                    .card-contact svg {
-                        flex-shrink: 0;
-                        width: 30px;
-                        min-height: 34px;
-                        margin-right: 12px;
-                        transition: 0.3s;
-                        padding-right: 12px;
-                        border-right: 1px solid #dfe2ec;
-                   }
-                    .contact-me {
-                        border: 0;
-                        outline: none;
-                        background: #134935;
-                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-                        color: #fff;
-                        padding: 12px 16px;
-                        width: 100%;
-                        border-radius: 5px;
-                        margin-top: 25px;
-                        cursor: pointer;
-                        font-size: 14px;
-                        font-weight: 500;
-                        font-family: "Jost", sans-serif;
-                        transition: 0.3s;
-                   }
-                    ::-webkit-scrollbar {
-                        display: none;
-                   }
-                    
+					* {
+						box-sizing: border-box;
+					}
+					body {
+						color: #2b2c48;
+						font-family: "Jost", sans-serif;
+						background: #134935;
+						min-height: 100vh;
+						display: flex;
+						flex-wrap: wrap;
+						padding: 20px;
+					}
+					.card {
+						max-width: 340px;
+						margin: auto;
+						overflow-y: auto;
+						position: relative;
+						z-index: 1;
+						overflow-x: hidden;
+						background-color: rgba(255, 255, 255, 1);
+						display: flex;
+						transition: 0.3s;
+						flex-direction: column;
+						border-radius: 10px;
+						box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+					}
+					.card[data-state="#about"] {
+						height: 450px;
+					}
+					.card[data-state="#about"] .card-main {
+						padding-top: 0;
+					}
+					.card[data-state="#contact"] {
+						height: 430px;
+					}
+					.card[data-state="#experience"] {
+						height: 550px;
+					}
+					.card.is-active .card-header {
+						height: 80px;
+					}
+					.card.is-active .card-cover {
+						height: 100px;
+						top: -50px;
+					}
+					.card.is-active .card-avatar {
+						transform: none;
+						left: 20px;
+						width: 50px;
+						height: 50px;
+						bottom: 10px;
+					}
+					.card.is-active .card-fullname,
+					.card.is-active .card-jobtitle {
+						left: 86px;
+						transform: none;
+					}
+					.card.is-active .card-fullname {
+						bottom: 18px;
+						font-size: 19px;
+					}
+					.card.is-active .card-jobtitle {
+						bottom: 16px;
+						letter-spacing: 1px;
+						font-size: 10px;
+					}
+					.card-header {
+						position: relative;
+						display: flex;
+						height: 200px;
+						flex-shrink: 0;
+						width: 100%;
+						transition: 0.3s;
+					}
+					.card-header * {
+						transition: 0.3s;
+					}
+					.card-cover {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						height: 98px;
+						top: -20%;
+						filter: blur(12px);
+						left: 0;
+						background-position: center;
+						transform: scale(1.2);
+						transition: 0.5s;
+					}
+					.card-avatar {
+						width: 100px;
+						height: 100px;
+						box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+						border-radius: 50%;
+						object-position: center;
+						object-fit: cover;
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						transform: translateX(-50%) translateY(-64px);
+					}
+					.card-fullname {
+						position: absolute;
+						bottom: 0;
+						font-size: 22px;
+						font-weight: 700;
+						text-align: center;
+						white-space: nowrap;
+						transform: translateY(-10px) translateX(-50%);
+						left: 50%;
+					}
+					.card-jobtitle {
+						position: absolute;
+						bottom: 0;
+						font-size: 11px;
+						white-space: nowrap;
+						font-weight: 500;
+						opacity: 0.7;
+						text-transform: uppercase;
+						letter-spacing: 1.5px;
+						margin: -15px 0px;
+						left: 50%;
+						transform: translateX(-50%) translateY(-7px);
+					}
+					.card-main {
+						position: relative;
+						flex: 1;
+						display: flex;
+						padding-top: 10px;
+						flex-direction: column;
+					}
+					.card-subtitle {
+						font-weight: 700;
+						font-size: 13px;
+						margin-bottom: 8px;
+					}
+					.card-content {
+						padding: 20px;
+					}
+					.card-desc {
+						line-height: 1.6;
+						color: #636b6f;
+						font-size: 14px;
+						margin: 0;
+						font-weight: 400;
+						font-family: "DM Sans", sans-serif;
+					}
+					.card-social {
+						display: flex;
+						align-items: center;
+						padding: 0 20px;
+						margin-bottom: 30px;
+					}
+					.card-social svg {
+						fill: #a5b5ce;
+						width: 16px;
+						display: block;
+						transition: 0.3s;
+					}
+					.card-social a {
+						color: #8797a1;
+						height: 32px;
+						width: 32px;
+						border-radius: 50%;
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						transition: 0.3s;
+						background-color: rgba(93, 133, 193, 0.05);
+						border-radius: 50%;
+						margin-right: 10px;
+					}
+					.card-social a:hover svg {
+						fill: #637faa;
+					}
+					.card-social a:last-child {
+						margin-right: 0;
+					}
+					.card-buttons${ele.id} {
+						display: flex;
+						background-color: #fff;
+						margin-top: auto;
+						position: sticky;
+						bottom: 0;
+						left: 0;
+					}
+					.card-buttons${ele.id} button {
+						flex: 1 1 auto;
+						user-select: none;
+						background: 0;
+						font-size: 13px;
+						border: 0;
+						padding: 15px 5px;
+						cursor: pointer;
+						color: #5c5c6d;
+						transition: 0.3s;
+						font-family: "Jost", sans-serif;
+						font-weight: 500;
+						outline: 0;
+						border-bottom: 3px solid transparent;
+					}
+					.card-buttons${ele.id} button.is-active,
+					.card-buttons${ele.id} button:hover {
+						color: #2b2c48;
+						border-bottom: 3px solid #8a84ff;
+						background: #ffff71;
+					}
+					.card-section${ele.id} {
+						display: none;
+					}
+					.card-section${ele.id}.is-active {
+						display: block;
+						animation: fadeIn 0.6s both;
+					}
+					@keyframes fadeIn {
+						0% {
+							opacity: 0;
+							transform: translatey(40px);
+						}
+						100% {
+							opacity: 1;
+						}
+					}
+					.card-timeline {
+						margin-top: 30px;
+						position: relative;
+					}
+					.card-timeline:after {
+						background: linear-gradient(
+							to top,
+							rgba(134, 214, 243, 0) 0%,
+							rgba(81, 106, 204, 1) 100%
+						);
+						content: "";
+						left: 42px;
+						width: 2px;
+						top: 0;
+						height: 100%;
+						position: absolute;
+						content: "";
+					}
+					.card-item {
+						position: relative;
+						padding-left: 60px;
+						padding-right: 20px;
+						padding-bottom: 30px;
+						z-index: 1;
+					}
+					.card-item:last-child {
+						padding-bottom: 5px;
+					}
+					.card-item:after {
+						content: attr(data-year);
+						width: 10px;
+						position: absolute;
+						top: 0;
+						left: 37px;
+						width: 8px;
+						height: 8px;
+						line-height: 0.6;
+						border: 2px solid #fff;
+						font-size: 11px;
+						text-indent: -35px;
+						border-radius: 50%;
+						color: rgba(134, 134, 134, 0.7);
+						background: linear-gradient(to bottom, #a0aee3 0%, #516acc 100%);
+					}
+					.card-item-title {
+						font-weight: 500;
+						font-size: 14px;
+						margin-bottom: 5px;
+					}
+					.card-item-desc {
+						font-size: 13px;
+						color: #6f6f7b;
+						line-height: 1.5;
+						font-family: "DM Sans", sans-serif;
+					}
+					.card-contact-wrapper {
+						margin-top: 20px;
+					}
+					.card-contact {
+						display: flex;
+						align-items: center;
+						font-size: 13px;
+						color: #6f6f7b;
+						font-family: "DM Sans", sans-serif;
+						line-height: 1.6;
+						cursor: pointer;
+					}
+					.card-contact + .card-contact {
+						margin-top: 16px;
+					}
+					.card-contact svg {
+						flex-shrink: 0;
+						width: 30px;
+						min-height: 34px;
+						margin-right: 12px;
+						transition: 0.3s;
+						padding-right: 12px;
+						border-right: 1px solid #dfe2ec;
+					}
+					.contact-me {
+						border: 0;
+						outline: none;
+						background: #134935;
+						box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+						color: #fff;
+						padding: 12px 16px;
+						width: 100%;
+						border-radius: 5px;
+						margin-top: 25px;
+						cursor: pointer;
+						font-size: 14px;
+						font-weight: 500;
+						font-family: "Jost", sans-serif;
+						transition: 0.3s;
+					}
+					::-webkit-scrollbar {
+						display: none;
+					}
 				`}
 			</style>
 		</div>

@@ -5,6 +5,9 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import gsap from "gsap";
 import imagesLoaded from "imagesloaded";
 import $ from "jquery";
+import Image from "next/image";
+import Link from "next/link";
+import {Events} from './Events'
 export default function EventsPage() {
 	useEffect(() => {
 		const $menu = document.querySelector(".menu");
@@ -102,24 +105,32 @@ export default function EventsPage() {
 		};
 		render();
 	}, []);
+
+
+	
 	return (
-		<div className="body ">
-			<h1 className="my-32 md:text-5xl font-bold text-center text-3xl">
+		<div className="body pb-32">
+			<h1 className="my-32 md:text-5xl font-bold text-center text-3xl ">
 				Our Events
 			</h1>
 			<div className="menu ">
 				<div className="menu--wrapper">
-					{[1, 2, 3, 4, 5, 6].map((ele, index) => {
+					{Events.map((ele, index) => {
 						return (
 							// eslint-disable-next-line react/jsx-key
-							<div key={index} className="menu--item">
+							<Link href={`/EventsPage/${ele.title + ele.id.toString()}`}>
+							<div key={index} className="menu--item ">
 								<figure>
-									<img
-										src={`./images/Event${ele}.jpg`}
+									<Image
+									placeholder="blur"
+									widht={500}
+									height={500}
+										src={ele.img}
 										alt=""
 									/>
 								</figure>
 							</div>
+							</Link>
 						);
 					})}
 				</div>
@@ -173,13 +184,18 @@ export default function EventsPage() {
 						left: 0;
 						width: 30vw;
 						height: 100%;
-						padding: 0 1.5vw;
+						margin:10px;
+						
+						padding:10px;
 						overflow: hidden;
+					}
+					.menu--item:hover{
+						border:2px solid white;
 					}
 					@media (max-width: 767px) {
 						.menu--item {
 							width: 40vw;
-							height: 40vw;
+							height: 100%;
 						}
 					}
 					.menu--item:nth-child(n + 10):before {
@@ -212,8 +228,8 @@ export default function EventsPage() {
 						left: 0;
 						width: 100%;
 						height: 100%;
-						-o-object-fit: cover;
-						object-fit: cover;
+						-o-object-fit: contain;
+						object-fit: contain;
 						vertical-align: middle;
 						transform-origin: center;
 					}

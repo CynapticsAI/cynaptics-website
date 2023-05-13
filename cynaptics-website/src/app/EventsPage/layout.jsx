@@ -1,7 +1,9 @@
-"use client"
 
-import { useEffect } from "react"
 
+
+export const metadata = {
+    title:"Our Events"
+}
 
 export default function RootLayout({
     children
@@ -10,7 +12,7 @@ export default function RootLayout({
 
    
     return (
-        <div>
+        <div className="">
             
             {children}
             

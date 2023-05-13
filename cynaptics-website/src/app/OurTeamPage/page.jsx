@@ -1,7 +1,11 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import useWindowSize from "@rooks/use-window-size";
+
 import Card from "../../components/Card";
+import {TeamMembers} from './TeamMembers'
+
+export const metadata = {
+	title:'Our Team'
+}
+
 export default function OurTeamPage() {
 	
 
@@ -9,10 +13,10 @@ export default function OurTeamPage() {
 		<div id="">
 			
 			<div className="grid md:grid-cols-2 lg:grid-cols-3">
-				{[1, 2, 3].map((ele, index) => {
+				{TeamMembers.map((ele, index) => {
 					return (
 						<div key={index}>
-							<Card id={ele} />
+							<Card ele={ele}  />
 						</div>
 					);
 				})}

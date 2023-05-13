@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/ProjectsPage/page.jsx", "src/app/page.jsx", "src/app/ProjectsPage/layout.jsx", "src/app/EventsPage/page.jsx", "src/app/EventsPage/layout.jsx", "src/app/AboutUsPage/page.jsx", "src/app/OurTeamPage/page.jsx", "src/app/OurTeamPage/layout.jsx", "src/components/Model.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/ProjectsPage/page.jsx", "src/app/page.jsx", "src/app/ProjectsPage/layout.jsx", "src/app/EventsPage/page.jsx", "src/app/EventsPage/layout.jsx", "src/app/AboutUsPage/page.jsx", "src/app/OurTeamPage/page.jsx", "src/app/OurTeamPage/layout.jsx", "src/components/Model.jsx", "src/app/ProjectsPage/[EachProject]/layout.jsx", "src/app/ProjectsPage/[EachProject]/page.jsx"],
   "exclude": ["node_modules"]
 }
