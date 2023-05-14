@@ -101,7 +101,7 @@ function RotatingFBX({ url }) {
 		groupRef.current.add(
 			new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), matAluMedium)
 		);
-	}, [fbx]);
+	}, [fbx, matAluMedium]);
 
 	// Rotate the group every frame
 	useFrame((state, delta) => {
