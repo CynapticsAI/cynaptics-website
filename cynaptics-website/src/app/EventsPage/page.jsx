@@ -9,7 +9,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {Events} from './Events'
 export default function EventsPage() {
+
 	useEffect(() => {
+		let x = document.getElementById('EventImage').height
+		console.log('x',x)
 		const $menu = document.querySelector(".menu");
 		const $items = document.querySelectorAll(".menu--item");
 		const $images = document.querySelectorAll(".menu--item img");
@@ -109,25 +112,28 @@ export default function EventsPage() {
 
 	
 	return (
-		<div className="body pb-32">
-			<h1 className="my-32 md:text-5xl font-bold text-center text-3xl ">
+		<div className="body pt-10 pb-32">
+			<h1 className=" md:text-5xl font-bold text-center text-3xl my-10 md:my-20">
 				Our Events
 			</h1>
-			<div className="menu ">
+			<div className={`menu h-[300px]  lg:h-[450px] `}>
 				<div className="menu--wrapper">
 					{Events.map((ele, index) => {
 						return (
 							// eslint-disable-next-line react/jsx-key
 							<Link href={`/EventsPage/${ele.title + ele.id.toString()}`}>
-							<div key={index} className="menu--item ">
-								<figure>
+							<div key={index} className="menu--item !flex !items-center !my-auto  ">
+								<figure className="!flex !items-center !my-auto ">
+									<div className="hover:border-2">
 									<Image
+									id="EventImage"
+									className=""
 									placeholder="blur"
 									widht={500}
 									height={500}
 										src={ele.img}
 										alt=""
-									/>
+									/></div>
 								</figure>
 							</div>
 							</Link>
@@ -160,24 +166,25 @@ export default function EventsPage() {
 						width: 100%;
 						position: relative;
 						z-index: 1;
-						height: 40vh;
+						
 					}
 					.menu.is-dragging {
 						cursor: -webkit-grabbing;
 						cursor: grabbing;
 					}
 					.menu--wrapper {
-						counter-reset: count;
+						
 						display: flex;
 						position: absolute;
 						z-index: 1;
 						height: 100%;
 						top: 0;
 						left: 0;
+						
 						width: 100%;
 					}
 					.menu--item {
-						counter-increment: count;
+						
 						position: absolute;
 						z-index: 1;
 						top: 0;
@@ -185,8 +192,9 @@ export default function EventsPage() {
 						width: 30vw;
 						height: 100%;
 						margin:10px;
-						
 						padding:10px;
+						
+						
 						overflow: hidden;
 					}
 					.menu--item:hover{
@@ -198,9 +206,7 @@ export default function EventsPage() {
 							height: 100%;
 						}
 					}
-					.menu--item:nth-child(n + 10):before {
-						content: counter(count);
-					}
+					
 					.menu--item figure {
 						position: absolute;
 						z-index: 1;
@@ -239,7 +245,7 @@ export default function EventsPage() {
 						bottom: 1vw;
 						left: 1vw;
 						display: inline-block;
-						content: "0" counter(count);
+						
 						color: #ffffff;
 						font-size: 3vw;
 					}
@@ -267,7 +273,7 @@ export default function EventsPage() {
 						font-size: 11px;
 					}
 					.version:before {
-						content: "";
+						
 						position: absolute;
 						z-index: -1;
 						width: 100%;

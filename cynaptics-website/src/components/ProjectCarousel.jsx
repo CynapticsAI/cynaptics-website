@@ -107,11 +107,11 @@ Listeners
 	}, []);
 	return (
 		<>
-			<div>
+			<div id="body" className="!overflow-x-hidden">
 				<h1 className="font-bold text-3xl text-center pt-20 md:text-5xl">
 					Our Projects
 				</h1>
-				<div className="carousel">
+				<div className="carousel !overflow-x-hidden">
 					{Projects.map((ele, index) => {
 						return (
 							<div key="index" className="carousel-item">
@@ -179,10 +179,10 @@ Listeners
 
 				<style jsx>
 					{`
-						body {
+						#body {
 							overflow: hidden;
 							font-family: "Roboto", serif;
-							background: #190125;
+							
 						}
 						.carousel {
 							position: relative;

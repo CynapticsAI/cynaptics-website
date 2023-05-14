@@ -1,19 +1,14 @@
 "use client";
-
-import Image from "next/image";
-import { NextSeo } from "next-seo";
-import VideoPage from "../components/VideoPage";
+import VideoPage from '@/components/VideoPage'
 import TextAnimation from "@/components/TextAnimation";
-import Model from "../components/Model";
-
-
+import Model from "@/components/Model"
 
 export default function Home() {
 	return (
 		<div>
 			{/* <Suspense fallback={<LoadingBar/>}> */}
-			<div className="bg-black bg-opacity-10">
-				<div className="   absolute h-full w-full z-[-100]">
+			<div className="bg-black bg-opacity-30">
+				<div className="absolute h-full w-full z-[-100]">
 					<Model />
 				</div>
 				<div className=" text-center items-center z-[100] my-auto h-screen relative">

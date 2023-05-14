@@ -115,7 +115,7 @@ const Stars = ({ vel = 1, radius = 1, starsCounter = 300 }) => {
 
 export default function ProjectLayout({ children }) {
 	return (
-		<div className="w-screen overflow-hidden">
+		<div className=" overflow-hidden">
 			<NextSeo
 				title="The Cynaptics Club - Our Projects"
 				description="The Cynaptics Club(AI/ML) - IIT INDORE"

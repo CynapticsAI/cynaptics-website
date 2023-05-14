@@ -2,7 +2,7 @@ import React from "react";
 
 export default function LoadingBar() {
 	return (
-		<div className="my-20">
+		<div className="flex my-auto mx-auto justify-center items-center">
 			<div className="out">
 				<div className="fade-in">
 					<div className="container">
