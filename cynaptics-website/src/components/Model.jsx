@@ -11,12 +11,7 @@ import { Suspense } from "react";
 
 function RotatingFBX({ url }) {
 	const groupRef = useRef();
-	const texture = useLoader(
-		THREE.TextureLoader,
-		"/images/Texture.jpg",
-		// onProgress callback to log loading progress
-		(xhr) => console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`)
-	);
+	
 
 	const matAluMedium = new THREE.MeshStandardMaterial({
 		color: 0x0000ff, // bright blue color
@@ -76,9 +71,7 @@ function RotatingFBX({ url }) {
 		shadowSide: THREE.FrontSide,
 	});
 
-	const matBasic = new THREE.MeshBasicMaterial({
-		map: texture,
-	});
+	
 
 	// Load the FBX file using useLoader
 	const fbx = useLoader(FBXLoader, url);
@@ -106,9 +99,9 @@ function RotatingFBX({ url }) {
 		groupRef.current.rotation.set(0, 0, 0);
 		// Add the mesh to the group
 		groupRef.current.add(
-			new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), matBasic)
+			new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), matAluMedium)
 		);
-	}, [fbx, matBasic]);
+	}, [fbx]);
 
 	// Rotate the group every frame
 	useFrame((state, delta) => {
@@ -181,7 +174,7 @@ function Model() {
 			<BackgroundParticles />
 
 			{/* Add the rotating FBX */}
-			<RotatingFBX url={"./images/brain-simple-mesh.fbx"} />
+			<RotatingFBX url={"./Models/brain-simple-mesh.fbx"} />
 		</Canvas>
 	);
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:3000/favicon.ico</loc><lastmod>2023-05-14T09:51:40.214Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/AboutUsPage</loc><lastmod>2023-05-14T09:51:40.215Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/OurTeamPage</loc><lastmod>2023-05-14T09:51:40.215Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/EventsPage</loc><lastmod>2023-05-14T09:51:40.215Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/ProjectsPage</loc><lastmod>2023-05-14T09:51:40.215Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000</loc><lastmod>2023-05-14T09:51:40.215Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://cynaptics-website-ivory.vercel.app/favicon.ico</loc><lastmod>2023-05-14T11:30:22.145Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://cynaptics-website-ivory.vercel.app/EventsPage</loc><lastmod>2023-05-14T11:30:22.147Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://cynaptics-website-ivory.vercel.app/AboutUsPage</loc><lastmod>2023-05-14T11:30:22.147Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://cynaptics-website-ivory.vercel.app/OurTeamPage</loc><lastmod>2023-05-14T11:30:22.147Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://cynaptics-website-ivory.vercel.app/ProjectsPage</loc><lastmod>2023-05-14T11:30:22.147Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://cynaptics-website-ivory.vercel.app</loc><lastmod>2023-05-14T11:30:22.147Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

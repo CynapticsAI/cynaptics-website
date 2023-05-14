@@ -1,7 +1,6 @@
 "use client"
 import React from "react";
 import { useEffect } from "react";
-import me from "../../public/images/me.jpg";
 import Image from "next/image";
 export default function Card({ ele }) {
 	useEffect(() => {

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../public/images/Logo.jpg";
+import Logo from "../../public/images/Logos/Logo.jpg";
 import { usePathname } from "next/navigation";
 import { HiBarsArrowDown, HiBarsArrowUp } from "react-icons/hi2";
 

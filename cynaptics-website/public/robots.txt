@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: http://localhost:3000
+Host: https://cynaptics-website-ivory.vercel.app/
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://cynaptics-website-ivory.vercel.app/sitemap.xml

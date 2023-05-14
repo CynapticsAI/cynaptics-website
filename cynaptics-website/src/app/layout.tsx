@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta property="og:image" content={`${process.env.SITE_URL}/images/Logo.jpg`} />
+        <meta property="og:image" content={`${process.env.SITE_URL}images/Logos/Logo.jpg`} />
         <meta property="og:image:type" content="jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

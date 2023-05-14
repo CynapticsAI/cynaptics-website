@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import {AiFillYoutube} from 'react-icons/ai'
 import {BsDiscord} from 'react-icons/bs'
-import Logo from '../../public/images/Logo.jpg'
+import Logo from '../../public/images/Logos/Logo.jpg'
 export default function Footer() {
 	return (
 		<footer className="text-gray-600 body-font invert shadow-[3px_3px_30px_3px] md:!mt-20 shadow-blue-600 border-black bg-white bottom-0">

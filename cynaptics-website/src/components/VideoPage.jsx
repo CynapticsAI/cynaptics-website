@@ -15,7 +15,7 @@ export default function VideoPage() {
 					</video>
 				</div>
 				<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl absolute z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
-					<div>
+					<div id="description of quick draw video">
 						{`
 "Quick, Draw!" is a game developed by Google where players draw sketches based on prompts and see if a computer can recognize what they've drawn using machine learning. The game gets more difficult as players progress and is a fun way to improve drawing skills and learn about machine learning.`}
 					</div>
@@ -28,7 +28,7 @@ export default function VideoPage() {
 			</div>
 			<div className="grid md:grid-cols-2  group m-10 md:my-auto relative">
 				<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl absolute z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
-					<div>
+					<div id="description of semantris video">
 						{`"Semantris" is a word association game by Google that uses machine learning to challenge players to come up with related words. There are two modes: "Arcade" and "Blocks". "Semantris" prompt could be "Animals." In "Arcade" mode, you might start typing words like "cat," "dog," "bird," and "elephant," and the game would suggest related words like "tiger," "puppy," "sparrow," and "mammoth" to help you score more points.
 In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther," and "leopard," and you would have to group them together based on the common theme of "big cats." , and the game determines the quality of the groupings using machine learning.`}
 					</div>
@@ -51,7 +51,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 					</video>
 				</div>
 				<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl absolute z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
-					<div>
+					<div id="description of the face does not exists video">
 						{`"The Face Does Not Exist" is a website that generates images of fake human faces that look real. It does this using a computer program that learns how to create new faces by looking at lots of pictures of real faces. The result is a bunch of unique and realistic faces that don't belong to any real person.`}
 					</div>
 					<Link href="https://this-person-does-not-exist.com/en" target="_blank">
@@ -65,7 +65,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 					id="card_text"
 					className=" items-center text-center mx-auto my-auto font-semibold md:text-xl absolute z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md"
 				>
-					<div>
+					<div id="description of the pix2pix  video">
 						{`Pix2pix is a computer program that learns how to turn sketches into realistic images by looking at many examples of paired sketches and their corresponding realistic images. It does this by using a "generator" and a "discriminator" that work together to produce high-quality results. Once it's trained, it can be used to create realistic images from sketches that it hasn't seen before.`}
 					</div>
 					<Link href="">
