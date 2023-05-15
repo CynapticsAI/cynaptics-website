@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cynaptics-website-ivory.vercel.app/
+
+# Sitemaps
+Sitemap: https://cynaptics-website-ivory.vercel.app/sitemap.xml
