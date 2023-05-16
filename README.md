@@ -1,3 +1,5 @@
+<h1>Cynaptics Website</h1>
+
 # Handling The Website
 1) The Blender Model is In public/Models
 2) Images Are In public/Images
