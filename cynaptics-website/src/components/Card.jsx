@@ -2,16 +2,18 @@
 import React from "react";
 import { useEffect } from "react";
 import Image from "next/image";
-export default function Card({ ele }) {
+export default function Card({ ele,index }) {
+	var currentTime = new Date();
+	var year = currentTime.getFullYear();
 	useEffect(() => {
-		const buttons = document.querySelectorAll(`.card-buttons${ele.id} button`);
-		const sections = document.querySelectorAll(`.card-section${ele.id}`);
-		const card = document.querySelector(`.card${ele.id}`);
+		const buttons = document.querySelectorAll(`.card-buttons${index} button`);
+		const sections = document.querySelectorAll(`.card-section${index}`);
+		const card = document.querySelector(`.card${index}`);
 
 		const handleButtonClick = (e) => {
 			const targetSection = e.target.getAttribute("data-section");
 			const section = document.querySelector(targetSection);
-			targetSection !== `#about${ele.id}`
+			targetSection !== `#about${index}`
 				? card.classList.add("is-active")
 				: card.classList.remove("is-active");
 			card.setAttribute("data-state", targetSection);
@@ -24,10 +26,11 @@ export default function Card({ ele }) {
 		buttons.forEach((btn) => {
 			btn.addEventListener("click", handleButtonClick);
 		});
-	}, [ele.id]);
+	}, [index]);
+	
 	return (
-		<div className="my-10 " id={ele.id}>
-			<div className={`card${ele.id} card`} data-state={`#about${ele.id}`}>
+		<div className="my-10 " id={index}>
+			<div className={`card${index} card`} data-state={`#about${index}`}>
 				<div className="card-header">
 					<div
 						className="card-cover"
@@ -40,10 +43,10 @@ export default function Card({ ele }) {
 					<h2 className="card-jobtitle !text-black ">{ele.position}</h2>
 				</div>
 				<div className="card-main">
-					<div className={`card-section${ele.id} is-active`} id={`about${ele.id}`}>
+					<div className={`card-section${index} is-active`} id={`about${index}`}>
 						<div className="card-content">
 							<div className="card-subtitle !text-black">ABOUT</div>
-							<p className="card-desc">I am a {ele.year==1 && "1st"} {ele.year==2 && "2nd"} {ele.year==3 && "3rd"} {ele.year==4 && "4th"} Year Student, Currently Pursuing My B.Tech In {ele.branch}</p>
+							<p className="card-desc">I am a {parseInt(year.toString().slice(2,4)) - parseInt(ele.email.slice(-20,-18))==1 && "1st"} {parseInt(year.toString().slice(2,4)) - parseInt(ele.email.slice(-20,-18))==2 && "2nd"} {parseInt(year.toString().slice(2,4)) - parseInt(ele.email.slice(-20,-18))==3 && "3rd"} {parseInt(year.toString().slice(2,4)) - parseInt(ele.email.slice(-20,-18))==4 && "4th"} Year Student, Currently Pursuing My B.Tech In <span className="uppercase">{ele.email.slice(0,-20)}</span></p>
 						</div>
 						<div className="card-social">
 							<a href="#">
@@ -71,7 +74,7 @@ export default function Card({ ele }) {
 						</div>
 					</div>
 					
-					<div className={`card-section${ele.id} card-section`} id={`contact${ele.id}`}>
+					<div className={`card-section${index} card-section`} id={`contact${index}`}>
 						<div className="card-content">
 							<div className="card-subtitle !text-black">CONTACT</div>
 							<div className="card-contact-wrapper">
@@ -111,12 +114,12 @@ export default function Card({ ele }) {
 							</div>
 						</div>
 					</div>
-					<div className={`card-buttons${ele.id} card-buttons`}>
-						<button data-section={`#about${ele.id}`} className="is-active">
+					<div className={`card-buttons${index} card-buttons`}>
+						<button data-section={`#about${index}`} className="is-active">
 							ABOUT
 						</button>
 						
-						<button data-section={`#contact${ele.id}`}>CONTACT</button>
+						<button data-section={`#contact${index}`}>CONTACT</button>
 					</div>
 				</div>
 			</div>
@@ -301,7 +304,7 @@ export default function Card({ ele }) {
 					.card-social a:last-child {
 						margin-right: 0;
 					}
-					.card-buttons${ele.id} {
+					.card-buttons${index} {
 						display: flex;
 						background-color: #fff;
 						margin-top: auto;
@@ -309,7 +312,7 @@ export default function Card({ ele }) {
 						bottom: 0;
 						left: 0;
 					}
-					.card-buttons${ele.id} button {
+					.card-buttons${index} button {
 						flex: 1 1 auto;
 						user-select: none;
 						background: 0;
@@ -324,16 +327,16 @@ export default function Card({ ele }) {
 						outline: 0;
 						border-bottom: 3px solid transparent;
 					}
-					.card-buttons${ele.id} button.is-active,
-					.card-buttons${ele.id} button:hover {
+					.card-buttons${index} button.is-active,
+					.card-buttons${index} button:hover {
 						color: #2b2c48;
 						border-bottom: 3px solid #8a84ff;
 						background: #ffff71;
 					}
-					.card-section${ele.id} {
+					.card-section${index} {
 						display: none;
 					}
-					.card-section${ele.id}.is-active {
+					.card-section${index}.is-active {
 						display: block;
 						animation: fadeIn 0.6s both;
 					}

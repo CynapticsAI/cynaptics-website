@@ -115,16 +115,17 @@ Listeners
 					{Projects.map((ele, index) => {
 						return (
 							<div key="index" className="carousel-item">
-								<div className="carousel-box hover:border-2 transition-all fade-in-out shadow-[10px_10px_10px_10px] shadow-white">
+								<div className="carousel-box hover:border-2 transition-all fade-in-out shadow-[10px_10px_10px_10px] shadow-white text-center">
 									<Link
+									className="w-full flex justify-center text-center "
 										href={`/ProjectsPage/${
 											ele.project_title
 										} + ${ele.id.toString()}`}
 									>
-										<div className="text-start title  w-full ">Read More</div>
+										<div className="!mx-auto title  !w-fit !bottom-[10px] md:!bottom-[20px] md:pt-auto text-center">Read More</div>
 									</Link>
 									<div className="num">{ele.id}</div>
-									<Image
+									<Image placeholder="blur"
 										width={500}
 										height={500}
 										src={ele.project_image}
@@ -248,7 +249,7 @@ Listeners
 							z-index: 1;
 							color: #fff;
 							bottom: 20px;
-							left: 20px;
+							
 							transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
 							font-size: clamp(20px, 3vw, 30px);
 							text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);

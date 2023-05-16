@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-no-duplicate-props */
 import { useLoader } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
@@ -88,8 +89,8 @@ function RotatingFBX({ url }) {
 		groupRef.current = fbx;
 
 		if (innerWidth < 500) {
-			groupRef.current.scale.set(0.1 / 2, 0.1 / 2, 0.1 / 2); // set the scale to 0.75
-			groupRef.current.position.set(0, -0, 0);
+			groupRef.current.scale.set(0.1 / 1, 0.1 / 1, 0.1 / 1); // set the scale to 0.75
+			groupRef.current.position.set(0, -10, 0);
 		} else {
 			groupRef.current.scale.set(0.1 / 0.8, 0.1 / 0.8, 0.1 / 0.8); // set the scale to 0.75
 			groupRef.current.position.set(0, -15, 0);
@@ -151,7 +152,7 @@ function BackgroundParticles() {
 function Model() {
 	return (
 		<Canvas
-			className=" z-[-1] !h-[80%] shadow-[3px_3px_20px_3px] shadow-white lg:!h-[89%]  w-full "
+			className=" z-[-1] !h-[80%] shadow-[3px_3px_30px_3px] shadow-blue-600 lg:!h-[89%]  w-full "
 			gl={{
 				// Enable depth buffer for shadows
 				depth: true,

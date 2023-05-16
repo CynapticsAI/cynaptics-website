@@ -5,15 +5,43 @@ import Image from "next/image";
 import Logo from "../../public/images/Logos/Logo.jpg";
 import { usePathname } from "next/navigation";
 import { HiBarsArrowDown, HiBarsArrowUp } from "react-icons/hi2";
-
+import Modal from 'react-modal';
 import OffCanvasNavbar from "./OffCanvasNavbar";
 import { useEffect, useRef } from "react";
+import PongGame from '../app/PongGamePage/page'
 
 export default function Navbar() {
-	
-	const pathname = usePathname()
+	const customStyles = {
+		overlay: {
+			position: "fixed",
+			zIndex: 1020,
+			top: 0,
+			left: 0,
+			width: "100vw",
+			height: "100vh",
+			background: "rgba(0, 0, 0, 0.75)",
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+		},
+		content: {
+			top: '50%',
+			left: '50%',
+			right: 'auto',
+			bottom: 'auto',
+			marginRight: '-50%',
+			transform: 'translate(-50%, -50%)',
+		  },
+	};
+	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const pathname = usePathname();
 	const ref = useRef(null);
 	useEffect(() => {
+		if(pathname!="/PongGamePage"){
+			setTimeout(() => {
+				setIsOpen(true)
+			}, 5000);
+		}
 		
 		const handleClicKOutsideOffcanvas = (e) => {
 			if (ref.current && !ref.current.contains(e.target)) {
@@ -27,17 +55,16 @@ export default function Navbar() {
 	}, []);
 
 	const OpenOffCanvas = () => {
-		
-		if (document.getElementById('offcanvas').offsetLeft === -1000) {
-			document.querySelector('#offcanvas').classList.add('smenu')
-		}
-		else {
-			document.querySelector('#offcanvas').classList.remove('smenu')
+		if (document.getElementById("offcanvas").offsetLeft === -1000) {
+			document.querySelector("#offcanvas").classList.add("smenu");
+		} else {
+			document.querySelector("#offcanvas").classList.remove("smenu");
 		}
 	};
+	Modal.setAppElement('#Navbar_body');
 	return (
 		<>
-			<div className="flex shadow-[10px_1px_20px_1px] rounded-b-md shadow-gray-400 justify-between p-2 bg-black">
+			<div id="Navbar_body" className="flex shadow-[3px_3px_30px_3px] rounded-b-md shadow-blue-600 justify-between p-2 bg-black w-screen">
 				<div className="ml-2">
 					<Image
 						className="rounded-md"
@@ -94,12 +121,39 @@ export default function Navbar() {
 						>
 							<Link href="/AboutUsPage">About Us</Link>
 						</li>
+						<li
+							className={`mx-10 ${
+								pathname === "/PongGamePage"
+									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
+									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
+							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
+						>
+							<Link href="/PongGamePage">Game</Link>
+						</li>
 					</ul>
 				</div>
-				<button onClick={OpenOffCanvas} id="offcanvasbtn" className="my-auto lg:hidden">
+				<button
+					onClick={OpenOffCanvas}
+					id="offcanvasbtn"
+					className="my-auto lg:hidden"
+				>
 					<HiBarsArrowDown className="my-auto mx-auto w-9 h-9 mr-2" />
 				</button>
 			</div>
+			<Modal
+        isOpen={modalIsOpen}
+        onRequestClose={()=>{
+			setIsOpen(false)
+		}}
+		style={customStyles}
+        
+        
+      >
+		<div className="w-full flex justify-center">
+		<Link onClick={()=>{
+			setIsOpen(false)
+		}}  className="border-2 border-black bg-blue-600  text-white font-bold mx-auto p-2 rounded-md" href="/PongGamePage">Hey Woud You Like To Play A Game , Then Click On Me</Link></div>
+	  </Modal>
 			<div ref={ref} className="lg:hidden overflow-hidden text-white">
 				<OffCanvasNavbar />
 			</div>

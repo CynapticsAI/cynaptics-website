@@ -7,11 +7,12 @@ import {BsDiscord} from 'react-icons/bs'
 import Logo from '../../public/images/Logos/Logo.jpg'
 export default function Footer() {
 	return (
-		<footer className="text-gray-600 body-font invert shadow-[3px_3px_30px_3px] md:!mt-20 shadow-blue-600 border-black bg-white bottom-0">
+		<footer className="text-gray-200 body-font  shadow-[3px_3px_30px_3px] w-screen md:!mt-20 
+		shadow-blue-600 border-black bg-black bottom-0">
 			<div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
 				<div className="flex title-font font-medium items-center md:justify-start !w-10 
-				!h-10 justify-center text-gray-900">
-				<Image className="rounded-full" src={Logo} width={500} height={500} placeholder="blur" alt="Loading..." />
+				!h-10 justify-center text-gray-600">
+				<Image className="rounded-full " src={Logo} width={500} height={500} placeholder="blur" alt="Loading..." />
 				</div>
 				<p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
 					© 2023 The Cynaptics Club —

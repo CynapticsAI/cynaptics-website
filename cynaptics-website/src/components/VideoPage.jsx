@@ -9,9 +9,9 @@ export default function VideoPage() {
 				See What AI/ML Can Do
 			</h1>
 			<div className="grid md:grid-cols-2  group m-10 md:my-auto relative">
-				<div className="md:m-10 flex justify-center shadow-[3px_3px_20px_3px] shadow-white">
+				<div className="md:m-10 flex justify-center shadow-[3px_3px_30px_3px] shadow-blue-600">
 					<video loop muted autoPlay>
-						<source src="./videos/quick draw.mp4" type="video/mp4" />
+						<source src="/Videos/quick draw.mp4" type="video/mp4" />
 					</video>
 				</div>
 				<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl absolute z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
@@ -38,25 +38,25 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 						</button>
 					</Link>
 				</div>
-				<div className="md:m-10 flex justify-center shadow-[3px_3px_20px_3px] shadow-white">
+				<div className="md:m-10 flex justify-center shadow-[3px_3px_30px_3px] shadow-blue-600">
 					<video loop muted autoPlay>
-						<source src="./videos/semantris.mp4" type="video/mp4" />
+						<source src="/Videos/semantris.mp4" type="video/mp4" />
 					</video>
 				</div>
 			</div>
 			<div className="grid md:grid-cols-2  group m-10 md:my-auto relative">
-				<div className="md:m-10 flex justify-center shadow-[3px_3px_20px_3px] shadow-white">
+				<div className="md:m-10 flex justify-center shadow-[3px_3px_30px_3px] shadow-blue-600">
 					<video loop muted autoPlay>
-						<source src="./videos/thisfacedoesnotexist.mp4" type="video/mp4" />
+						<source src="/Videos/thisfacedoesnotexist.mp4" type="video/mp4" />
 					</video>
 				</div>
 				<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl absolute z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
 					<div id="description of the face does not exists video">
-						{`"The Face Does Not Exist" is a website that generates images of fake human faces that look real. It does this using a computer program that learns how to create new faces by looking at lots of pictures of real faces. The result is a bunch of unique and realistic faces that don't belong to any real person.`}
+						{`"This Person Does Not Exist" is a website that generates images of fake human faces that look real. It does this using a computer program that learns how to create new faces by looking at lots of pictures of real faces. The result is a bunch of unique and realistic faces that don't belong to any real person.`}
 					</div>
 					<Link href="https://this-person-does-not-exist.com/en" target="_blank">
 					<button className="mx-auto border-2 p-2 bg-white text-black my-3 rounded-md">
-						The Face Does Not Exists
+						This Person Does Not Exists
 					</button></Link>
 				</div>
 			</div>
@@ -68,15 +68,15 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 					<div id="description of the pix2pix  video">
 						{`Pix2pix is a computer program that learns how to turn sketches into realistic images by looking at many examples of paired sketches and their corresponding realistic images. It does this by using a "generator" and a "discriminator" that work together to produce high-quality results. Once it's trained, it can be used to create realistic images from sketches that it hasn't seen before.`}
 					</div>
-					<Link href="">
+					<Link href="https://affinelayer.com/pixsrv/" target="_blank">
 						<button className="mx-auto border-2 p-2 bg-white text-black my-3 rounded-md">
 							Pix2Pix
 						</button>
 					</Link>
 				</div>
-				<div id="card_video" className="md:m-10  flex justify-center z-[-1] shadow-[3px_3px_20px_3px] shadow-white">
+				<div id="card_video" className="md:m-10  flex justify-center z-[-1] shadow-[3px_3px_30px_3px] shadow-blue-600">
 					<video loop muted autoPlay>
-						<source type="video/mp4" src="./videos/pix2pix.mp4" />
+						<source type="video/mp4" src="/Videos/pix2pix.mp4" />
 					</video>
 				</div>
 			</div>

@@ -18,7 +18,7 @@ export default function OurTeamPage() {
 				{TeamMembers.map((ele, index) => {
 					return (
 						<div key={index}>
-							<Card ele={ele}  />
+							<Card ele={ele} index={index}  />
 						</div>
 					);
 				})}
