@@ -9,8 +9,9 @@ import Modal from 'react-modal';
 import OffCanvasNavbar from "./OffCanvasNavbar";
 import { useEffect, useRef } from "react";
 import PongGame from '../app/PongGamePage/page'
-
+import useWindowSize from "@rooks/use-window-size";
 export default function Navbar() {
+	const {innerWidth} = useWindowSize()
 	const customStyles = {
 		overlay: {
 			position: "fixed",
@@ -36,12 +37,17 @@ export default function Navbar() {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 	const pathname = usePathname();
 	const ref = useRef(null);
+	
 	useEffect(() => {
-		if(pathname!="/PongGamePage"){
+		if(pathname=="/PongGamePage" || pathname=='/PongGameMobile'){
+			setIsOpen(false)
+		}
+		else{
 			setTimeout(() => {
 				setIsOpen(true)
 			}, 5000);
 		}
+		
 		
 		const handleClicKOutsideOffcanvas = (e) => {
 			if (ref.current && !ref.current.contains(e.target)) {
@@ -53,7 +59,7 @@ export default function Navbar() {
 			document.removeEventListener("click", handleClicKOutsideOffcanvas, true);
 		};
 	}, []);
-
+	console.log(pathname)
 	const OpenOffCanvas = () => {
 		if (document.getElementById("offcanvas").offsetLeft === -1000) {
 			document.querySelector("#offcanvas").classList.add("smenu");
@@ -62,6 +68,7 @@ export default function Navbar() {
 		}
 	};
 	Modal.setAppElement('#Navbar_body');
+	
 	return (
 		<>
 			<div id="Navbar_body" className="flex shadow-[3px_3px_30px_3px] rounded-b-md shadow-blue-600 justify-between p-2 bg-black w-screen">
@@ -121,7 +128,18 @@ export default function Navbar() {
 						>
 							<Link href="/AboutUsPage">About Us</Link>
 						</li>
-						<li
+						{innerWidth<700?(
+							<li
+							className={`mx-10 ${
+								pathname === "/PongGameMobile"
+									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
+									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
+							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
+						>
+							<Link href="/PongGameMobile">Game</Link>
+						</li>
+						):(
+							<li
 							className={`mx-10 ${
 								pathname === "/PongGamePage"
 									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
@@ -130,6 +148,8 @@ export default function Navbar() {
 						>
 							<Link href="/PongGamePage">Game</Link>
 						</li>
+						)}
+						
 					</ul>
 				</div>
 				<button
@@ -152,7 +172,7 @@ export default function Navbar() {
 		<div className="w-full flex justify-center">
 		<Link onClick={()=>{
 			setIsOpen(false)
-		}}  className="border-2 border-black bg-blue-600  text-white font-bold mx-auto p-2 rounded-md" href="/PongGamePage">Hey Woud You Like To Play A Game , Then Click On Me</Link></div>
+		}}  className="border-2 border-black bg-blue-600  text-white font-bold mx-auto p-2 rounded-md" href={innerWidth<700?`/PongGameMobile`:"/PongGamePage"}>Hey Woud You Like To Play A Game , Then Click On Me</Link></div>
 	  </Modal>
 			<div ref={ref} className="lg:hidden overflow-hidden text-white">
 				<OffCanvasNavbar />

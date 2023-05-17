@@ -8,7 +8,7 @@ import Logo from '../../public/images/Logos/Logo.jpg'
 export default function Footer() {
 	return (
 		<footer className="text-gray-200 body-font  shadow-[3px_3px_30px_3px] w-screen md:!mt-20 
-		shadow-blue-600 border-black bg-black bottom-0">
+		shadow-blue-600 border-black bg-black bottom-0  ">
 			<div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
 				<div className="flex title-font font-medium items-center md:justify-start !w-10 
 				!h-10 justify-center text-gray-600">

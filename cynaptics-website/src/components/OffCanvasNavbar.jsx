@@ -1,8 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import {AiOutlineClose} from 'react-icons/ai'
-
+import useWindowSize from "@rooks/use-window-size";
 export default function OffCanvasNavbar() {
+  const {innerWidth} = useWindowSize()
   const handleToggleNavbar = () =>{
     if (document.getElementById('offcanvas')?.offsetLeft === -1000) {
 			document.querySelector('#offcanvas')?.classList.add('smenu')
@@ -53,7 +54,7 @@ export default function OffCanvasNavbar() {
                 setTimeout(()=>{
                   handleToggleNavbar()
                 },200)
-              }} className='' href="/PongGamePage"><li className='my-2 mx-auto border-2 hover:invert transition-all fade-in-out focus:invert p-2 rounded-md text-center w-[200px] bg-black text-white'>Game</li></Link>
+              }} className='' href={innerWidth<700?"/PongGameMobile":"/PongGamePage"}><li className='my-2 mx-auto border-2 hover:invert transition-all fade-in-out focus:invert p-2 rounded-md text-center w-[200px] bg-black text-white'>Game</li></Link>
 
             </ul>
           </div>
