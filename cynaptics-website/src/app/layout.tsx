@@ -30,14 +30,13 @@ export default function RootLayout({
       <head>
       <meta property="twitter:image" content={`${process.env.SITE_URL}/images/Logos/Logo.jpg`} />
       <meta property="twitter:title" content="The Cynaptics Club - IIT Indore" />
-      <meta property="og:title" content={`${process.env.SITE_URL}/images/Logos/Logo.jpg`} />
+      <meta property="og:title" content="The Cynaptics Club - IIT Indore" />
       <meta property="twitter:description" content="The Cynaptics Club(AI/ML) - IIT INDORE"/>
       <meta property="og:description" content="The Cynaptics Club(AI/ML) - IIT INDORE" />
         <meta property="og:image" content={`${process.env.SITE_URL}/images/Logos/Logo.jpg`} />
         <meta property="og:image:type" content="jpg" />
         <meta property="og:url" content={process.env.SITE_URL} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+       
       </head>
       <body >
 
