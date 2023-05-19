@@ -132,6 +132,7 @@ export default function EventsPage() {
 											<Image
 												id="EventImage"
 												className="!z-[-1]"
+												placeholder="blur"
 												widht={500}
 												height={500}
 												src={ele.display_image}
