@@ -86,3 +86,14 @@ body {
   left: 0%;
 
 }
+
+#EachEvent  li{
+  color:red !important;
+  margin:10px 10px;
+}
+
+#EachEvent a{
+  color:red;
+  margin-right: 10px;
+  border-bottom:2px solid red;
+}

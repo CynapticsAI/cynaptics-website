@@ -67,7 +67,7 @@ export default function Navbar() {
 			document.querySelector("#offcanvas").classList.remove("smenu");
 		}
 	};
-	Modal.setAppElement('#Navbar_body');
+	
 	
 	return (
 		<>
