@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta property="twitter:image" content={`${process.env.SITE_URL}/images/Logos/Logo.jpg`} />
+      <meta property="twitter:image" content={`https://avatars.githubusercontent.com/u/62688806?s=200&v=4`} />
       <meta property="twitter:title" content="The Cynaptics Club - IIT Indore" />
       <meta property="og:title" content="The Cynaptics Club - IIT Indore" />
       <meta property="twitter:description" content="The Cynaptics Club(AI/ML) - IIT INDORE"/>
