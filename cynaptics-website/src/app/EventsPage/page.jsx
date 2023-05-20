@@ -110,7 +110,7 @@ export default function EventsPage() {
 
 	return (
 		<div className="body   ">
-			<h1 className=" md:text-5xl font-bold text-center text-3xl mt-10 md:my-20">
+			<h1 className=" md:text-5xl font-bold text-center text-3xl mt-12 mb-12">
 				Our Events
 			</h1>
 			<div className={`menu h-[270px] `}>

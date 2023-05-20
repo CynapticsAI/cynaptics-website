@@ -8,7 +8,7 @@ export const Events = [
 			"<div><p>The Cynaptics Club organized two ML Talks on ML applications in healthcare and the commercialisation of AI under the Neural Nexus&rsquo;23. Guests speakers for this talk were :&nbsp;</p><ol><li><h3>Dhruv Sud</h3></li><li><h3>Chirag Jain</h3></li></ol><p>There was a turnout of over 50+, with more than half students from other institutes. Multiple postgraduate and PhD students also showed up for this talk.</p></div>",
 		desc:
 			"<h3 className='text-center text-2xl font-bold text-black mb-10'>About Speakers and their talks :&nbsp;</h3><ol><p><li>Dhruv Sud&nbsp;:</li> Dhruv Sud is the Director of Technology at Cloudphysician, a pioneering startup that leverages technology for healthcare access, quality and impact. He is a Bachelor of Technology, Computer Science - from IIIT Hyderabad and a Master of Computer Science - from North Carolina State University. The title of the talk was Smart Technology in Healthcare. He explained what technologies cloudphysician use to provide their services. He also talked in detail about the challenges faced by startups related to AI. Some of the doubts from the audience range from Financial management to data security while running AI models.&nbsp;</p></><p><br/><p><li>Chirag Jain:</li> Chirag is a business analyst turned coder, building one of the world's first AI membership solutions. Leveraging this solution, people can use all the popular AI tools from a single point of access and with a single payment. Chirag has spent over eight years living in South Korea, where he was working for a Fortune 100 company. He also completed his Physics and Computer Science studies at Seoul National University. The title of the talk was “What is AI and why should you bother?” which explained why AI is gaining so much traction these days and how we can capitalize on this hype to commercialize the uses of AI. How will AI impact us all? What are the critical skills to have in this new economy? Can you also build AI tools that help thousands of other people? What are some challenges to building/deploying AI solutions? Doubts ranged from technicalities in AI deployment to the fall of SVB and its impact on startups.</p></p></ol><p>In conclusion, both talks proved to be quite engaging, and the audience was intrigued.</p><p><br></p><p>Organized by:</p><p>The Cynaptics Club, IIT Indore</p>",
-		
+
 		display_image: require("../../../public/images/Events/Event1/display_image.png"),
 		image1: require("../../../public/images/Events/Event1/image1.png"),
 		image2: require("../../../public/images/Events/Event1/image2.png"),
@@ -49,6 +49,7 @@ export const Events = [
 	{
 		id: 4,
 		title: "Application of ML workshop 2",
+
 		date: "April 9th, 2023, 6:30PM to 8:30PM",
 		venue: "Maitraiyee Hall",
 		about_the_event:
@@ -58,5 +59,18 @@ export const Events = [
 		image2: require("../../../public/images/Events/Event4/image2.jpg"),
 		image3: require("../../../public/images/Events/Event4/image3.jpg"),
 		image4: require("../../../public/images/Events/Event4/image4.jpg"),
+	},
+	{
+		id: 5,
+		title: "GANs Workshop + Quiz",
+		date: "September 11, 2022",
+		venue: "Offline (Sandipani Seminar Hall)",
+		about_the_event:
+			"<div><p>The Cynaptics club organised a workshop on Generative Adversarial Networks (or GANs, in short) for the student fraternity of IIT Indore, on the 11th of September, 2022.&nbsp;</p><br/><p>The club members who voluntarily organised the event, are:&nbsp;</p><p>Krish Agrawal (210001034, &nbsp;<a href='mailto:cse210001034@iiti.ac.in'>cse210001034@iiti.ac.in</a>, +91 70244 01110),&nbsp;</p><p>Khushi Sawla (210002045, &nbsp;<a href='mailto:ee210002045@iiti.ac.in'>ee210002045@iiti.ac.in</a>, +91 89895 42652),&nbsp;</p><p>PV Shekhar (210001051, &nbsp;<a href='mailto:cse210001051@iiti.ac.in'>cse210001051@iiti.ac.in</a>, +91 93999 08834) and&nbsp;</p><p>Sairaj Loke (210001035,&nbsp;<a href='mailto:cse210001035@iiti.ac.in'>cse210001035@iiti.ac.in</a>, +91 93726 79958).</p><p>Club head Ashutosh Nayak (200002014, &nbsp;<a href='mailto:ee200002014@iiti.ac.in'>ee200002014@iiti.ac.in</a>, +91 91332 66129) and Events team head Atharva Mohite (200003016,&nbsp;<a href='mailto:me200003016@iiti.ac.in'>me200003016@iiti.ac.in</a>, +91 86240 02583) mentored the organisers and took care of the administrative formalities.</p><br/><p>At the end of the workshop, a short quiz was conducted on the topics covered in the workshop, and prizes worth Rs 3,000 were awarded to the top 5 performers. The quiz was conducted on the “Kahoot!” platform.</p><br><p>Organised by:</p><p>The Cynaptics Club, IIT Indore</p><br/></div>",
+		display_image: require("../../../public/images/Events/Event5/display_image.jpg"),
+		image1: require("../../../public/images/Events/Event5/image1.jpg"),
+		image2: require("../../../public/images/Events/Event5/image2.jpg"),
+		image3: require("../../../public/images/Events/Event5/image3.jpg"),
+		image4: require("../../../public/images/Events/Event5/image4.jpg"),
 	},
 ];

@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  z-index: 10000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -97,3 +98,7 @@ body {
   margin-right: 10px;
   border-bottom:2px solid red;
 }
+body{
+  z-index:1000;
+}
+
