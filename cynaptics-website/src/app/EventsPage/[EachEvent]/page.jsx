@@ -34,6 +34,12 @@ export default function EachEventPage({ params }) {
 						<h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100 text-center">
 							{CurrentEvent[0].title}
 						</h1>
+						<p className="my-2 font-bold text-yellow-500">
+							Date : {CurrentEvent[0].date}
+						</p>
+						<p className="my-2 font-bold text-yellow-500">
+							Venue : {CurrentEvent[0].venue}
+						</p>
 						<p className=" leading-relaxed mx-10">
 							{parse(CurrentEvent[0].about_the_event)} 
 						</p>

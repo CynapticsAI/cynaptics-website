@@ -119,14 +119,17 @@ export default function EventsPage() {
 						return (
 							// eslint-disable-next-line react/jsx-key
 							<Link href={`/EventsPage/${ele.title + ele.id.toString()}`}>
-								
 								<div
 									key={index}
 									className="menu--item !flex !items-center !my-auto  overflow-hidden group"
 								>
-										<div className="  text-white h-full items-center  absolute w-full bg-black bg-opacity-80 text-center justify-center flex top-[-1000px] !z-[1000] group-hover:top-0 transition-all fade-in-out font-bold">
-											{ele.title}
+									<div className="  text-white h-full items-center absolute w-full bg-black bg-opacity-80 text-center justify-center top-[-1000px] !z-[1000] group-hover:top-0 transition-all fade-in-out font-bold hidden md:flex">
+										<div>
+											<div>{ele.title}</div>
+											<div>{ele.date}</div>
+											<div>{ele.venue}</div>
 										</div>
+									</div>
 									<figure className="!flex !items-center !my-auto ">
 										<div className="hover:border-2 ">
 											<Image
@@ -139,7 +142,6 @@ export default function EventsPage() {
 												alt="Loading.."
 											/>
 										</div>
-										
 									</figure>
 								</div>
 							</Link>

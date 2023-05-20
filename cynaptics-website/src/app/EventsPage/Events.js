@@ -3,7 +3,7 @@ export const Events = [
 		id: 1,
 		title: "MLTalks@NeuralNexus’23 ",
 		date: "April 10th, 2023, 6 PM to 8 PM",
-		venue: "Venue: Online (Google Meet)",
+		venue: "Online (Google Meet)",
 		about_the_event:
 			"<div><p>The Cynaptics Club organized two ML Talks on ML applications in healthcare and the commercialisation of AI under the Neural Nexus&rsquo;23. Guests speakers for this talk were :&nbsp;</p><ol><li><h3>Dhruv Sud</h3></li><li><h3>Chirag Jain</h3></li></ol><p>There was a turnout of over 50+, with more than half students from other institutes. Multiple postgraduate and PhD students also showed up for this talk.</p></div>",
 		desc:
