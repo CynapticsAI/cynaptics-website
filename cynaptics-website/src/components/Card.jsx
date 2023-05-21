@@ -4,7 +4,9 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import Link from "next/link";
-export default function Card({ ele, index }) {
+import Fade from 'react-reveal/Fade';
+
+export default function Card({ ele, index,className }) {
 	var currentTime = new Date();
 	var year = currentTime.getFullYear();
 	useEffect(() => {
@@ -31,8 +33,9 @@ export default function Card({ ele, index }) {
 	}, [index]);
 
 	return (
-		<div className="my-10 " id={index}>
-			<div className={`card${index} card`} data-state={`#about${index}`}>
+		<div className={`my-10  `} id={index}>
+			<Fade bottom>
+			<div className={`card${index}  card ${className}`} data-state={`#about${index}`}>
 				<div className="card-header">
 					<div
 						className="card-cover"
@@ -454,6 +457,7 @@ export default function Card({ ele, index }) {
 					}
 				`}
 			</style>
+			</Fade>
 		</div>
 	);
 }

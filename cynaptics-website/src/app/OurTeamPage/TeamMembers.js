@@ -13,11 +13,11 @@ export const TeamMembers = [
 	{
 		"id":2,
 		"name": "Ashutosh S",
-		"position": "Outreach head",
+		"position": "Outreach Head",
 		"email": "cse210001005@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/ashutosh-samantaray-531516249/",
 		"github": "https://github.com/A5HU705H",
-		// "image": require(`../../../public/images/Members/Ashutosh S.jpg`),
+		"image": require(`../../../public/images/Members/Ashutosh S.jpg`),
 	},
 	{
 		"id":3,
@@ -38,13 +38,86 @@ export const TeamMembers = [
 		"image": require(`../../../public/images/Members/Rupal Shah.jpg`),
 	},
 	{
+		"id":38,
+		"name": "Mihir Karandikar",
+		"position": "Member",
+		"email": "cse200001044@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/mihir-karandikar-505177214/",
+		"github": "https://github.com/MihirK1212",
+		"image": require(`../../../public/images/Members/Mihir Karandikar.jpg`),
+	},
+	
+	{
+		"id":8,
+		"name": "Atharva Mohite",
+		"position": "Member",
+		"email": "me200003016@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/atharva-mohite-4368601bb",
+		"github": "https://github.com/atharva-mohite",
+		"image": require(`../../../public/images/Members/Atharva Mohite.jpg`),
+	},
+	{
+		"id":10,
+		"name": "Amit Kumar Makkad",
+		"position": "Member",
+		"email": "cse200001003@iiti.ac.in",
+		"linkedin": "https://in.linkedin.com/in/amit-kumar-makkad-09167b214",
+		"github": "https://github.com/amitmakkad",
+		"image": require(`../../../public/images/Members/Amit Kumar Makkad.jpg`),
+	},
+	{
+		"id":17,
+		"name": "Bhavya Contractor",
+		"position": "Member",
+		"email": "cse200001018@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/bhavya-contractor-b47784214",
+		"github": "https://github.com/bhavyacontractor",
+		"image": require(`../../../public/images/Members/Bhavya Contractor.jpeg`),
+	},
+	{
+		"id":19,
+		"name": "Kshitij Bhat",
+		"position": "Member",
+		"email": "me200003042@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/kshitij-bhat/",
+		"github": "https://github.com/kshitijbhat",
+		"image": require(`../../../public/images/Members/Kshitij Bhat.jpg`),
+	},
+	{
+		"id":20,
+		"name": "Parth Bhore",
+		"position": "Member",
+		"email": "cse200001015@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/parth-bhore",
+		"github": "https://github.com/Paarth002",
+		"image": require(`../../../public/images/Members/Parth Bhore.jpg`),
+	},
+	{
+		"id":21,
+		"name": "Priyansh Jaseja",
+		"position": "Member",
+		"email": "cse200001063@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/priyansh-jaseja",
+		"github": "https://github.com/iDroppiN",
+		"image": require(`../../../public/images/Members/Priyansh Jaseja.png`),
+	},
+	{
+		"id":39,
+		"name": "Madhusudhan Reddy",
+		"position": "Member",
+		"email": "ee210002075@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/madhusudhan-reddy-sowreddy-52510a224",
+		"github": "https://github.com/Madhu3456",
+		"image": require(`../../../public/images/Members/Madhusudhan Reddy.jpg`),
+	},
+	{
 		"id":5,
 		"name": "G Aakash",
 		"position": "Member",
 		"email": "cse210001015@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/g-aakash-6a001523b/",
 		"github": "https://github.com/cse210001015",
-		// "image": require(`../../../public/images/Members/G Aakash.jpg`),
+		"image": require(`../../../public/images/Members/G Aakash.jpg`),
 	},
 	{
 		"id":6,
@@ -65,15 +138,7 @@ export const TeamMembers = [
 		"github": "https://github.com/Gothos",
 		"image": require(`../../../public/images/Members/Vishnu V Jaddipal.jpeg`),
 	},
-	{
-		"id":8,
-		"name": "Atharva Mohite",
-		"position": "Member",
-		"email": "me200003016@iiti.ac.in",
-		"linkedin": "https://www.linkedin.com/in/atharva-mohite-4368601bb",
-		"github": "https://github.com/atharva-mohite",
-		"image": require(`../../../public/images/Members/Atharva Mohite.jpg`),
-	},
+	
 	{
 		"id":9,
 		"name": "Shivankar Sharma",
@@ -83,15 +148,7 @@ export const TeamMembers = [
 		"github": "https://github.com/Shivankar007",
 		"image": require(`../../../public/images/Members/Shivankar Sharma.jpg`),
 	},
-	{
-		"id":10,
-		"name": "Amit Kumar Makkad",
-		"position": "Member",
-		"email": "cse200001003@iiti.ac.in",
-		"linkedin": "https://in.linkedin.com/in/amit-kumar-makkad-09167b214",
-		"github": "https://github.com/amitmakkad",
-		"image": require(`../../../public/images/Members/Amit Kumar Makkad.jpg`),
-	},
+	
 	{
 		"id":11,
 		"name": "Surya karthikeya",
@@ -126,7 +183,7 @@ export const TeamMembers = [
 		"email": "cse210001071@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/tanisha-sahu-197882232/",
 		"github": "https://github.com/10isha",
-		// "image": require(`../../../public/images/Members/Tanisha Sahu.jpg`),
+		"image": require(`../../../public/images/Members/Tanisha Sahu.jpg`),
 	},
 	{
 		"id":15,
@@ -146,15 +203,7 @@ export const TeamMembers = [
 		"github": "https://github.com/prajakta-1527",
 		"image": require(`../../../public/images/Members/Prajakta Darade.jpeg`),
 	},
-	{
-		"id":17,
-		"name": "Bhavya Contractor",
-		"position": "Member",
-		"email": "cse200001018@iiti.ac.in",
-		"linkedin": "https://www.linkedin.com/in/bhavya-contractor-b47784214",
-		"github": "https://github.com/bhavyacontractor",
-		"image": require(`../../../public/images/Members/Bhavya Contractor.jpeg`),
-	},
+	
 	{
 		"id":18,
 		"name": "Khushi Sawla",
@@ -164,33 +213,8 @@ export const TeamMembers = [
 		"github": "https://github.com/khushisawla",
 		"image": require(`../../../public/images/Members/Khushi Sawla.jpg`),
 	},
-	{
-		"id":19,
-		"name": "Kshitij Bhat",
-		"position": "Member",
-		"email": "me200003042@iiti.ac.in",
-		"linkedin": "https://www.linkedin.com/in/kshitij-bhat/",
-		"github": "https://github.com/kshitijbhat",
-		"image": require(`../../../public/images/Members/Kshitij Bhat.jpg`),
-	},
-	{
-		"id":20,
-		"name": "Parth Bhore",
-		"position": "Member",
-		"email": "cse200001015@iiti.ac.in",
-		"linkedin": "https://www.linkedin.com/in/parth-bhore",
-		"github": "https://github.com/Paarth002",
-		"image": require(`../../../public/images/Members/Parth Bhore.jpg`),
-	},
-	{
-		"id":21,
-		"name": "Priyansh Jaseja",
-		"position": "Member",
-		"email": "cse200001063@iiti.ac.in",
-		"linkedin": "https://www.linkedin.com/in/priyansh-jaseja",
-		"github": "https://github.com/iDroppiN",
-		// "image": require(`../../../public/images/Members/Misha Jain.jpg`),
-	},
+	
+	
 	{
 		"id":22,
 		"name": "Atharva Nanoti",
@@ -304,7 +328,7 @@ export const TeamMembers = [
 		"email": "ee220002006@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/aman-poddar-55050b26a",
 		"github": "",
-		// "image": require(`../../../public/images/Members/Aman Poddar.jpg`),
+		"image": require(`../../../public/images/Members/Aman Poddar.jpg`),
 		
 	},
 
@@ -345,6 +369,7 @@ export const TeamMembers = [
 		"github": "https://github.com/Shauryanoobb",
 		"image": require(`../../../public/images/Members/Shaurya khetarpal.jpg`),
 	},
+	
 	
 	
 ];
