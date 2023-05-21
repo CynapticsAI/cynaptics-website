@@ -12,13 +12,13 @@ export default function VideoPage() {
 				</h1>
 			</Slide>
 			<div className="grid md:grid-cols-2  group m-10 md:my-auto relative shadow-[3px_3px_30px_3px] md:shadow-[0px_0px_0px_0px] shadow-blue-600">
-				<Slide left>
+				
 					<div className="md:m-10 flex justify-center shadow-[3px_3px_30px_3px] shadow-blue-600">
 						<video loop muted autoPlay>
 							<source src="/Videos/quick draw.mp4" type="video/mp4" />
 						</video>
 					</div>
-				</Slide>
+				
 				<Slide right>
 					<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl  z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
 						<div id="description of quick draw video">
@@ -47,22 +47,22 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 						</Link>
 					</div>
 				</Slide>
-				<Slide right>
+				
 					<div className="md:m-10 flex justify-center shadow-[3px_3px_30px_3px] shadow-blue-600">
 						<video loop muted autoPlay>
 							<source src="/Videos/semantris.mp4" type="video/mp4" />
 						</video>
 					</div>
-				</Slide>
+				
 			</div>
 			<div className="grid md:grid-cols-2  group m-10 md:my-auto relative shadow-[3px_3px_30px_3px] md:shadow-[0px_0px_0px_0px] shadow-blue-600">
-				<Slide left>
+				
 					<div className="md:m-10 flex justify-center md:shadow-[3px_3px_30px_3px] md:shadow-blue-600">
 						<video loop muted autoPlay>
 							<source src="/Videos/thisfacedoesnotexist.mp4" type="video/mp4" />
 						</video>
 					</div>
-				</Slide>
+				
 				<Slide right>
 					<div className="items-center text-center mx-auto my-auto font-semibold md:text-xl  z-[100] md:relative bg-black text-white bg-opacity-80 text-wrap  group-hover:opacity-100 opacity-0 md:opacity-100  transition-all fade-in-out p-5 text-[9px] sm:text-sm md:text-md">
 						<div id="description of the face does not exists video">
@@ -95,7 +95,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 					</Link>
 				</div>
 				</Slide>
-				<Slide right>
+				
 				<div
 					id="card_video"
 					className="md:m-10  flex justify-center z-[-1] shadow-[3px_3px_30px_3px] shadow-blue-600"
@@ -104,7 +104,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
 						<source type="video/mp4" src="/Videos/pix2pix.mp4" />
 					</video>
 				</div>
-				</Slide>
+				
 			</div>
 		</div>
 	);
