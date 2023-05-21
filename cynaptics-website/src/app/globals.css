@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+ /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -15,16 +15,14 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   overflow: overlay;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  
+  color: #ffffff; /* Set your desired foreground color */
+  background: #000000; /* Set the background color to black */
 }
+
 
 
 .center {
@@ -98,7 +96,3 @@ body {
   margin-right: 10px;
   border-bottom:2px solid red;
 }
-body{
-  z-index:1000;
-}
-
