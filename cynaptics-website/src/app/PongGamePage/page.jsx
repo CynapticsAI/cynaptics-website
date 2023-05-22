@@ -55,20 +55,13 @@ export default function PongGame() {
 				this.canvas.style.width = this.canvas.width / 2 + "px";
 				this.canvas.style.height = this.canvas.height / 2 + "px";
 				this.fakeBallInterval = 5000; // Interval in milliseconds
+				this.framerate = 60;
 				this.lastFakeBallTime = 0;
 				this.player = Ai.new.call(this, "left");
 				this.ai = Ai.new.call(this, "right");
 				this.ball = Ball.new.call(this);
 				this.fakeBalls = [];
-				this.fakeBalls.push({
-					x: Math.random() * this.canvas.width, // Initial x-coordinate
-					y: Math.random() * this.canvas.height, // Initial y-coordinate
-					width: 18, // Width of the fake ball
-					height: 18, // Height of the fake ball
-					speed: 7, // Speed of the fake ball
-					moveX: Math.random() < 0.5 ? -1 : 1, // Initial movement direction along the x-axis
-					moveY: Math.random() < 0.5 ? -1 : 1, // Initial movement direction along the y-axis
-				});
+
 				this.ai.speed = 5;
 				this.running = this.over = false;
 				this.turn = this.ai;
@@ -118,10 +111,6 @@ export default function PongGame() {
 					Pong.canvas.height / 2 + 15
 				);
 
-				setTimeout(function() {
-					Pong = Object.assign({}, Game);
-					Pong.initialize();
-				}, 3000);
 			},
 
 			menu: function() {
@@ -153,6 +142,9 @@ export default function PongGame() {
 
 			// Update all objects (move the player, ai, ball, increment the score, etc.)
 			update: function() {
+				var currentTime = Date.now();
+				var deltaTime = (currentTime - this.timer) / 1000;
+				if (deltaTime >= 1 / this.framerate) {
 				if (!this.over) {
 					// ... (existing code)
 
@@ -171,23 +163,24 @@ export default function PongGame() {
 							}
 						}
 					}
-					// Opponent paddle teleportation
+
 					if (this.round === 2) {
+						this.ai.speed = 8;
+					}
+					// Opponent paddle teleportation
+					if (this.round === 3) {
 						// Check if the ball is approaching the AI's side
 						if (this.ball.x > 0) {
 							// Calculate the distance between the AI paddle and the ball
 							var distance = this.ai.x + this.ai.width - this.ball.x;
 
 							// Define the threshold distance at which the AI paddle should teleport
-							var teleportDistanceThreshold = 120; // Adjust this value as needed
+							var teleportDistanceThreshold = 20; // Adjust this value as needed
 
 							// Define the probability of teleportation
 							var teleportProbability = 0.075; // Adjust this value as desired
 
-							if (
-								distance <= teleportDistanceThreshold &&
-								Math.random() < teleportProbability
-							) {
+							if (distance <= teleportDistanceThreshold) {
 								// Check if enough time has passed since the last teleportation
 								var currentTime = Date.now();
 								var timeSinceLastTeleportation =
@@ -211,7 +204,7 @@ export default function PongGame() {
 						}
 					}
 					if (this.round == 3) {
-						this.ai.speed = 10;
+						this.ai.speed = 5;
 					}
 					// Ball spawning every 3 seconds
 
@@ -367,7 +360,8 @@ export default function PongGame() {
 						Pong.endGameMenu("Game Over!");
 					}, 1000);
 				}
-			},
+			}
+		},
 
 			// Draw the objects to the canvas element
 			draw: function() {
