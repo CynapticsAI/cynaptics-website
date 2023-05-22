@@ -182,7 +182,7 @@ export default function PongGame() {
 							var teleportDistanceThreshold = 120; // Adjust this value as needed
 
 							// Define the probability of teleportation
-							var teleportProbability = 0.077; // Adjust this value as desired
+							var teleportProbability = 0.075; // Adjust this value as desired
 
 							if (
 								distance <= teleportDistanceThreshold &&
