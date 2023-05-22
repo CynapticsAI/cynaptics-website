@@ -45,7 +45,7 @@ export default function Navbar() {
 		else{
 			setTimeout(() => {
 				setIsOpen(true)
-			}, 5000);
+			}, 1000*60);
 		}
 		
 		
