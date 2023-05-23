@@ -64,16 +64,14 @@ export default function Card({ ele, index,className }) {
 								I am a{" "}
 								{parseInt(year.toString().slice(2, 4)) -
 									parseInt(ele.email.slice(-20, -18)) ==
-									1 && "1st"}{" "}
+									1 && "2nd"}{" "}
 								{parseInt(year.toString().slice(2, 4)) -
 									parseInt(ele.email.slice(-20, -18)) ==
-									2 && "2nd"}{" "}
+									2 && "3rd"}{" "}
 								{parseInt(year.toString().slice(2, 4)) -
 									parseInt(ele.email.slice(-20, -18)) ==
-									3 && "3rd"}{" "}
-								{parseInt(year.toString().slice(2, 4)) -
-									parseInt(ele.email.slice(-20, -18)) ==
-									4 && "4th"}{" "}
+									3 && "4th"}{" "}
+								
 								Year Student, Currently Pursuing My B.Tech In{" "}
 								<span className="uppercase">{ele.email.slice(0, -20)}</span>
 							</p>
