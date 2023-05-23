@@ -1,8 +1,37 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import useWindowSize from "@rooks/use-window-size";
+import GlitchModal from "@/components/GlitchModal";
+import Modal from "react-modal";
 export default function PongGame() {
-	const { innerWidth, innerHeight } = useWindowSize();
+	const customStyles = {
+		overlay: {
+			position: "fixed",
+			zIndex: 1020,
+			top: 0,
+			left: 0,
+			width: "100vw",
+			height: "100vh",
+			background: "rgba(0, 0, 0, 0.75)",
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+		},
+		content: {
+			top: "50%",
+			left: "50%",
+			height: "fit-content",
+			transform: "translate(-50%, -50%)",
+			background: "transparent",
+			overflow: "hidden",
+			border: "0px",
+		},
+	};
+
+	let [level, setlevel] = useState(1);
+	const [text, settext] = useState(null);
+	let [IsOpen, setIsOpen] = useState(false);
 	useEffect(() => {
 		var DIRECTION = {
 			IDLE: 0,
@@ -12,7 +41,7 @@ export default function PongGame() {
 			RIGHT: 4,
 		};
 
-		var round = [1, 3, 2, 1];
+		var round = [1, 1, 1, 1];
 		var colors = ["#1abc9c", "#2ecc71", "#3498db", "#8c52ff", "#9b59b6"];
 
 		// The ball object (The cube that bounces back and forth)
@@ -52,6 +81,7 @@ export default function PongGame() {
 				this.round = 1;
 				this.canvas.width = 1400;
 				this.canvas.height = 1000;
+				this.isopen = false;
 				this.canvas.style.width = this.canvas.width / 2 + "px";
 				this.canvas.style.height = this.canvas.height / 2 + "px";
 				this.fakeBallInterval = 5000; // Interval in milliseconds
@@ -61,7 +91,7 @@ export default function PongGame() {
 				this.ai = Ai.new.call(this, "right");
 				this.ball = Ball.new.call(this);
 				this.fakeBalls = [];
-
+				this.normalBallSpeed = 7;
 				this.ai.speed = 5;
 				this.running = this.over = false;
 				this.turn = this.ai;
@@ -88,8 +118,17 @@ export default function PongGame() {
 					moveY: Math.random() < 0.5 ? -1 : 1, // Initial movement direction along the y-axis
 				});
 			},
+			resetBallSpeed: function() {
+				this.ball.speed = this.normalBallSpeed;
+			},
 			endGameMenu: function(text) {
 				// Change the canvas font size and color
+				if (this.over) {
+					settext(
+						"<div className=''><div className='py-5'>Crushing Defeat... But Hope Remains! Unlock the Secrets to Defeating AI. Join Our Exclusive Discord and Master the Art of Battle!</div><a className='mx-auto !my-5 bg-white text-black rounded-md  border-2 p-2' href='https://discord.com/invite/KMV539QtTJ' target={'_blank'}>Join Us</a></div>"
+					);
+					setIsOpen(true);
+				}
 				Pong.context.font = "45px Courier New";
 				Pong.context.fillStyle = this.color;
 
@@ -110,7 +149,6 @@ export default function PongGame() {
 					Pong.canvas.width / 2,
 					Pong.canvas.height / 2 + 15
 				);
-
 			},
 
 			menu: function() {
@@ -139,136 +177,169 @@ export default function PongGame() {
 					this.canvas.height / 2 + 15
 				);
 			},
-
+			updateBallSpeed: function() {
+				// Increase the ball speed by a certain amount
+				this.ball.speed += 1; // Adjust the increment value as desired
+			},
 			// Update all objects (move the player, ai, ball, increment the score, etc.)
 			update: function() {
 				var currentTime = Date.now();
 				var deltaTime = (currentTime - this.timer) / 1000;
 				if (deltaTime >= 1 / this.framerate) {
-				if (!this.over) {
-					// ... (existing code)
+					if (!this.over) {
+						// ... (existing code)
 
-					// Round 3 modifications
-					if (Pong._turnDelayIsOver.call(this)) {
-						if (this.round === 3) {
-							// ...
+						// Round 3 modifications
+						if (Pong._turnDelayIsOver.call(this)) {
+							if (this.round === 3) {
+								// ...
 
-							// Generate fake balls every 5 seconds
-							var currentTime = Date.now();
-							var timeSinceLastFakeBall = currentTime - this.lastFakeBallTime;
-
-							if (timeSinceLastFakeBall >= this.fakeBallInterval) {
-								this._generateFakeBall();
-								this.lastFakeBallTime = currentTime;
-							}
-						}
-					}
-
-					if (this.round === 2) {
-						this.ai.speed = 8;
-					}
-					// Opponent paddle teleportation
-					if (this.round === 3) {
-						// Check if the ball is approaching the AI's side
-						if (this.ball.x > 0) {
-							// Calculate the distance between the AI paddle and the ball
-							var distance = this.ai.x + this.ai.width - this.ball.x;
-
-							// Define the threshold distance at which the AI paddle should teleport
-							var teleportDistanceThreshold = 20; // Adjust this value as needed
-
-							// Define the probability of teleportation
-							var teleportProbability = 0.075; // Adjust this value as desired
-
-							if (distance <= teleportDistanceThreshold) {
-								// Check if enough time has passed since the last teleportation
+								// Generate fake balls every 5 seconds
 								var currentTime = Date.now();
-								var timeSinceLastTeleportation =
-									currentTime - this.lastTeleportationTime;
-								if (timeSinceLastTeleportation >= this.teleportationInterval) {
-									// Teleport the AI paddle to a random y-coordinate
-									this.ai.y = this.ball.y - this.ai.height / 2;
+								var timeSinceLastFakeBall = currentTime - this.lastFakeBallTime;
 
-									// Update the last teleportation time
-									this.lastTeleportationTime = currentTime;
-
-									// Start the teleportation animation
-									this.isTeleporting = true;
-
-									// After the teleportation duration, stop the teleportation animation
-									setTimeout(() => {
-										this.isTeleporting = false;
-									}, this.teleportationDuration);
+								if (timeSinceLastFakeBall >= this.fakeBallInterval) {
+									this._generateFakeBall();
+									this.lastFakeBallTime = currentTime;
 								}
 							}
 						}
+
+						if (this.round === 2) {
+							this.ai.speed = 8;
+						}
+						// Opponent paddle teleportation
+						if (this.round === 3) {
+							// Check if the ball is approaching the AI's side
+							if (this.ball.x > 0) {
+								// Calculate the distance between the AI paddle and the ball
+								var distance = this.ai.x + this.ai.width - this.ball.x;
+
+								// Define the threshold distance at which the AI paddle should teleport
+								var teleportDistanceThreshold = 200; // Adjust this value as needed
+
+								// Define the probability of teleportation
+								var teleportProbability = 0.075; // Adjust this value as desired
+
+								if (distance <= teleportDistanceThreshold) {
+									// Check if enough time has passed since the last teleportation
+									var currentTime = Date.now();
+									var timeSinceLastTeleportation =
+										currentTime - this.lastTeleportationTime;
+									if (
+										timeSinceLastTeleportation >= this.teleportationInterval
+									) {
+										// Teleport the AI paddle to a random y-coordinate
+										this.ai.y = this.ball.y - this.ai.height / 2;
+
+										// Update the last teleportation time
+										this.lastTeleportationTime = currentTime;
+
+										// Start the teleportation animation
+										this.isTeleporting = true;
+
+										// After the teleportation duration, stop the teleportation animation
+										setTimeout(() => {
+											this.isTeleporting = false;
+										}, this.teleportationDuration);
+									}
+								}
+							}
+						}
+						if (this.round == 3) {
+							this.ai.speed = 10;
+						}
+						// Ball spawning every 3 seconds
+
+						// If the ball collides with the bound limits - correct the x and y coords.
+						if (this.ball.x <= 0)
+							Pong._resetTurn.call(this, this.ai, this.player);
+						if (this.ball.x >= this.canvas.width - this.ball.width)
+							Pong._resetTurn.call(this, this.player, this.ai);
+						if (this.ball.y <= 0) this.ball.moveY = DIRECTION.DOWN;
+						if (this.ball.y >= this.canvas.height - this.ball.height)
+							this.ball.moveY = DIRECTION.UP;
+
+						// Move player if their player.move value was updated by a keyboard event
+						if (this.player.move === DIRECTION.UP)
+							this.player.y -= this.player.speed;
+						else if (this.player.move === DIRECTION.DOWN)
+							this.player.y += this.player.speed;
+
+						// On new serve (start of each turn) move the ball to the correct side
+						// and randomize the direction to add some challenge.
+						if (Pong._turnDelayIsOver.call(this) && this.turn) {
+							this.ball.moveX =
+								this.turn === this.player ? DIRECTION.LEFT : DIRECTION.RIGHT;
+							this.ball.moveY = [DIRECTION.UP, DIRECTION.DOWN][
+								Math.round(Math.random())
+							];
+							this.ball.y =
+								Math.floor(Math.random() * this.canvas.height - 200) + 200;
+							this.turn = null;
+						}
+
+						// If the player collides with the bound limits, update the x and y coords.
+						if (this.player.y <= 0) this.player.y = 0;
+						else if (this.player.y >= this.canvas.height - this.player.height)
+							this.player.y = this.canvas.height - this.player.height;
+
+						// Move ball in intended direction based on moveY and moveX values
+						if (this.ball.moveY === DIRECTION.UP)
+							this.ball.y -= this.ball.speed / 1.5;
+						else if (this.ball.moveY === DIRECTION.DOWN)
+							this.ball.y += this.ball.speed / 1.5;
+						if (this.ball.moveX === DIRECTION.LEFT)
+							this.ball.x -= this.ball.speed;
+						else if (this.ball.moveX === DIRECTION.RIGHT)
+							this.ball.x += this.ball.speed;
+
+						// Handle AI (Normal) movement
+						if (this.ai.y > this.ball.y - this.ai.height / 2) {
+							if (this.ball.moveX === DIRECTION.RIGHT)
+								this.ai.y -= this.ai.speed / 1.5;
+							else this.ai.y -= this.ai.speed / 4;
+						}
+						if (this.ai.y < this.ball.y - this.ai.height / 2) {
+							if (this.ball.moveX === DIRECTION.RIGHT)
+								this.ai.y += this.ai.speed / 1.5;
+							else this.ai.y += this.ai.speed / 4;
+						}
+
+						// Handle AI (Normal) wall collision
+						if (this.ai.y >= this.canvas.height - this.ai.height)
+							this.ai.y = this.canvas.height - this.ai.height;
+						else if (this.ai.y <= 0) this.ai.y = 0;
+
+						// Handle Player-Ball collisions
+						if (
+							this.ball.x - this.ball.width <= this.player.x &&
+							this.ball.x >= this.player.x - this.player.width
+						) {
+							if (
+								this.ball.y <= this.player.y + this.player.height &&
+								this.ball.y + this.ball.height >= this.player.y
+							) {
+								this.ball.x = this.player.x + this.ball.width;
+								this.ball.moveX = DIRECTION.RIGHT;
+							}
+						}
+
+						// Handle AI (Normal) - Ball collision
+						if (
+							this.ball.x - this.ball.width <= this.ai.x &&
+							this.ball.x >= this.ai.x - this.ai.width
+						) {
+							if (
+								this.ball.y <= this.ai.y + this.ai.height &&
+								this.ball.y + this.ball.height >= this.ai.y
+							) {
+								this.ball.x = this.ai.x - this.ball.width;
+								this.ball.moveX = DIRECTION.LEFT;
+							}
+						}
 					}
-					if (this.round == 3) {
-						this.ai.speed = 5;
-					}
-					// Ball spawning every 3 seconds
 
-					// If the ball collides with the bound limits - correct the x and y coords.
-					if (this.ball.x <= 0)
-						Pong._resetTurn.call(this, this.ai, this.player);
-					if (this.ball.x >= this.canvas.width - this.ball.width)
-						Pong._resetTurn.call(this, this.player, this.ai);
-					if (this.ball.y <= 0) this.ball.moveY = DIRECTION.DOWN;
-					if (this.ball.y >= this.canvas.height - this.ball.height)
-						this.ball.moveY = DIRECTION.UP;
-
-					// Move player if their player.move value was updated by a keyboard event
-					if (this.player.move === DIRECTION.UP)
-						this.player.y -= this.player.speed;
-					else if (this.player.move === DIRECTION.DOWN)
-						this.player.y += this.player.speed;
-
-					// On new serve (start of each turn) move the ball to the correct side
-					// and randomize the direction to add some challenge.
-					if (Pong._turnDelayIsOver.call(this) && this.turn) {
-						this.ball.moveX =
-							this.turn === this.player ? DIRECTION.LEFT : DIRECTION.RIGHT;
-						this.ball.moveY = [DIRECTION.UP, DIRECTION.DOWN][
-							Math.round(Math.random())
-						];
-						this.ball.y =
-							Math.floor(Math.random() * this.canvas.height - 200) + 200;
-						this.turn = null;
-					}
-
-					// If the player collides with the bound limits, update the x and y coords.
-					if (this.player.y <= 0) this.player.y = 0;
-					else if (this.player.y >= this.canvas.height - this.player.height)
-						this.player.y = this.canvas.height - this.player.height;
-
-					// Move ball in intended direction based on moveY and moveX values
-					if (this.ball.moveY === DIRECTION.UP)
-						this.ball.y -= this.ball.speed / 1.5;
-					else if (this.ball.moveY === DIRECTION.DOWN)
-						this.ball.y += this.ball.speed / 1.5;
-					if (this.ball.moveX === DIRECTION.LEFT)
-						this.ball.x -= this.ball.speed;
-					else if (this.ball.moveX === DIRECTION.RIGHT)
-						this.ball.x += this.ball.speed;
-
-					// Handle AI (Normal) movement
-					if (this.ai.y > this.ball.y - this.ai.height / 2) {
-						if (this.ball.moveX === DIRECTION.RIGHT)
-							this.ai.y -= this.ai.speed / 1.5;
-						else this.ai.y -= this.ai.speed / 4;
-					}
-					if (this.ai.y < this.ball.y - this.ai.height / 2) {
-						if (this.ball.moveX === DIRECTION.RIGHT)
-							this.ai.y += this.ai.speed / 1.5;
-						else this.ai.y += this.ai.speed / 4;
-					}
-
-					// Handle AI (Normal) wall collision
-					if (this.ai.y >= this.canvas.height - this.ai.height)
-						this.ai.y = this.canvas.height - this.ai.height;
-					else if (this.ai.y <= 0) this.ai.y = 0;
-
-					// Handle Player-Ball collisions
 					if (
 						this.ball.x - this.ball.width <= this.player.x &&
 						this.ball.x >= this.player.x - this.player.width
@@ -279,10 +350,11 @@ export default function PongGame() {
 						) {
 							this.ball.x = this.player.x + this.ball.width;
 							this.ball.moveX = DIRECTION.RIGHT;
+
+							// Increase the ball speed when it hits the player paddle
+							this.updateBallSpeed();
 						}
 					}
-
-					// Handle AI (Normal) - Ball collision
 					if (
 						this.ball.x - this.ball.width <= this.ai.x &&
 						this.ball.x >= this.ai.x - this.ai.width
@@ -293,75 +365,111 @@ export default function PongGame() {
 						) {
 							this.ball.x = this.ai.x - this.ball.width;
 							this.ball.moveX = DIRECTION.LEFT;
+
+							// Increase the ball speed when it hits the AI paddle
+							this.updateBallSpeed();
 						}
 					}
-				}
 
-				for (var i = 0; i < this.fakeBalls.length; i++) {
-					var fakeBall = this.fakeBalls[i];
+					for (var i = 0; i < this.fakeBalls.length; i++) {
+						var fakeBall = this.fakeBalls[i];
 
-					// Move the fake ball in the intended direction based on moveX and moveY values
-					fakeBall.x += fakeBall.moveX * fakeBall.speed;
-					fakeBall.y += fakeBall.moveY * fakeBall.speed;
+						// Move the fake ball in the intended direction based on moveX and moveY values
+						fakeBall.x += fakeBall.moveX * fakeBall.speed;
+						fakeBall.y += fakeBall.moveY * fakeBall.speed;
 
-					// If the fake ball collides with the bound limits, correct the x and y coordinates
-					if (
-						fakeBall.x <= 0 ||
-						fakeBall.x >= this.canvas.width - fakeBall.width
-					) {
-						fakeBall.moveX *= -1; // Reverse the x-direction
-					}
-					if (
-						fakeBall.y <= 0 ||
-						fakeBall.y >= this.canvas.height - fakeBall.height
-					) {
-						fakeBall.moveY *= -1; // Reverse the y-direction
-					}
-
-					// Handle AI - Fake Ball collision
-					if (
-						fakeBall.x - fakeBall.width <= this.ai.x &&
-						fakeBall.x >= this.ai.x - this.ai.width
-					) {
+						// If the fake ball collides with the bound limits, correct the x and y coordinates
 						if (
-							fakeBall.y <= this.ai.y + this.ai.height &&
-							fakeBall.y + fakeBall.height >= this.ai.y
+							fakeBall.x <= 0 ||
+							fakeBall.x >= this.canvas.width - fakeBall.width
 						) {
-							fakeBall.x = this.ai.x - fakeBall.width;
 							fakeBall.moveX *= -1; // Reverse the x-direction
 						}
-					}
-				}
+						if (
+							fakeBall.y <= 0 ||
+							fakeBall.y >= this.canvas.height - fakeBall.height
+						) {
+							fakeBall.moveY *= -1; // Reverse the y-direction
+						}
 
-				// Handle the end of round transition
-				// Check to see if the player won the round.
-				if (this.player.score === round[this.round]) {
-					// Check to see if there are any more round/levels left and display the victory screen if
-					// there are not.
-					if (!round[this.round + 1]) {
+						// Handle AI - Fake Ball collision
+						if (
+							fakeBall.x - fakeBall.width <= this.ai.x &&
+							fakeBall.x >= this.ai.x - this.ai.width
+						) {
+							if (
+								fakeBall.y <= this.ai.y + this.ai.height &&
+								fakeBall.y + fakeBall.height >= this.ai.y
+							) {
+								fakeBall.x = this.ai.x - fakeBall.width;
+								fakeBall.moveX *= -1; // Reverse the x-direction
+							}
+						}
+					}
+					if (Pong._turnDelayIsOver.call(this) && this.turn) {
+						this.ball.moveX =
+							this.turn === this.player ? DIRECTION.LEFT : DIRECTION.RIGHT;
+						this.ball.moveY = [DIRECTION.UP, DIRECTION.DOWN][
+							Math.round(Math.random())
+						];
+						this.ball.y =
+							Math.floor(Math.random() * this.canvas.height - 200) + 200;
+						this.turn = null;
+
+						// Reset the ball speed to the normal value at the start of a new round
+						this.resetBallSpeed();
+					}
+					// Handle the end of round transition
+					// Check to see if the player won the round.
+					if (this.player.score === round[this.round]) {
+						// Check to see if there are any more round/levels left and display the victory screen if
+						// there are not.
+						if (!round[this.round + 1]) {
+							this.over = true;
+							setTimeout(function() {
+								Pong.endGameMenu("Winner!");
+							}, 1000);
+						} else {
+							// If there is another round, reset all the values and increment the round number.
+							this.color = this._generateRoundColor();
+							this.player.score = this.ai.score = 0;
+							this.player.speed += 1;
+							this.ai.speed += 1;
+							this.ball.speed += 1;
+							this.round += 1;
+							this.running = false;
+							level = level + 1;
+							this.isopen = true;
+							setlevel(level);
+
+							if (this.round == 2 && !this.over) {
+								setTimeout(() => {
+									settext(
+										"Round 2: Brace Yourself for an Epic Showdown Against the AI. Are You Ready?"
+									);
+								}, 5000);
+
+								settext(
+									"Victory! You've Proven Your Might in Round 1. But the Fight Isn't Over Yet.."
+								);
+							} else if (this.round == 3 && !this.over) {
+								settext(
+									"Unstoppable! You're Almost There, But One Last Round Remains. Get Ready to Crush the AI's Defenses and Claim Glory!"
+								);
+							}
+							setIsOpen(this.isopen);
+						}
+					}
+					// Check to see if the AI has won the round.
+					else if (this.ai.score === round[this.round]) {
 						this.over = true;
+
 						setTimeout(function() {
-							Pong.endGameMenu("Winner!");
+							Pong.endGameMenu("Game Over!");
 						}, 1000);
-					} else {
-						// If there is another round, reset all the values and increment the round number.
-						this.color = this._generateRoundColor();
-						this.player.score = this.ai.score = 0;
-						this.player.speed += 0.5;
-						this.ai.speed += 1;
-						this.ball.speed += 1;
-						this.round += 1;
 					}
 				}
-				// Check to see if the AI has won the round.
-				else if (this.ai.score === round[this.round]) {
-					this.over = true;
-					setTimeout(function() {
-						Pong.endGameMenu("Game Over!");
-					}, 1000);
-				}
-			}
-		},
+			},
 
 			// Draw the objects to the canvas element
 			draw: function() {
@@ -497,10 +605,19 @@ export default function PongGame() {
 
 			loop: function() {
 				Pong.update();
-				Pong.draw();
+				if (Pong.running == false) {
+					setIsOpen(true);
+					Pong.menu();
+				} else if (Pong.running == true) {
+					setIsOpen(false);
+					Pong.draw();
+				}
+
+				
 
 				// If the game is not over, draw the next frame.
-				if (!Pong.over) requestAnimationFrame(Pong.loop);
+
+				if (!Pong.over && Pong.running) requestAnimationFrame(Pong.loop);
 			},
 
 			listen: function() {
@@ -526,95 +643,9 @@ export default function PongGame() {
 				});
 			},
 
-			listenTouch: function() {
-				var canvasRect = this.canvas.getBoundingClientRect();
-				document.addEventListener("keydown", function(key) {
-					// Handle the 'Press any key to begin' function and start the game.
-					if (Pong.running === false) {
-						Pong.running = true;
-						window.requestAnimationFrame(Pong.loop);
-					}
-
-					// Handle up arrow and w key events
-					if (key.keyCode === 38 || key.keyCode === 87)
-						Pong.player.move = DIRECTION.UP;
-
-					// Handle down arrow and s key events
-					if (key.keyCode === 40 || key.keyCode === 83)
-						Pong.player.move = DIRECTION.DOWN;
-				});
-				// Handle touch start event
-				this.canvas.addEventListener("touchstart", function(event) {
-					event.preventDefault();
-
-					var touch = event.touches[0];
-					var touchX = touch.clientX - canvasRect.left;
-					var touchY = touch.clientY - canvasRect.top;
-
-					if (touchX < Pong.canvas.width / 2) {
-						Pong.player.move =
-							touchY < Pong.player.y ? DIRECTION.UP : DIRECTION.DOWN;
-					}
-				});
-
-				// Handle touch move event
-				this.canvas.addEventListener("touchmove", function(event) {
-					event.preventDefault();
-
-					var touch = event.touches[0];
-					var touchX = touch.clientX - canvasRect.left;
-					var touchY = touch.clientY - canvasRect.top;
-
-					if (touchX < Pong.canvas.width / 2) {
-						Pong.player.move =
-							touchY < Pong.player.y ? DIRECTION.UP : DIRECTION.DOWN;
-					}
-				});
-
-				// Handle touch end event
-				this.canvas.addEventListener("touchend", function(event) {
-					Pong.player.move = DIRECTION.IDLE;
-				});
-			},
-
-			enableTouchControls: function() {
-				var canvasRect = this.canvas.getBoundingClientRect();
-				var touchStartY = null;
-
-				// Handle touch start event
-
-				this.canvas.addEventListener("touchstart", function(event) {
-					if (Pong.running === false) {
-						Pong.running = true;
-						window.requestAnimationFrame(Pong.loop);
-					}
-				});
-
-				// Handle touch move event
-				this.canvas.addEventListener("touchmove", function(event) {
-					event.preventDefault();
-
-					var touchY = event.touches[0].clientY;
-					var deltaY = touchY - touchStartY;
-					touchStartY = touchY;
-
-					if (deltaY > 0) {
-						Pong.player.move = DIRECTION.DOWN;
-					} else if (deltaY < 0) {
-						Pong.player.move = DIRECTION.UP;
-					} else {
-						Pong.player.move = DIRECTION.IDLE;
-					}
-				});
-
-				// Handle touch end event
-				this.canvas.addEventListener("touchend", function(event) {
-					Pong.player.move = DIRECTION.IDLE;
-				});
-			},
 			// Reset the ball location, the player turns and set a delay before the next round begins.
 			_resetTurn: function(victor, loser) {
-				this.ball = Ball.new.call(this, this.ball.speed);
+				this.ball = Ball.new.call(this, 7);
 				this.turn = loser;
 				this.timer = new Date().getTime();
 
@@ -636,13 +667,29 @@ export default function PongGame() {
 
 		var Pong = Object.assign({}, Game);
 		Pong.initialize();
-	}, [innerWidth]);
+		if (IsOpen == true) {
+			Pong.isopen = true;
+		}
+	}, []);
 
+	console.log();
 	return (
 		<div
 			id="body"
 			className="justify-center w-full relative items-center my-auto hidden lg:flex flex-col"
 		>
+			<Modal
+				closeTimeoutMS={500}
+				isOpen={IsOpen}
+				onRequestClose={() => {
+					setIsOpen(false);
+				}}
+				style={customStyles}
+			>
+				<div className="w-full flex justify-center text-center">
+					<GlitchModal text={text} />
+				</div>
+			</Modal>
 			<canvas id="canvas" className="relative mt-5  w-full"></canvas>
 			<div className="text-center flex justify-center items-center mx-auto my-auto">
 				Control the Left player by using up and Down Arrow Keys

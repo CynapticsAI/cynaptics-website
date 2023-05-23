@@ -5,13 +5,16 @@ import Image from "next/image";
 import Logo from "../../public/images/Logos/Logo.jpg";
 import { usePathname } from "next/navigation";
 import { HiBarsArrowDown, HiBarsArrowUp } from "react-icons/hi2";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import OffCanvasNavbar from "./OffCanvasNavbar";
 import { useEffect, useRef } from "react";
-import PongGame from '../app/PongGamePage/page'
+import PongGame from "../app/PongGamePage/page";
 import useWindowSize from "@rooks/use-window-size";
+import Bounce from "react-reveal/Bounce";
+import GlitchText from "@/components/GlitchText";
+import GlitchButton from "@/components/GlitchButton";
 export default function Navbar() {
-	const {innerWidth} = useWindowSize()
+	const { innerWidth } = useWindowSize();
 	const customStyles = {
 		overlay: {
 			position: "fixed",
@@ -26,29 +29,26 @@ export default function Navbar() {
 			justifyContent: "center",
 		},
 		content: {
-			top: '50%',
-			left: '50%',
-			right: 'auto',
-			bottom: 'auto',
-			marginRight: '-50%',
-			transform: 'translate(-50%, -50%)',
-		  },
+			top: "50%",
+			left: "50%",
+			height: "fit-content",
+			transform: "translate(-50%, -50%)",
+			background: "transparent",
+			overflow: "hidden",
+			border:"0px",
+		},
 	};
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 	const pathname = usePathname();
 	const ref = useRef(null);
-	
+
 	useEffect(() => {
-		if(pathname=="/PongGamePage" || pathname=='/PongGameMobile'){
-			setIsOpen(false)
-		}
-		else{
+		if (pathname != "/PongGamePage" && innerWidth > 1000) {
 			setTimeout(() => {
-				setIsOpen(true)
-			}, 1000*60);
+				setIsOpen(true);
+			}, 5000);
 		}
-		
-		
+
 		const handleClicKOutsideOffcanvas = (e) => {
 			if (ref.current && !ref.current.contains(e.target)) {
 				document.querySelector("#offcanvas")?.classList.remove("smenu");
@@ -59,7 +59,7 @@ export default function Navbar() {
 			document.removeEventListener("click", handleClicKOutsideOffcanvas, true);
 		};
 	}, []);
-	console.log(pathname)
+	console.log(pathname);
 	const OpenOffCanvas = () => {
 		if (document.getElementById("offcanvas").offsetLeft === -1000) {
 			document.querySelector("#offcanvas").classList.add("smenu");
@@ -67,11 +67,13 @@ export default function Navbar() {
 			document.querySelector("#offcanvas").classList.remove("smenu");
 		}
 	};
-	
-	
+
 	return (
-		<>
-			<div id="Navbar_body" className="flex shadow-[3px_3px_30px_3px] rounded-b-md shadow-blue-600 justify-between p-2 bg-black w-screen">
+		<div className={`${pathname==="/PongGamePage"?"opacity-20 hover:opacity-100 transition-all fade-in-out":"block"}`}>
+			<div
+				id="Navbar_body"
+				className="flex shadow-[3px_3px_30px_3px] rounded-b-md shadow-blue-600 justify-between p-2 bg-black w-screen"
+			>
 				<div className="ml-2">
 					<Image
 						className="rounded-md"
@@ -128,28 +130,27 @@ export default function Navbar() {
 						>
 							<Link href="/AboutUsPage">About Us</Link>
 						</li>
-						{innerWidth<700?(
+						{innerWidth < 700 ? (
 							<li
-							className={`mx-10 ${
-								pathname === "/PongGameMobile"
-									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
-									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
-							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
-						>
-							<Link href="/PongGameMobile">Game</Link>
-						</li>
-						):(
+								className={`mx-10 ${
+									pathname === "/PongGameMobile"
+										? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
+										: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
+								}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
+							>
+								<Link href="/PongGameMobile">Game</Link>
+							</li>
+						) : (
 							<li
-							className={`mx-10 ${
-								pathname === "/PongGamePage"
-									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
-									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
-							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
-						>
-							<Link href="/PongGamePage">Game</Link>
-						</li>
+								className={`mx-10 ${
+									pathname === "/PongGamePage"
+										? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
+										: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
+								}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
+							>
+								<Link href="/PongGamePage">Game</Link>
+							</li>
 						)}
-						
 					</ul>
 				</div>
 				<button
@@ -160,23 +161,47 @@ export default function Navbar() {
 					<HiBarsArrowDown className="my-auto mx-auto w-9 h-9 mr-2" />
 				</button>
 			</div>
-			<Modal
-        isOpen={modalIsOpen}
-        onRequestClose={()=>{
-			setIsOpen(false)
-		}}
-		style={customStyles}
-        
-        
-      >
-		<div className="w-full flex justify-center">
-		<Link onClick={()=>{
-			setIsOpen(false)
-		}}  className="border-2 border-black bg-blue-600  text-white font-bold mx-auto p-2 rounded-md" href={innerWidth<700?`/PongGameMobile`:"/PongGamePage"}>Hey Woud You Like To Play A Game , Then Click On Me</Link></div>
-	  </Modal>
+			<div className="hidden lg:block">
+				<Bounce>
+					<Modal
+						closeTimeoutMS={500}
+						isOpen={modalIsOpen}
+						onRequestClose={() => {
+							setIsOpen(false);
+						}}
+						style={customStyles}
+					>
+						<div className="w-full flex justify-center text-center">
+							<GlitchText text={'Unleash Your Inner Warrior: Join the Ultimate Battle Against AI!'} />
+						</div>
+						<div className="flex flex-col md:flex-row mx-auto w-full  justify-center my-5">
+							<Link
+								href="/PongGamePage"
+								onClick={() => {
+									setIsOpen(false);
+								}}
+							>
+								<GlitchButton
+									setIsOpen={setIsOpen}
+									className="md:mx-5  p-2 max-w-[150px] mx-auto my-5 md:my-auto"
+									text="Investigate"
+								/>
+							</Link>
+							<div onClick={()=>{
+								setIsOpen(false);
+							}}>
+							<GlitchButton
+								setIsOpen={setIsOpen}
+								className={"md:mx-5  p-2 max-w-[150px] mx-auto my-5 md:my-auto"}
+								text="Ignore"
+							/></div>
+						</div>
+					</Modal>
+				</Bounce>
+			</div>
 			<div ref={ref} className="lg:hidden overflow-hidden text-white">
 				<OffCanvasNavbar />
 			</div>
-		</>
+		</div>
 	);
 }
