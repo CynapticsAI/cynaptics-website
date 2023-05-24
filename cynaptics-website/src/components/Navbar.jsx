@@ -123,7 +123,7 @@ export default function Navbar() {
 						</li>
 						<li
 							className={`mx-10 ${
-								pathname === "/AboutUsPage"
+								pathname === "/Achievements"
 									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
 									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
 							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}

@@ -7,7 +7,7 @@ export const Events = [
 		about_the_event:
 			"<div><p>The Cynaptics Club organized two ML Talks on ML applications in healthcare and the commercialisation of AI under the Neural Nexus&rsquo;23. Guests speakers for this talk were :&nbsp;</p><ol><li><h3>Dhruv Sud</h3></li><li><h3>Chirag Jain</h3></li></ol><p>There was a turnout of over 50+, with more than half students from other institutes. Multiple postgraduate and PhD students also showed up for this talk.</p></div>",
 		desc:
-			"<h3 className='text-center text-2xl font-bold text-black mb-10'>About Speakers and their talks :&nbsp;</h3><ol><p><li>Dhruv Sud&nbsp;:</li> Dhruv Sud is the Director of Technology at Cloudphysician, a pioneering startup that leverages technology for healthcare access, quality and impact. He is a Bachelor of Technology, Computer Science - from IIIT Hyderabad and a Master of Computer Science - from North Carolina State University. The title of the talk was Smart Technology in Healthcare. He explained what technologies cloudphysician use to provide their services. He also talked in detail about the challenges faced by startups related to AI. Some of the doubts from the audience range from Financial management to data security while running AI models.&nbsp;</p></><p><br/><p><li>Chirag Jain:</li> Chirag is a business analyst turned coder, building one of the world's first AI membership solutions. Leveraging this solution, people can use all the popular AI tools from a single point of access and with a single payment. Chirag has spent over eight years living in South Korea, where he was working for a Fortune 100 company. He also completed his Physics and Computer Science studies at Seoul National University. The title of the talk was “What is AI and why should you bother?” which explained why AI is gaining so much traction these days and how we can capitalize on this hype to commercialize the uses of AI. How will AI impact us all? What are the critical skills to have in this new economy? Can you also build AI tools that help thousands of other people? What are some challenges to building/deploying AI solutions? Doubts ranged from technicalities in AI deployment to the fall of SVB and its impact on startups.</p></p></ol><p>In conclusion, both talks proved to be quite engaging, and the audience was intrigued.</p><p><br></p><p>Organized by:</p><p>The Cynaptics Club, IIT Indore</p>",
+			"<h3 className='text-center text-2xl font-bold text-black mb-10'></h3><ol><p><li>Dhruv Sud&nbsp;:</li> Dhruv Sud is the Director of Technology at Cloudphysician, a pioneering startup that leverages technology for healthcare access, quality and impact. He is a Bachelor of Technology, Computer Science - from IIIT Hyderabad and a Master of Computer Science - from North Carolina State University. The title of the talk was Smart Technology in Healthcare. He explained what technologies cloudphysician use to provide their services. He also talked in detail about the challenges faced by startups related to AI. Some of the doubts from the audience range from Financial management to data security while running AI models.&nbsp;</p></><p><br/><p><li>Chirag Jain:</li> Chirag is a business analyst turned coder, building one of the world's first AI membership solutions. Leveraging this solution, people can use all the popular AI tools from a single point of access and with a single payment. Chirag has spent over eight years living in South Korea, where he was working for a Fortune 100 company. He also completed his Physics and Computer Science studies at Seoul National University. The title of the talk was “What is AI and why should you bother?” which explained why AI is gaining so much traction these days and how we can capitalize on this hype to commercialize the uses of AI. How will AI impact us all? What are the critical skills to have in this new economy? Can you also build AI tools that help thousands of other people? What are some challenges to building/deploying AI solutions? Doubts ranged from technicalities in AI deployment to the fall of SVB and its impact on startups.</p></p></ol><p>In conclusion, both talks proved to be quite engaging, and the audience was intrigued.</p><p><br></p><p>Organized by:</p><p>The Cynaptics Club, IIT Indore</p>",
 
 		display_image: require("../../../public/images/Events/Event1/display_image.png"),
 		image1: require("../../../public/images/Events/Event1/image1.png"),
@@ -15,7 +15,7 @@ export const Events = [
 	},
 	{
 		id: 2,
-		title: "Application of ML workshop 1",
+		title: "Neural Nexus'23: Applications of ML Workshop",
 		date: "April 9th, 2023, 11AM to 12:30PM",
 		venue: "Maitraiyee Hall",
 		about_the_event:
@@ -48,7 +48,7 @@ export const Events = [
 	},
 	{
 		id: 4,
-		title: "Application of ML workshop 2",
+		title: "Neural Nexus'23: Make Your Own ChatGPT Workshop",
 
 		date: "April 9th, 2023, 6:30PM to 8:30PM",
 		venue: "Maitraiyee Hall",

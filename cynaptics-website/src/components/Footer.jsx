@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import {AiFillYoutube} from 'react-icons/ai'
-import {BsDiscord} from 'react-icons/bs'
-import Logo from '../../public/images/Logos/Logo.jpg'
+import { AiFillYoutube } from "react-icons/ai";
+import { BsDiscord } from "react-icons/bs";
+import Logo from "../../public/images/Logos/Logo.jpg";
 export default function Footer() {
 	const pathname = usePathname()
 	return (
