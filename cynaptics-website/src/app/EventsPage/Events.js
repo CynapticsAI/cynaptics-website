@@ -15,7 +15,7 @@ export const Events = [
 	},
 	{
 		id: 2,
-		title: "Application of ML workshop 1",
+		title: "Neural Nexus'23: Applications of ML Workshop",
 		date: "April 9th, 2023, 11AM to 12:30PM",
 		venue: "Maitraiyee Hall",
 		about_the_event:
@@ -48,7 +48,7 @@ export const Events = [
 	},
 	{
 		id: 4,
-		title: "Application of ML workshop 2",
+		title: "Neural Nexus'23: Make Your Own ChatGPT Workshop",
 
 		date: "April 9th, 2023, 6:30PM to 8:30PM",
 		venue: "Maitraiyee Hall",
