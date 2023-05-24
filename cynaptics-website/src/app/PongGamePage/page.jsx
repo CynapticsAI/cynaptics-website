@@ -78,7 +78,7 @@ export default function PongGame() {
 			initialize: function() {
 				this.canvas = document.querySelector("canvas");
 				this.context = this.canvas.getContext("2d");
-				this.round = 3;
+				this.round = 1;
 				this.canvas.width = 1400;
 				this.canvas.height = 1000;
 				this.isopen = false;
