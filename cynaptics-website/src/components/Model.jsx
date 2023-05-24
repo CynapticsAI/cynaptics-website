@@ -119,7 +119,7 @@ function RotatingFBX({ url }) {
 }
 
 function BackgroundParticles() {
-	const particleCount = 10000;
+	const particleCount = 20000;
 	const positionArray = new Float32Array(particleCount * 3);
 
 	for (let i = 0; i < particleCount * 3; i++) {
@@ -135,9 +135,9 @@ function BackgroundParticles() {
 	const material = new THREE.PointsMaterial({
 		size: 2,
 		sizeAttenuation: true,
-		color: "white",
+		color: "blue",
 		transparent: false,
-		opacity: 0.9,
+		opacity: 1,
 		depthWrite: false,
 		blending: THREE.AdditiveBlending,
 		map: new THREE.TextureLoader().load(
@@ -152,7 +152,7 @@ function BackgroundParticles() {
 function Model() {
 	return (
 		<Canvas
-			className=" z-[-1] !h-[80%] shadow-[3px_3px_30px_3px] shadow-blue-600 lg:!h-[89%]  w-full "
+			className=" z-[-1] !h-[80%] shadow-[3px_3px_30px_3px] shadow-blue-600 lg:!h-[89%]  w-full  "
 			gl={{
 				// Enable depth buffer for shadows
 				depth: true,

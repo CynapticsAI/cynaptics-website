@@ -42,7 +42,7 @@ export default function PongGame() {
 		};
 
 		var round = [1, 5, 5, 10];
-		var colors = ["#1abc9c", "#2ecc71", "#3498db", "#8c52ff", "#9b59b6"];
+		var colors = ["#00a2ff", "#00a2ff", "#00a2ff", "#00a2ff", "#00a2ff"];
 
 		// The ball object (The cube that bounces back and forth)
 		var Ball = {
@@ -78,7 +78,7 @@ export default function PongGame() {
 			initialize: function() {
 				this.canvas = document.querySelector("canvas");
 				this.context = this.canvas.getContext("2d");
-				this.round = 1;
+				this.round = 3;
 				this.canvas.width = 1400;
 				this.canvas.height = 1000;
 				this.isopen = false;
@@ -96,7 +96,7 @@ export default function PongGame() {
 				this.running = this.over = false;
 				this.turn = this.ai;
 				this.timer = 0;
-				this.color = "#8c52ff";
+				this.color = "#00a2ff";
 				// Add a new property to track the time elapsed since the last teleportation
 				this.lastTeleportationTime = 0;
 				// Add a new property to track the duration of teleportation in milliseconds
@@ -654,14 +654,13 @@ export default function PongGame() {
 
 			// Wait for a delay to have passed after each turn.
 			_turnDelayIsOver: function() {
-				return new Date().getTime() - this.timer >= 1000;
+				return new Date().getTime() - this.timer >= 0;
 			},
 
 			// Select a random color as the background of each level/round.
 			_generateRoundColor: function() {
-				var newColor = colors[Math.floor(Math.random() * colors.length)];
-				if (newColor === this.color) return Pong._generateRoundColor();
-				return newColor;
+				
+				return "#00a2ff";
 			},
 		};
 
@@ -710,9 +709,7 @@ export default function PongGame() {
 
 						width: 100%;
 					}
-					#canvas {
-						border: 2px solid red;
-					}
+					
 				`}
 			</style>
 		</div>

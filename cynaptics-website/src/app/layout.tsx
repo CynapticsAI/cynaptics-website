@@ -38,10 +38,10 @@ export default function RootLayout({
         <meta property="og:url" content={process.env.SITE_URL} />
        
       </head>
-      <body className="!z-[1000]">
+      <body className="!z-[1000] !bg-black">
 
         <Navbar />
-        <div className="z-[1000]">{children}</div>
+        <div className="z-[1000] ">{children}</div>
         <Footer />
       </body>
     </html>

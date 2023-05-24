@@ -93,6 +93,15 @@ export const TeamMembers = [
 		"image": require(`../../../public/images/Members/Parth Bhore.jpg`),
 	},
 	{
+		"id":40,
+		"name": "Saad Ahmed",
+		"position": "Member",
+		"email": "mems200005036@iiti.ac.in",
+		"linkedin": "",
+		"github": "",
+		
+	},
+	{
 		"id":21,
 		"name": "Priyansh Jaseja",
 		"position": "Member",
@@ -165,7 +174,7 @@ export const TeamMembers = [
 		"email": "cse210001082@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/yash-vashistha/",
 		"github": "https://github.com/Yashiiti",
-		// "image": require(`../../../public/images/Members/Yash Vashistha.jpg`),
+		"image": require(`../../../public/images/Members/Yash Vashistha.jpg`),
 	},
 	{
 		"id":13,
@@ -270,7 +279,7 @@ export const TeamMembers = [
 		"email": "mems210005039@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/aakash-sangvikar/",
 		"github": "https://github.com/GitsAakash",
-		// "image": require(`../../../public/images/Members/Aakash Sangvikar.jpg`),
+		"image": require(`../../../public/images/Members/Aakash Sangvikar.jpg`),
 	},
 	{
 		"id":28,
@@ -299,7 +308,7 @@ export const TeamMembers = [
 		"email": "me220003016@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/ayush-awasthi-a232b8254",
 		"github": "https://github.com/ayushawasthi24",
-		// "image": require(`../../../public/images/Members/Ayush Awasthi.jpg`),
+		"image": require(`../../../public/images/Members/Ayush Awasthi.jpg`),
 	},
 
 	{
@@ -309,7 +318,7 @@ export const TeamMembers = [
 		"email": "cse220001001@iiti.ac.in",
 		"linkedin": "https://www.linkedin.com/in/aadish-jain-177ab925a/",
 		"github": "https://github.com/mapcrafter2048",
-		// "image": require(`../../../public/images/Members/Aadish Jain.jpg`),
+		"image": require(`../../../public/images/Members/Aadish Jain.jpg`),
 	},
 	{
 		"id":32,

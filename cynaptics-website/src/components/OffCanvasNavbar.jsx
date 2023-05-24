@@ -49,12 +49,14 @@ export default function OffCanvasNavbar() {
                 setTimeout(()=>{
                   handleToggleNavbar()
                 },200)
-              }} className='' href="/AboutUsPage"><li className='my-2 mx-auto border-2 hover:invert transition-all fade-in-out focus:invert p-2 rounded-md text-center w-[200px] bg-black text-white'>About Us</li></Link>
+              }} className='' href="/Achievements"><li className='my-2 mx-auto border-2 hover:invert transition-all fade-in-out focus:invert p-2 rounded-md text-center w-[200px] bg-black text-white'>Achievements</li></Link>
               <Link onClick={()=>{
                 setTimeout(()=>{
                   handleToggleNavbar()
                 },200)
-              }} className='' href={innerWidth<700?"/PongGameMobile":"/PongGamePage"}><li className='my-2 mx-auto border-2 hover:invert transition-all fade-in-out focus:invert p-2 rounded-md text-center w-[200px] bg-black text-white'>Game</li></Link>
+              }} className='' href="/AboutUsPage"><li className='my-2 mx-auto border-2 hover:invert transition-all fade-in-out focus:invert p-2 rounded-md text-center w-[200px] bg-black text-white'>About Us</li></Link>
+              
+              
 
             </ul>
           </div>

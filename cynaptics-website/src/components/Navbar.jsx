@@ -46,7 +46,7 @@ export default function Navbar() {
 		if (pathname != "/PongGamePage" && innerWidth > 1000) {
 			setTimeout(() => {
 				setIsOpen(true);
-			}, 5000);
+			}, 1000*60);
 		}
 
 		const handleClicKOutsideOffcanvas = (e) => {
@@ -128,29 +128,19 @@ export default function Navbar() {
 									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
 							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
 						>
+							<Link href="/Achievements">Achievements</Link>
+						</li>
+						<li
+							className={`mx-10 ${
+								pathname === "/AboutUsPage"
+									? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
+									: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
+							}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
+						>
 							<Link href="/AboutUsPage">About Us</Link>
 						</li>
-						{innerWidth < 700 ? (
-							<li
-								className={`mx-10 ${
-									pathname === "/PongGameMobile"
-										? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
-										: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
-								}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
-							>
-								<Link href="/PongGameMobile">Game</Link>
-							</li>
-						) : (
-							<li
-								className={`mx-10 ${
-									pathname === "/PongGamePage"
-										? "border-2 -skew-x-12 bg-gray-200 text-black font-semibold"
-										: "hover:border-t-2 border-gray-200  transition-all fade-in-out "
-								}  p-2  max-w-[150px] text-center transition-all fade-in-out`}
-							>
-								<Link href="/PongGamePage">Game</Link>
-							</li>
-						)}
+						
+						
 					</ul>
 				</div>
 				<button

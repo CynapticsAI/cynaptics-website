@@ -2,26 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
- /* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  z-index: 10000;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
 
 body {
   overflow: overlay;
   font-family: "RobotoMono", monospace;
   color: #ffffff; /* Set your desired foreground color */
-  background: #000000; /* Set the background color to black */
+  height: 100%;
+  animation: bg1 ease-in-out infinite 20000ms;
 }
 
 
@@ -115,4 +103,85 @@ body {
   opacity: 0;
   transform: translateY(-100px);
   transform:scale(0.9);
+}
+
+
+@keyframes bg1 {
+  0% {
+    background: url('../../public/images/Backgrounds/Frame21.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+  }
+
+  10% {
+    background: url('../../public/images/Backgrounds/Frame22.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  20% {
+    background: url('../../public/images/Backgrounds/Frame23.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  30% {
+    background: url('../../public/images/Backgrounds/Frame24.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  40% {
+    background: url('../../public/images/Backgrounds/Frame25.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  50% {
+    background: url('../../public/images/Backgrounds/Frame26.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  60% {
+    background: url('../../public/images/Backgrounds/Frame27.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  70% {
+    background: url('../../public/images/Backgrounds/Frame28.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  80% {
+    background: url('../../public/images/Backgrounds/Frame29.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  90% {
+    background: url('../../public/images/Backgrounds/Frame210.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  100% {
+    background: url('../../public/images/Backgrounds/Frame211.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
 }

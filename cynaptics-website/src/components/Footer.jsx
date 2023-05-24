@@ -9,7 +9,7 @@ import Logo from '../../public/images/Logos/Logo.jpg'
 export default function Footer() {
 	const pathname = usePathname()
 	return (
-		<footer className={`${(pathname=="/EventsPage" || pathname=="/PongGamePage")?"fixed bottom-0":""}text-white body-font  shadow-[3px_3px_30px_3px] w-screen max-h-[100px] md:!mt-20 
+		<footer className={`${(pathname=="/EventsPage" || pathname=="/PongGamePage")?"fixed bottom-0":""}text-white body-font  shadow-[3px_3px_30px_3px] w-screen 
 		shadow-blue-600 border-black bg-black bottom-0  ${pathname==="/PongGamePage"?"opacity-20 hover:opacity-100 transition-all fade-in-out":""} `}>
 			<div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
 				<div className="flex title-font font-medium items-center md:justify-start !w-10 

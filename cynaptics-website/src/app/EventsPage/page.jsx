@@ -110,10 +110,10 @@ export default function EventsPage() {
 
 	return (
 		<div className="body   ">
-			<h1 className=" md:text-5xl font-bold text-center text-3xl mt-12 mb-12">
+			<h1 className=" md:text-5xl font-bold text-center text-3xl pt-12 pb-0 lg:pb-12">
 				Our Events
 			</h1>
-			<div className={`menu h-[270px] `}>
+			<div className={`menu h-[300px] `}>
 				<div className="menu--wrapper">
 					{Events.map((ele, index) => {
 						return (
@@ -159,7 +159,7 @@ export default function EventsPage() {
 					#body {
 						height: 100%;
 						overflow: hidden;
-						background: #2a2a2a;
+						background: black;
 						color: #fff;
 						font-family: "Playfair Display", cursive;
 						display: flex;
