@@ -7,12 +7,11 @@ import imagesLoaded from "imagesloaded";
 import $ from "jquery";
 import Image from "next/image";
 import Link from "next/link";
-import {Events} from './Events'
+import { Events } from "./Events";
 export default function EventsPage() {
-
 	useEffect(() => {
-		let x = document.getElementById('EventImage').height
-		console.log('x',x)
+		let x = document.getElementById("EventImage").height;
+		console.log("x", x);
 		const $menu = document.querySelector(".menu");
 		const $items = document.querySelectorAll(".menu--item");
 		const $images = document.querySelectorAll(".menu--item img");
@@ -109,33 +108,42 @@ export default function EventsPage() {
 		render();
 	}, []);
 
-
-	
 	return (
-		<div className="body pt-10 pb-32">
-			<h1 className=" md:text-5xl font-bold text-center text-3xl my-10 md:my-20">
+		<div className="body   ">
+			<h1 className=" md:text-5xl font-bold text-center text-3xl mt-12 mb-12">
 				Our Events
 			</h1>
-			<div className={`menu h-[300px]  lg:h-[450px] `}>
+			<div className={`menu h-[270px] `}>
 				<div className="menu--wrapper">
 					{Events.map((ele, index) => {
 						return (
 							// eslint-disable-next-line react/jsx-key
 							<Link href={`/EventsPage/${ele.title + ele.id.toString()}`}>
-							<div key={index} className="menu--item !flex !items-center !my-auto  ">
-								<figure className="!flex !items-center !my-auto ">
-									<div className="hover:border-2">
-									<Image
-									id="EventImage"
-									className=""
-									placeholder="blur"
-									widht={500}
-									height={500}
-										src={ele.img}
-										alt=""
-									/></div>
-								</figure>
-							</div>
+								<div
+									key={index}
+									className="menu--item !flex !items-center !my-auto  overflow-hidden group"
+								>
+									<div className="  text-white h-full items-center absolute w-full bg-black bg-opacity-80 text-center justify-center top-[-1000px] !z-[1000] group-hover:top-0 transition-all fade-in-out font-bold hidden md:flex">
+										<div>
+											<div>{ele.title}</div>
+											<div>{ele.date}</div>
+											<div>{ele.venue}</div>
+										</div>
+									</div>
+									<figure className="!flex !items-center !my-auto ">
+										<div className="hover:border-2 ">
+											<Image
+												id="EventImage"
+												className="!z-[-1]"
+												placeholder="blur"
+												widht={500}
+												height={500}
+												src={ele.display_image}
+												alt="Loading.."
+											/>
+										</div>
+									</figure>
+								</div>
 							</Link>
 						);
 					})}
@@ -148,8 +156,8 @@ export default function EventsPage() {
 						box-sizing: border-box;
 					}
 
-					body {
-						height: 100vh;
+					#body {
+						height: 100%;
 						overflow: hidden;
 						background: #2a2a2a;
 						color: #fff;
@@ -166,39 +174,35 @@ export default function EventsPage() {
 						width: 100%;
 						position: relative;
 						z-index: 1;
-						
 					}
 					.menu.is-dragging {
 						cursor: -webkit-grabbing;
 						cursor: grabbing;
 					}
 					.menu--wrapper {
-						
 						display: flex;
 						position: absolute;
 						z-index: 1;
 						height: 100%;
 						top: 0;
 						left: 0;
-						
+
 						width: 100%;
 					}
 					.menu--item {
-						
 						position: absolute;
 						z-index: 1;
 						top: 0;
 						left: 0;
 						width: 30vw;
 						height: 100%;
-						margin:10px;
-						padding:10px;
-						
-						
+						margin: 10px;
+						padding: 10px;
+
 						overflow: hidden;
 					}
-					.menu--item:hover{
-						border:2px solid white;
+					.menu--item:hover {
+						border: 2px solid white;
 					}
 					@media (max-width: 767px) {
 						.menu--item {
@@ -206,7 +210,7 @@ export default function EventsPage() {
 							height: 100%;
 						}
 					}
-					
+
 					.menu--item figure {
 						position: absolute;
 						z-index: 1;
@@ -245,7 +249,7 @@ export default function EventsPage() {
 						bottom: 1vw;
 						left: 1vw;
 						display: inline-block;
-						
+
 						color: #ffffff;
 						font-size: 3vw;
 					}
@@ -273,7 +277,6 @@ export default function EventsPage() {
 						font-size: 11px;
 					}
 					.version:before {
-						
 						position: absolute;
 						z-index: -1;
 						width: 100%;

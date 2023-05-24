@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+ /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  z-index: 10000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,16 +15,15 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   overflow: overlay;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  
+  font-family: "RobotoMono", monospace;
+  color: #ffffff; /* Set your desired foreground color */
+  background: #000000; /* Set the background color to black */
 }
+
 
 
 .center {
@@ -85,4 +85,34 @@ body {
 .smenu {
   left: 0%;
 
+}
+
+#EachEvent  li{
+  color:red !important;
+  margin:10px 10px;
+}
+
+#EachEvent a{
+  color:red;
+  margin-right: 10px;
+  border-bottom:2px solid red;
+}
+
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateY(0px);
+  transform:scale(1.1);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateY(-100px);
+  transform:scale(0.9);
 }
