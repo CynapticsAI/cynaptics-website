@@ -31,7 +31,7 @@ export const Projects = [
         frontend_github_link:"https://github.com/CynapticsAI/api-generator-frontend.git",
         backend_github_link:"https://github.com/CynapticsAI/api-generator-backend",
         deployed_link:"https://api-generator.netlify.app/",
-        project_image: require('../../../public/images/Projects/project3.jpg'),
+        project_image: require('../../../public/images/Projects/Project3.jpg'),
 
     },
     {
@@ -42,7 +42,7 @@ export const Projects = [
         people_involved:"<p>Khushi Sawla<br>Krish Agrawal<br>Rupal Shah</p>",
         domain:"AI/ML",
         github_link: "https://github.com/CynapticsAI/IITISoC-22-Image-Denoising",
-        project_image: require('../../../public/images/Projects/project4.jpg'),
+        project_image: require('../../../public/images/Projects/Project4.jpg'),
 
     },
     {
@@ -53,7 +53,7 @@ export const Projects = [
         people_involved:"<p>Prajakta Darade<br>Samip Shah<br>Saral Sethi<br>Tanisha Sahu</p>",
         domain:"AI/ML",
         github_link: "https://github.com/CynapticsAI/IITISoC-22-Sign-Language-Translator",
-        project_image: require('../../../public/images/Projects/project5.jpg'),
+        project_image: require('../../../public/images/Projects/Project5.jpg'),
 
     },
     
