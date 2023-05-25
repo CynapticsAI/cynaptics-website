@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { Projects } from "../app/ProjectsPage/Projects";
 import Image from "next/image";
 import Link from "next/link";
+import parse from "html-react-parser";
 const ProjectCarousel = () => {
 	useEffect(() => {
 		/*--------------------
@@ -104,30 +105,66 @@ Listeners
 		document.addEventListener("touchstart", handleMouseDown);
 		document.addEventListener("touchmove", handleMouseMove);
 		document.addEventListener("touchend", handleMouseUp);
+		let scrollDirection = 0;
+		let scrollTimeout = null;
+
+		/*--------------------
+		Handlers
+		--------------------*/
+		const handleWheel2 = (e) => {
+			clearTimeout(scrollTimeout);
+
+			const deltaY = Math.sign(e.deltaY);
+			scrollDirection += deltaY;
+
+			if (scrollDirection === -1 || scrollDirection === 1) {
+				progress += scrollDirection * 20;
+				animate();
+			}
+
+			scrollTimeout = setTimeout(() => {
+				scrollDirection = 0;
+			}, 200);
+		};
+
+		/*--------------------
+		Listeners
+		--------------------*/
+		document.addEventListener("wheel", handleWheel2);
 	}, []);
 	return (
 		<>
 			<div id="body" className="!overflow-x-hidden">
-				<h1 className="font-bold text-3xl text-center pt-20 md:text-5xl">
-					Our Projects
-				</h1>
+				
 				<div className="carousel !overflow-x-hidden">
 					{Projects.map((ele, index) => {
 						return (
-							<div key="index" className="carousel-item">
-								<div className="carousel-box hover:border-2 transition-all fade-in-out shadow-[10px_10px_10px_10px] shadow-white text-center">
-									<Link
-									className="w-full flex justify-center text-center "
-										href={`/ProjectsPage/${
-											ele.project_title
-										} + ${ele.id.toString()}`}
+							<div className="carousel-item border-2" key={ele.id}>
+								<div className="carousel-box hover:border-2 transition-all fade-in-out bg-black shadow-[10px_10px_10px_10px] shadow-white text-center">
+									
+									
+										<div className="!mx-auto title !bg-black !w-full !bottom-0 md:pt-auto text-center flex flex-col my-auto items-center">	
+										<div className="md:text-xl text-sm p-2">
+									        {ele.project_title}
+										</div>
+										<Link
+										className="w-full flex justify-center text-center bg-black border-2"
+										href={`/ProjectsPage/${ele.project_title
+											} + ${ele.id.toString()}`}
 									>
-										<div className="!mx-auto title  !w-fit !bottom-[10px] md:!bottom-[20px] md:pt-auto text-center">Read More</div>
-									</Link>
+											<div className=" border-2 text-sm md:text-xl bg-gray-100 hover:bg-gray-100 rounded-md text-black w-fit h-fit mx-auto my-2 p-2">
+											Read More
+											</div>
+											</Link>
+										</div>
+									
 									<div className="num">{ele.id}</div>
-									<Image placeholder="blur"
+									<Image
+										placeholder="blur"
 										width={500}
 										height={500}
+										className=""
+										blurDataURL="https://i.pinimg.com/236x/5b/55/34/5b55347cbc59b8849f75454d77c0d828.jpg"
 										src={ele.project_image}
 										alt="loading..."
 									/>
@@ -137,43 +174,7 @@ Listeners
 					})}
 				</div>
 
-				<svg>
-					<symbol id="ico-instagram" viewBox="0 0 35 35">
-						<circle
-							opacity=".2"
-							cx="17.5"
-							cy="17.5"
-							r="17"
-							stroke="var(--fill)"
-							fill="none"
-						></circle>
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M24.944 20.476c.028-.457.042-1.282.042-2.476s-.014-2.019-.042-2.476c-.056-1.09-.378-1.93-.965-2.517s-1.422-.91-2.503-.965C21.018 12.014 20.194 12 19 12s-2.019.014-2.476.042c-1.081.047-1.92.368-2.517.965s-.918 1.436-.965 2.518C13.014 15.98 13 16.805 13 18c0 1.194.014 2.019.042 2.476.047 1.09.368 1.93.965 2.517s1.436.91 2.518.965c.466.028 1.29.042 2.475.042 1.184 0 2.01-.014 2.476-.042 1.072-.047 1.906-.368 2.503-.965.597-.597.918-1.436.965-2.517ZM19 13.075h-1.427c-.186 0-.438.01-.755.029a11.61 11.61 0 0 0-.797.07c-.215.028-.401.08-.56.154-.26.102-.489.251-.685.447-.196.196-.35.425-.461.685-.056.15-.103.336-.14.56a7.843 7.843 0 0 0-.084.811 7.113 7.113 0 0 0-.014.741c.01.178.01.453 0 .826-.01.373-.01.573 0 .601.01.028.01.228 0 .601s-.01.648 0 .826c.01.177.014.424.014.74 0 .318.028.588.084.812l.14.56c.112.26.265.489.461.685.196.196.425.345.685.447.15.056.336.108.56.154.224.047.49.07.797.07.308 0 .56.01.755.028.196.019.471.019.826 0 .354-.019.554-.019.601 0 .047.019.242.019.587 0s.62-.019.826 0c.205.019.456.01.755-.028.298-.037.569-.06.811-.07.242-.01.424-.06.546-.154.26-.102.494-.251.699-.447a1.75 1.75 0 0 0 .447-.686c.056-.149.103-.335.14-.559.038-.224.066-.494.084-.811.019-.317.023-.564.014-.741a11.82 11.82 0 0 1 0-.826c.01-.373.01-.573 0-.601-.01-.028-.01-.228 0-.601s.01-.648 0-.826c-.01-.177-.014-.424-.014-.74 0-.318-.028-.588-.084-.812l-.14-.56a1.956 1.956 0 0 0-1.147-1.133 3.979 3.979 0 0 0-.545-.153 3.915 3.915 0 0 0-.811-.07c-.326 0-.578-.01-.755-.028a5.916 5.916 0 0 0-.826 0c-.372.019-.568.019-.587 0Zm3.706 2.225c.14-.14.21-.308.21-.504a.57.57 0 0 0-.21-.503.767.767 0 0 0-.517-.21.718.718 0 0 0-.504.21.622.622 0 0 0-.21.503c.01.196.08.364.21.504s.299.21.504.21c.205 0 .377-.07.517-.21ZM22.063 18c0 .849-.298 1.576-.895 2.182a2.882 2.882 0 0 1-2.168.895 3.075 3.075 0 0 1-2.182-.895c-.606-.588-.904-1.315-.895-2.182.01-.867.308-1.594.895-2.182.588-.587 1.315-.886 2.182-.895.867-.01 1.59.29 2.168.895.578.606.876 1.333.895 2.182Zm-1.077 0a1.95 1.95 0 0 0-.573-1.413A1.897 1.897 0 0 0 19 16c-.56 0-1.03.196-1.413.587A2.001 2.001 0 0 0 17 18c-.01.55.186 1.021.587 1.413.401.391.872.587 1.413.587.54 0 1.012-.196 1.413-.587.4-.392.592-.863.573-1.413Z"
-							transform="translate(-1.5 -0.5)"
-							fill="var(--fill)"
-						></path>
-					</symbol>
-
-					<symbol id="ico-linkedin" viewBox="0 0 35 35">
-						<circle
-							opacity=".2"
-							cx="17.5"
-							cy="17.5"
-							r="17"
-							stroke="var(--fill)"
-							fill="none"
-						></circle>
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M15.3025 14.0835C15.3025 14.3845 15.1934 14.6403 14.9752 14.851C14.757 15.0617 14.4786 15.167 14.14 15.167C13.8014 15.167 13.5267 15.0617 13.316 14.851C13.1053 14.6403 13 14.3807 13 14.0722C13 13.7637 13.1053 13.5079 13.316 13.3047C13.5267 13.1016 13.8051 13 14.1512 13C14.4974 13 14.772 13.1016 14.9752 13.3047C15.1783 13.5079 15.2874 13.7675 15.3025 14.0835ZM13.0677 23V16.0248H15.2348V23H13.0677ZM16.4763 16.0248C16.5064 16.8676 16.5214 17.6125 16.5214 18.2596V23H18.7111V18.9819C18.7111 18.7111 18.7336 18.5305 18.7788 18.4402C18.9895 17.8984 19.3582 17.6275 19.8849 17.6275C20.6223 17.6275 20.991 18.1317 20.991 19.14V23H23.158V18.8691C23.158 17.8758 22.9285 17.1272 22.4695 16.623C22.0105 16.1189 21.4048 15.8668 20.6524 15.8668C19.6742 15.8668 18.9594 16.243 18.5079 16.9955H18.4628L18.3499 16.0248H16.4763Z"
-							transform="translate(0 -1)"
-							fill="var(--fill)"
-						></path>
-					</symbol>
-				</svg>
+				
 
 				<div className="cursor"></div>
 				<div className="cursor cursor2"></div>
@@ -183,40 +184,78 @@ Listeners
 						#body {
 							overflow: hidden;
 							font-family: "Roboto", serif;
-							
 						}
 						.carousel {
 							position: relative;
 							z-index: 1;
-							height: 100vh;
+							height: 560px;
 							overflow: hidden;
 							pointer-events: none;
 						}
+						@media only screen and (max-width:800px){
+							.carousel {
+								position: relative;
+								z-index: 1;
+								height: 100vh;
+								overflow: hidden;
+								pointer-events: none;
+							}				
+
+						}
+						
 						.carousel-item {
-							--items: 10;
-							--width: clamp(150px, 30vw, 300px);
+							--items: ${Projects.length};
+							--width: clamp(200px, 30vw, 400px);
 							--height: clamp(200px, 40vw, 400px);
-							--x: calc(var(--active) * 800%);
-							--y: calc(var(--active) * 200%);
-							--rot: calc(var(--active) * 120deg);
+							--x: calc(var(--active) * 0%);
+							--y: calc(var(--active) * 0%);
+							--rot: calc(var(--active) * 360deg);
 							--opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
 							overflow: hidden;
 							position: absolute;
 							z-index: var(--zIndex);
-							width: var(--width);
-							height: var(--height);
-							margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+							width: 400px;
+							height: 500px;
+							
 							border-radius: 10px;
-							top: 50%;
-							left: 50%;
+							top: 10%;
+							left: 37%;
 							user-select: none;
-							transform-origin: 0% 100%;
-							box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
-							background: black;
+							transform-origin: 50% 170%;
+							
+							
 							pointer-events: all;
 							transform: translate(var(--x), var(--y)) rotate(var(--rot));
 							transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
 						}
+						@media only screen and (max-width: 800px) {
+							.carousel-item {
+								--items: ${Projects.length};
+								--width: clamp(200px, 30vw, 400px);
+								--height: clamp(200px, 40vw, 400px);
+								--x: calc(var(--active) * 0%);
+								--y: calc(var(--active) * 0%);
+								--rot: calc(var(--active) * 360deg);
+								--opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+								overflow: hidden;
+								position: absolute;
+								z-index: var(--zIndex);
+								width: 200px;
+								height: 300px;
+								margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+								border-radius: 10px;
+								top: 30%;
+								left: 50%;
+								user-select: none;
+								transform-origin: 70% 130%;
+								box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
+								background: black;
+								pointer-events: all;
+								transform: translate(var(--x), var(--y)) rotate(var(--rot));
+								transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+							}
+						}
+
 						.carousel-item .carousel-box {
 							position: absolute;
 							z-index: 1;
@@ -225,7 +264,7 @@ Listeners
 							width: 100%;
 							height: 100%;
 							transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
-							opacity: var(--opacity);
+							opacity: 1;
 							font-family: "Orelo-sw-db", serif;
 						}
 						.carousel-item .carousel-box:before {
@@ -249,6 +288,7 @@ Listeners
 							z-index: 1;
 							color: #fff;
 							bottom: 20px;
+							background: black;
 							
 							transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
 							font-size: clamp(20px, 3vw, 30px);

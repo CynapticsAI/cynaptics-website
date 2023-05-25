@@ -5,7 +5,7 @@ import { useEffect, useRef, useCallback } from "react";
 import useWindowSize from "@rooks/use-window-size";
 
 
-const Stars = ({ vel = 1, radius = 1, starsCounter = 300 }) => {
+const Stars = ({ vel = 0, radius = 1, starsCounter = 0 }) => {
 	const canvasRef = useRef(null);
 	const starsRef = useRef([]);
 	const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
@@ -26,53 +26,54 @@ const Stars = ({ vel = 1, radius = 1, starsCounter = 300 }) => {
 		const context = canvasRef.current.getContext("2d");
 		context.lineCap = "round";
 
-		const Star = function() {
-			this.x = center.x;
-			this.y = center.y;
-
-			this.init = function() {
-				this.radius = Math.random() * radius;
+		class Star {
+			constructor() {
 				this.x = center.x;
 				this.y = center.y;
-				this.lineWidth = 0;
-				this.vel = {
-					x: Math.random() * 10 - 5,
-					y: Math.random() * 10 - 5,
+
+				this.init = function () {
+					this.radius = Math.random() * radius;
+					this.x = center.x;
+					this.y = center.y;
+					this.lineWidth = 0;
+					this.vel = {
+						x: Math.random() * 10 - 5,
+						y: Math.random() * 10 - 5,
+					};
 				};
-			};
 
-			this.update = function() {
-				this.vel.x *= 1.05;
-				this.vel.y *= 1.05;
-				this.lineWidth += 0.035;
-				this.x0 = this.x;
-				this.y0 = this.y;
-				this.x += this.vel.x;
-				this.y += this.vel.y;
-				this.draw();
-				if (this.isDead()) this.init();
-			};
+				this.update = function () {
+					
+					this.x0 = this.x;
+					this.y0 = this.y;
+					this.x += this.vel.x;
+					this.y += this.vel.y;
+					this.draw();
+					if (this.isDead())
+						this.init();
+				};
 
-			this.draw = function() {
-				context.beginPath();
-				context.moveTo(this.x0, this.y0);
-				context.lineTo(this.x, this.y);
-				context.lineWidth = this.lineWidth;
-				context.stroke();
-			};
+				this.draw = function () {
+					context.beginPath();
+					context.moveTo(this.x0, this.y0);
+					context.lineTo(this.x, this.y);
+					context.lineWidth = this.lineWidth;
+					context.stroke();
+				};
 
-			this.isDead = function() {
-				return (
-					this.x < 0 ||
-					this.x > canvasRef.current.width ||
-					this.y < 0 ||
-					this.y > canvasRef.current.height
-				);
-			};
+				this.isDead = function () {
+					return (
+						this.x < 0 ||
+						this.x > canvasRef.current.width ||
+						this.y < 0 ||
+						this.y > canvasRef.current.height
+					);
+				};
 
-			this.init();
-			return this;
-		};
+				this.init();
+				return this;
+			}
+		}
 
 		const stars = [];
 		for (let i = 0; i < starsCounter; i++) {
@@ -120,7 +121,7 @@ export default function ProjectLayout({ children }) {
 				title="The Cynaptics Club - Our Projects"
 				description="The Cynaptics Club(AI/ML) - IIT INDORE"
 			/>
-			<Stars vel={1} radius={2} starsCounter={500} />
+			{/* <Stars vel={0} radius={2} starsCounter={100} /> */}
 			{children}
 		</div>
 	);
