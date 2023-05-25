@@ -8,7 +8,7 @@ export const AD = [
         github_link: "https://github.com/CynapticsAI/Cloudphysician-InterIIT2023",
         people_involved: "<ol><li>Bhavya Contractor</li> <li>Ashutosh Nayak</li> <li>Ashutosh Samantaray</li> <li>Madhav Kadam</li> <li>Safdar Inamdar</li> <Kotian>Samip Shah</li> <li>Sejal Kotian</li> <li>Vishnu V Jaddipal</li></ol>",
         domain:"AI/ML(Computer Vision)- Biomedical Parameters extraction",
-        image: require('../../../public/images/Achievements/project1.png'),
+        image: require('../../../public/images/Achievements/achievement1.png'),
 
     },
     {
@@ -19,7 +19,7 @@ export const AD = [
         people_involved:"<p>Abhijit Panda<br>Aryan Rastogi<br>Atharva Mohite<br>Krish Agrawal<br>Parth Bhore<br>Prajakta Darade<br>Pranjal Gadge<br>Rupal Shah<br>Tanisha Sahu<br>Yatharth Gupta</p>",
         domain:"AI/ML(Natural Language Processing)",
         github_link: "https://github.com/CynapticsAI/DevRev-InterIIT_2023",
-        image: require('../../../public/images/Achievements/project2.png'),
+        image: require('../../../public/images/Achievements/achievement2.png'),
 
     },
     {
@@ -32,7 +32,7 @@ export const AD = [
         frontend_github_link:"https://github.com/CynapticsAI/api-generator-frontend.git",
         backend_github_link:"https://github.com/CynapticsAI/api-generator-backend",
         deployed_link:"https://api-generator.netlify.app/",
-        image: require('../../../public/images/Achievements/Project3.jpg'),
+        image: require('../../../public/images/Achievements/achievement3.jpg'),
 
     },
     {
@@ -43,7 +43,7 @@ export const AD = [
         people_involved:"<p>Khushi Sawla<br>Krish Agrawal<br>Rupal Shah</p>",
         domain:"AI/ML",
         github_link: "https://github.com/CynapticsAI/IITISoC-22-Image-Denoising",
-        image: require('../../../public/images/Achievements/Project4.jpg'),
+        image: require('../../../public/images/Achievements/achievement4.jpg'),
 
     },
     {
@@ -54,7 +54,7 @@ export const AD = [
         people_involved:"<p>Prajakta Darade<br>Samip Shah<br>Saral Sethi<br>Tanisha Sahu</p>",
         domain:"AI/ML",
         github_link: "https://github.com/CynapticsAI/IITISoC-22-Sign-Language-Translator",
-        image: require('../../../public/images/Achievements/Project5.jpg'),
+        image: require('../../../public/images/Achievements/achievement5.jpg'),
 
     },
     
