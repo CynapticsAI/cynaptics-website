@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild":"next-sitemap",
+    "postbuild": "next-sitemap",
     "sitemap": "next-sitemap",
     "prettier": "prettier --check 'src/**/*.{js,jsx,ts,tsx}",
-    "depcheck":"depcheck"
+    "depcheck": "depcheck"
   },
   "dependencies": {
     "@react-three/drei": "^9.68.1",
@@ -27,6 +27,7 @@
     "gsap": "^3.11.5",
     "html-parser": "^0.11.0",
     "html-react-parser": "^3.0.16",
+    "http-server": "^14.1.1",
     "imagesloaded": "^5.0.0",
     "jquery": "^3.6.4",
     "next": "13.4.1",
