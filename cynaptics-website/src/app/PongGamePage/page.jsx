@@ -671,7 +671,7 @@ export default function PongGame() {
 		}
 	}, []);
 
-	console.log();
+	
 	return (
 		<div
 			id="body"

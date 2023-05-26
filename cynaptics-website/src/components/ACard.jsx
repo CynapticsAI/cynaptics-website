@@ -19,12 +19,12 @@ export default function ACard({ele}) {
 					</div>
 
 					<h2 className="text-white mt-5 font-extrabold text-xl">{ele.title}  </h2>
-					<p className="description !text-gray-100 font-bold">
+					<div className="description !text-gray-100 font-bold">
 						<div className="text-red-500">Achievements :</div> <div>{ele.Achievements} </div>
-					</p>
-                    <p className="description !text-gray-100 font-bold">
+					</div>
+                    <div className="description !text-gray-100 font-bold">
 					<div className="text-red-500">Domain Worked On :</div> <div>{ele.domain} </div>
-					</p>
+					</div>
 					<div className="">
 						<div className="price">
 						<Link

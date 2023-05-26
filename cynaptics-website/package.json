@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild":"next-sitemap",
+    "sitemap": "next-sitemap",
+    "prettier": "prettier --check 'src/**/*.{js,jsx,ts,tsx}",
+    "depcheck":"depcheck"
   },
   "dependencies": {
     "@react-three/drei": "^9.68.1",
@@ -29,6 +33,7 @@
     "next-seo": "^6.0.0",
     "next-sitemap": "^4.0.9",
     "postcss": "8.4.23",
+    "prettier": "^2.8.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",

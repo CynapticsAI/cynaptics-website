@@ -7,7 +7,7 @@ export default function TextAnimation(props:{text:string}) {
             
 
                 <svg viewBox="10 10 1500 120">
-                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                    <text x="50%" y="50%" dy=".35em" textAnchor="middle">
                         {props.text}
                     </text>
                 </svg>

@@ -160,7 +160,7 @@ function Model() {
 				alpha: true,
 			}}
 			camera={{ position: [60, 50, 0], near: 0.1, far: 1000 }} // Add near and far properties to fix camera issue		
-			backgroundColor={"#e9e9e9"} // Set background color
+			backgroundcolor={"#e9e9e9"} // Set background color
 		>
 			{/* Add an ambient light to the scene */}
 			<ambientLight intensity={1} />

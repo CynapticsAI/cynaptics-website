@@ -6,7 +6,7 @@ import React from "react";
 export default function HeadCard({ ele, index }) {
   var currentTime = new Date();
   var year = currentTime.getFullYear();
-  console.log(ele.image)
+  
 	return (
 		<div key={index} className="">
 			<div className="container bg-white">

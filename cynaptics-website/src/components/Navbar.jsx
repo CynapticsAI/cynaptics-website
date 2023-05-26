@@ -59,7 +59,7 @@ export default function Navbar() {
 			document.removeEventListener("click", handleClicKOutsideOffcanvas, true);
 		};
 	}, []);
-	console.log(pathname);
+	
 	const OpenOffCanvas = () => {
 		if (document.getElementById("offcanvas").offsetLeft === -1000) {
 			document.querySelector("#offcanvas").classList.add("smenu");

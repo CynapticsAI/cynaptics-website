@@ -117,34 +117,35 @@ export default function EventsPage() {
 				<div className="menu--wrapper">
 					{Events.map((ele, index) => {
 						return (
-							// eslint-disable-next-line react/jsx-key
-							<Link href={`/EventsPage/${ele.title + ele.id.toString()}`}>
-								<div
-									key={index}
-									className="menu--item !flex !items-center !my-auto  overflow-hidden group"
-								>
-									<div className="  text-white h-full items-center absolute w-full bg-black bg-opacity-80 text-center justify-center top-[-1000px] !z-[1000] group-hover:top-0 transition-all fade-in-out font-bold hidden md:flex">
-										<div>
-											<div>{ele.title}</div>
-											<div>{ele.date}</div>
-											<div>{ele.venue}</div>
+							<div key={ele.id}>
+								<Link href={`/EventsPage/${ele.title + ele.id.toString()}`}>
+									<div
+
+										className="menu--item !flex !items-center !my-auto  overflow-hidden group"
+									>
+										<div className="  text-white h-full items-center absolute w-full bg-black bg-opacity-80 text-center justify-center top-[-1000px] !z-[1000] group-hover:top-0 transition-all fade-in-out font-bold hidden md:flex">
+											<div>
+												<div>{ele.title}</div>
+												<div>{ele.date}</div>
+												<div>{ele.venue}</div>
+											</div>
 										</div>
+										<figure className="!flex !items-center !my-auto ">
+											<div className="hover:border-2 ">
+												<Image
+													id="EventImage"
+													className="!z-[-1]"
+													placeholder="blur"
+													widht={500}
+													height={500}
+													src={ele.display_image}
+													alt="Loading.."
+												/>
+											</div>
+										</figure>
 									</div>
-									<figure className="!flex !items-center !my-auto ">
-										<div className="hover:border-2 ">
-											<Image
-												id="EventImage"
-												className="!z-[-1]"
-												placeholder="blur"
-												widht={500}
-												height={500}
-												src={ele.display_image}
-												alt="Loading.."
-											/>
-										</div>
-									</figure>
-								</div>
-							</Link>
+								</Link>
+							</div>
 						);
 					})}
 				</div>
@@ -219,7 +220,7 @@ export default function EventsPage() {
 						-moz-user-select: none;
 						-ms-user-select: none;
 						user-select: none;
-						-webkit-appearance: none;
+						-webkit-appxtAnchorearance: none;
 						padding: 0;
 						border: none;
 						outline: none;
@@ -228,7 +229,7 @@ export default function EventsPage() {
 						width: 100%;
 						height: 100%;
 						overflow: hidden;
-						pointer-events: none;
+						pointerEvents: none;
 						transform-origin: center;
 					}
 					.menu--item figure img {

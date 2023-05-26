@@ -19,27 +19,27 @@ export default function page({ params }) {
 						<h1 className="title-font sm:text-4xl text-3xl mb-4  text-white font-extrabold">
 							{parse(CurrentAchievement[0].title)}
 						</h1>
-						<p className="mb-3 leading-relaxed">
+						<div className="mb-3 leading-relaxed">
 							{parse(CurrentAchievement[0].desc)}
-						</p>
+						</div>
 						<h3 className="font-bold text-3xl leading-relaxed my-5">
 							People Involved Are:
 						</h3>
-						<p className="mb-3 leading-relaxed">
+						<div className="mb-3 leading-relaxed">
 							{parse(CurrentAchievement[0].people_involved)}
-						</p>
+						</div>
 						<h3 className="font-bold text-3xl leading-relaxed my-5">
 							Domain Worked On:
 						</h3>
-						<p className="mb-3 leading-relaxed">
+						<div className="mb-3 leading-relaxed">
 							{parse(CurrentAchievement[0].domain)}
-						</p>
+						</div>
 						<h3 className="font-bold text-3xl leading-relaxed my-5">
 							Achievement:
 						</h3>
-						<p className="mb-3 leading-relaxed">
+						<div className="mb-3 leading-relaxed">
 							{parse(CurrentAchievement[0].Achievements)}
-						</p>
+						</div>
 						<div className="flex justify-center">
 							{CurrentAchievement[0].github_link && (
 								<Link href={CurrentAchievement[0].github_link} target={"_blank"} className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">

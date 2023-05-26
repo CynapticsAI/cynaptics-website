@@ -20,7 +20,7 @@ export default function OurTeamPage() {
 					return (
 						<>
 							{ele.position != "Club Head" && (
-								<div key={index}>
+								<div key={ele.id}>
 									<Card className={`${ele.position.includes('Head') && "!ring-[10px] !ring-purple-500 !ring-opacity-70"} ${ele.position.includes('Member') && "!ring-[10px] !ring-blue-500 !ring-opacity-70"}`} ele={ele} index={ele.id} />
 								</div>
 							)}
