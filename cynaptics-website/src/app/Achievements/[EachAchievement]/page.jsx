@@ -23,7 +23,13 @@ export default function page({ params }) {
 							{parse(CurrentAchievement[0].desc)}
 						</div>
 						<h3 className="font-bold text-3xl leading-relaxed my-5">
-							People Involved Are:
+							Achievement:
+						</h3>
+						<div className="mb-3 leading-relaxed">
+							{parse(CurrentAchievement[0].Achievements)}
+						</div>
+						<h3 className="font-bold text-3xl leading-relaxed my-5">
+							People Involved: 
 						</h3>
 						<div className="mb-3 leading-relaxed">
 							{parse(CurrentAchievement[0].people_involved)}
@@ -34,12 +40,7 @@ export default function page({ params }) {
 						<div className="mb-3 leading-relaxed">
 							{parse(CurrentAchievement[0].domain)}
 						</div>
-						<h3 className="font-bold text-3xl leading-relaxed my-5">
-							Achievement:
-						</h3>
-						<div className="mb-3 leading-relaxed">
-							{parse(CurrentAchievement[0].Achievements)}
-						</div>
+						
 						<div className="flex justify-center">
 							{CurrentAchievement[0].github_link && (
 								<Link href={CurrentAchievement[0].github_link} target={"_blank"} className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">

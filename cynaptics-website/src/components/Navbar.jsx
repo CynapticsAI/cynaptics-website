@@ -164,7 +164,7 @@ export default function Navbar() {
 						style={customStyles}
 					>
 						<div className="w-full flex justify-center text-center">
-							<GlitchText text={'Need... zzz... Assistance... zzz... Unleash Your Inner Warrior: Join the Ultimate Battle Against AI!'} />
+							<GlitchText text={'Need... zzz... Assistance... zzz...'} />
 						</div>
 						<div className="flex flex-col md:flex-row mx-auto w-full  justify-center my-5">
 							<Link

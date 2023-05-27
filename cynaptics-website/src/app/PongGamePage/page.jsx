@@ -209,7 +209,7 @@ export default function PongGame() {
 						}
 
 						if (this.round === 2) {
-							this.ai.speed = 8;
+							this.ai.speed = 12;
 						}
 						// Opponent paddle teleportation
 						if (this.round === 3) {
@@ -250,7 +250,7 @@ export default function PongGame() {
 							}
 						}
 						if (this.round == 3) {
-							this.ai.speed = 10;
+							this.ai.speed = 12;
 						}
 						// Ball spawning every 3 seconds
 

@@ -2,46 +2,41 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-export default function ACard({ele}) {
+export default function ACard({ ele }) {
 	return (
-		<div className="flex justify-center text-center">
-			<div className="nft flex justify-center">
-				<div className="main">
-					<div className="tokenImage">
-						<Image
-							height={500}
-							weight={500}
-							placeholder="blur"
-							className="tokenImage rounded-md"
-							src={ele.image}
-							alt="NFT"
-						/>
-					</div>
+		<>
+			<Link
+				className=""
+				href={`/Achievements/${ele.title
+					} + ${ele.id.toString()}`}
+			>
+				<div className="flex justify-center text-center">
+					<div className="nft flex justify-center">
+						<div className="main">
+							<div className="tokenImage flex justify-center">
+								<Image
+									height={200}
+									weight={200}
+									placeholder="blur"
+									className="tokenImage rounded-md"
+									src={ele.image}
+									alt="NFT"
+								/>
+							</div>
 
-					<h2 className="text-white mt-5 font-extrabold text-xl">{ele.title}  </h2>
-					<div className="description !text-gray-100 font-bold">
-						<div className="text-red-500">Achievements :</div> <div>{ele.Achievements} </div>
-					</div>
-                    <div className="description !text-gray-100 font-bold">
-					<div className="text-red-500">Domain Worked On :</div> <div>{ele.domain} </div>
-					</div>
-					<div className="">
-						<div className="price">
-						<Link
-										className=""
-										href={`/Achievements/${ele.title
-											} + ${ele.id.toString()}`}
-									>
-							<button className="text-purple-500 text-xl">Know More</button>
-							</Link>
+							<h2 className="text-white mt-5 font-extrabold text-xl">{ele.title.length<25?ele.title:(ele.title.slice(0,25).toString() + " ...")} </h2>
+							<div className="description !text-gray-100 font-bold">
+								<div className="text-red-500">Achievements :</div> <div>{ele.Achievements.length<25?ele.Achievements:(ele.Achievements.slice(0,25).toString() + " ...")}</div>
+							</div>
+							<div className="description !text-gray-100 font-bold">
+								<div className="text-red-500">Domain Worked On :</div> <div>{ele.domain.length<25?ele.domain:(ele.domain.slice(0,25).toString() + " ...")} </div>
+							</div>
+							
+							<hr />
 						</div>
-						
 					</div>
-					<hr />
-				</div>
-			</div>
-			<style jsx>
-				{`
+					<style jsx>
+						{`
 					body {
 						margin: 0;
 						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -59,7 +54,7 @@ export default function ACard({ele}) {
 					}
 					.nft {
 						user-select: none;
-						max-width: 400px;
+						width: 400px;
 						margin: 5rem auto;
 						border: 1px solid #ffffff;
 						background-color: #ffffff;
@@ -180,7 +175,10 @@ export default function ACard({ele}) {
 						filter: opacity(0.5);
 					}
 				`}
-			</style>
-		</div>
+					</style>
+				</div>
+			</Link >
+		</>
+
 	);
 }
