@@ -43,11 +43,13 @@ export default function Navbar() {
 	const ref = useRef(null);
 
 	useEffect(() => {
-		if (pathname != "/PongGamePage" && innerWidth > 1000) {
+		if (pathname !== "/PongGamePage" && window.innerWidth>1000) {
 			setTimeout(() => {
 				setIsOpen(true);
 			}, 1000*60);
 		}
+
+		
 
 		const handleClicKOutsideOffcanvas = (e) => {
 			if (ref.current && !ref.current.contains(e.target)) {
@@ -69,10 +71,10 @@ export default function Navbar() {
 	};
 
 	return (
-		<div className={`${pathname==="/PongGamePage"?"opacity-20 hover:opacity-100 transition-all fade-in-out":"block"}`}>
+		<div className={`${pathname==="/PongGamePage"?"opacity-20 hover:opacity-100 transition-all !z-[10000] fade-in-out":"block z-[10000]"} z-[10000]`}>
 			<div
 				id="Navbar_body"
-				className="flex shadow-[3px_3px_30px_3px] rounded-b-md shadow-blue-600 justify-between p-2 bg-black w-screen"
+				className="flex shadow-[3px_3px_30px_3px] rounded-b-md shadow-blue-600 justify-between p-2 bg-black w-screen !z-[100000]"
 			>
 				<div className="ml-2">
 					<Image
@@ -162,7 +164,7 @@ export default function Navbar() {
 						style={customStyles}
 					>
 						<div className="w-full flex justify-center text-center">
-							<GlitchText text={'Unleash Your Inner Warrior: Join the Ultimate Battle Against AI!'} />
+							<GlitchText text={'Need... zzz... Assistance... zzz... Unleash Your Inner Warrior: Join the Ultimate Battle Against AI!'} />
 						</div>
 						<div className="flex flex-col md:flex-row mx-auto w-full  justify-center my-5">
 							<Link

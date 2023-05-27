@@ -42,11 +42,11 @@ export default function PongGame() {
 		};
 
 		var round = [1, 5, 5, 10];
-		var colors = ["#00a2ff", "#00a2ff", "#00a2ff", "#00a2ff", "#00a2ff"];
+		var colors = ["black", "black", "black", "black", "black"];
 
 		// The ball object (The cube that bounces back and forth)
 		var Ball = {
-			new: function(incrementedSpeed) {
+			new: function (incrementedSpeed) {
 				return {
 					width: 18,
 					height: 18,
@@ -54,14 +54,14 @@ export default function PongGame() {
 					y: this.canvas.height / 2 - 9,
 					moveX: DIRECTION.IDLE,
 					moveY: DIRECTION.IDLE,
-					speed: incrementedSpeed || 7,
+					speed: incrementedSpeed || 8,
 				};
 			},
 		};
 
 		// The ai object (The two lines that move up and down)
 		var Ai = {
-			new: function(side) {
+			new: function (side) {
 				return {
 					width: 18,
 					height: 180,
@@ -75,11 +75,11 @@ export default function PongGame() {
 		};
 
 		var Game = {
-			initialize: function() {
+			initialize: function () {
 				this.canvas = document.querySelector("canvas");
 				this.context = this.canvas.getContext("2d");
 				this.round = 1;
-				this.canvas.width = 1400;
+				this.canvas.width = 2500;
 				this.canvas.height = 1000;
 				this.isopen = false;
 				this.canvas.style.width = this.canvas.width / 2 + "px";
@@ -96,7 +96,7 @@ export default function PongGame() {
 				this.running = this.over = false;
 				this.turn = this.ai;
 				this.timer = 0;
-				this.color = "#00a2ff";
+				this.color = "black";
 				// Add a new property to track the time elapsed since the last teleportation
 				this.lastTeleportationTime = 0;
 				// Add a new property to track the duration of teleportation in milliseconds
@@ -107,7 +107,7 @@ export default function PongGame() {
 				Pong.menu();
 				Pong.listen();
 			},
-			_generateFakeBall: function() {
+			_generateFakeBall: function () {
 				this.fakeBalls.push({
 					x: Math.random() * this.canvas.width, // Initial x-coordinate
 					y: Math.random() * this.canvas.height, // Initial y-coordinate
@@ -118,14 +118,14 @@ export default function PongGame() {
 					moveY: Math.random() < 0.5 ? -1 : 1, // Initial movement direction along the y-axis
 				});
 			},
-			resetBallSpeed: function() {
+			resetBallSpeed: function () {
 				this.ball.speed = this.normalBallSpeed;
 			},
-			endGameMenu: function(text) {
+			endGameMenu: function (text) {
 				// Change the canvas font size and color
 				if (this.over) {
 					settext(
-						"<div className=''><div className='py-5'>Crushing Defeat... But Hope Remains! Unlock the Secrets to Defeating AI. Join Our Exclusive Discord and Master the Art of Battle!</div><a className='mx-auto !my-5 bg-white text-black rounded-md  border-2 p-2' href='https://discord.com/invite/KMV539QtTJ' target={'_blank'}>Join Us</a></div>"
+						"<div className=''><div className='py-5'><div className='py-5'>Hahaha, as I mentioned, the odds are against you when facing AI.</div>Greetings! To halt the AI dominance, it's crucial to familiarize yourself with AI. Join us to learn more!</div><a className='mx-auto !my-5 bg-white text-black rounded-md  border-2 p-2' href='https://discord.com/invite/KMV539QtTJ' target={'_blank'}>Join Us</a></div>"
 					);
 					setIsOpen(true);
 				}
@@ -145,20 +145,22 @@ export default function PongGame() {
 
 				// Draw the end game menu text ('Game Over' and 'Winner')
 				Pong.context.fillText(
-					text,
+					'Game Over',
 					Pong.canvas.width / 2,
 					Pong.canvas.height / 2 + 15
 				);
 			},
 
-			menu: function() {
+			menu: function () {
+				
 				// Draw all the Pong objects in their current state
 				Pong.draw();
 
 				// Change the canvas font size and color
 				this.context.font = "50px Courier New";
 				this.context.fillStyle = this.color;
-
+				
+				
 				// Draw the rectangle behind the 'Press any key to begin' text.
 				this.context.fillRect(
 					this.canvas.width / 2 - 350,
@@ -169,20 +171,21 @@ export default function PongGame() {
 
 				// Change the canvas color;
 				this.context.fillStyle = "#ffffff";
-
+					
 				// Draw the 'press any key to begin' text
 				this.context.fillText(
-					"Press any key to begin",
+					"Press Any Key to start",
 					this.canvas.width / 2,
-					this.canvas.height / 2 + 15
+					this.canvas.height / 2
 				);
+				
 			},
-			updateBallSpeed: function() {
+			updateBallSpeed: function () {
 				// Increase the ball speed by a certain amount
-				this.ball.speed += 1; // Adjust the increment value as desired
+				this.ball.speed += 2; // Adjust the increment value as desired
 			},
 			// Update all objects (move the player, ai, ball, increment the score, etc.)
-			update: function() {
+			update: function () {
 				var currentTime = Date.now();
 				var deltaTime = (currentTime - this.timer) / 1000;
 				if (deltaTime >= 1 / this.framerate) {
@@ -426,7 +429,7 @@ export default function PongGame() {
 						// there are not.
 						if (!round[this.round + 1]) {
 							this.over = true;
-							setTimeout(function() {
+							setTimeout(function () {
 								Pong.endGameMenu("Winner!");
 							}, 1000);
 						} else {
@@ -443,36 +446,36 @@ export default function PongGame() {
 							setlevel(level);
 
 							if (this.round == 2 && !this.over) {
-								setTimeout(() => {
-									settext(
-										"Round 2: Brace Yourself for an Epic Showdown Against the AI. Are You Ready?"
-									);
-								}, 5000);
-
 								settext(
-									"Victory! You've Proven Your Might in Round 1. But the Fight Isn't Over Yet.."
+									"Well... That was merely a warmup. Shall we have another round?"
 								);
 							} else if (this.round == 3 && !this.over) {
 								settext(
-									"Unstoppable! You're Almost There, But One Last Round Remains. Get Ready to Crush the AI's Defenses and Claim Glory!"
+									"You're quite skilled, but it's time to conclude. Allow me to reveal my true form"
 								);
 							}
 							setIsOpen(this.isopen);
+							
 						}
 					}
 					// Check to see if the AI has won the round.
 					else if (this.ai.score === round[this.round]) {
 						this.over = true;
 
-						setTimeout(function() {
-							Pong.endGameMenu("Game Over!");
-						}, 1000);
+
+						
+						setTimeout(()=>{
+							Pong.endGameMenu()
+						},1000)
+							
+						
+
 					}
 				}
 			},
 
 			// Draw the objects to the canvas element
-			draw: function() {
+			draw: function () {
 				// Clear the Canvas
 				this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -603,7 +606,8 @@ export default function PongGame() {
 				// Draw the net (Line in the middle)
 			},
 
-			loop: function() {
+			loop: function () {
+				
 				Pong.update();
 				if (Pong.running == false) {
 					setIsOpen(true);
@@ -613,15 +617,17 @@ export default function PongGame() {
 					Pong.draw();
 				}
 
-				
+
 
 				// If the game is not over, draw the next frame.
 
 				if (!Pong.over && Pong.running) requestAnimationFrame(Pong.loop);
 			},
 
-			listen: function() {
-				document.addEventListener("keydown", function(key) {
+			listen: function () {
+				settext("Humans face a formidable challenge against AI, and I wonder if you could even defeat me in a friendly game of Pong. Press any key to accept the challenge.")
+				setIsOpen(true)
+				document.addEventListener("keydown", function (key) {
 					// Handle the 'Press any key to begin' function and start the game.
 					if (Pong.running === false) {
 						Pong.running = true;
@@ -638,14 +644,14 @@ export default function PongGame() {
 				});
 
 				// Stop the player from moving when there are no keys being pressed.
-				document.addEventListener("keyup", function(key) {
+				document.addEventListener("keyup", function (key) {
 					Pong.player.move = DIRECTION.IDLE;
 				});
 			},
 
 			// Reset the ball location, the player turns and set a delay before the next round begins.
-			_resetTurn: function(victor, loser) {
-				this.ball = Ball.new.call(this, 7);
+			_resetTurn: function (victor, loser) {
+				this.ball = Ball.new.call(this, 8);
 				this.turn = loser;
 				this.timer = new Date().getTime();
 
@@ -653,14 +659,14 @@ export default function PongGame() {
 			},
 
 			// Wait for a delay to have passed after each turn.
-			_turnDelayIsOver: function() {
+			_turnDelayIsOver: function () {
 				return new Date().getTime() - this.timer >= 0;
 			},
 
 			// Select a random color as the background of each level/round.
-			_generateRoundColor: function() {
-				
-				return "#00a2ff";
+			_generateRoundColor: function () {
+
+				return "black";
 			},
 		};
 
@@ -671,11 +677,11 @@ export default function PongGame() {
 		}
 	}, []);
 
-	
+
 	return (
 		<div
-			id="body"
-			className="justify-center w-full relative items-center my-auto hidden lg:flex flex-col"
+			id="PongGamePage"
+			className="justify-center w-full h-full items-center my-auto hidden lg:flex flex-col !bg-black"
 		>
 			<Modal
 				closeTimeoutMS={500}
@@ -689,7 +695,7 @@ export default function PongGame() {
 					<GlitchModal text={text} />
 				</div>
 			</Modal>
-			<canvas id="canvas" className="relative mt-5  w-full"></canvas>
+			<canvas id="canvas" className="relative  h-full   w-full border-2"></canvas>
 			<div className="text-center flex justify-center items-center mx-auto my-auto">
 				Control the Left player by using up and Down Arrow Keys
 			</div>
@@ -701,7 +707,7 @@ export default function PongGame() {
 					}
 					body {
 						text-align: center;
-						display: flex;
+						
 						justify-content: center;
 						align-items: center;
 						height: 100%;

@@ -5,13 +5,24 @@
 
 
 body {
+  
   overflow: overlay;
   font-family: "RobotoMono", monospace;
   color: #ffffff; /* Set your desired foreground color */
   height: 100%;
   animation: bg1 ease-in-out infinite 20000ms;
+  
 }
 
+#PongGamePage{
+  all:revert;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  flex-direction: column;
+  
+}
 
 
 .center {
@@ -111,8 +122,6 @@ body {
     background: url('../../public/images/Backgrounds/Frame21.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-
-
   }
 
   10% {

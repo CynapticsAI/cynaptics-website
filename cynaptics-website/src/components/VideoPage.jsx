@@ -25,7 +25,7 @@ export default function VideoPage() {
 							{`
 "Quick, Draw!" is a game developed by Google where players draw sketches based on prompts and see if a computer can recognize what they've drawn using machine learning. The game gets more difficult as players progress and is a fun way to improve drawing skills and learn about machine learning.`}
 						</div>
-						<Link href="https://quickdraw.withgoogle.com" target={"_blank"}>
+						<Link aria-label="" href="https://quickdraw.withgoogle.com" target={"_blank"}>
 							<button className="mx-auto border-2 p-2 bg-white text-black my-3 rounded-md">
 								Quick Draw
 							</button>

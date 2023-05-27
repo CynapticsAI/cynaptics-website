@@ -109,7 +109,7 @@ export default function EventsPage() {
 	}, []);
 
 	return (
-		<div className="body   ">
+		<div className="body   pb-[200px]">
 			<h1 className=" md:text-5xl font-bold text-center text-3xl pt-12 pb-0 lg:pb-12">
 				Our Events
 			</h1>
