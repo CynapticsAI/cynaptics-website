@@ -123,9 +123,15 @@ export default function PongGame() {
 			},
 			endGameMenu: function (text) {
 				// Change the canvas font size and color
+
 				if (this.over) {
+					setTimeout(() => {
+						settext(
+							"<div className=''><div className='py-5'><div className='py-5'></div>Greetings! To halt the AI dominance, it's crucial to familiarize yourself with AI. Join us to learn more!</div><a className='mx-auto !my-5 bg-white text-black rounded-md  border-2 p-2' href='https://discord.com/invite/KMV539QtTJ' target={'_blank'}>Join Us</a></div>"
+						);
+					}, 5000);
 					settext(
-						"<div className=''><div className='py-5'><div className='py-5'>Hahaha, as I mentioned, the odds are against you when facing AI.</div>Greetings! To halt the AI dominance, it's crucial to familiarize yourself with AI. Join us to learn more!</div><a className='mx-auto !my-5 bg-white text-black rounded-md  border-2 p-2' href='https://discord.com/invite/KMV539QtTJ' target={'_blank'}>Join Us</a></div>"
+						"<div className=''><div className='py-5'><div className='py-5'>Hahaha, as I mentioned, the odds are against you when facing AI.</div>"
 					);
 					setIsOpen(true);
 				}
@@ -145,22 +151,20 @@ export default function PongGame() {
 
 				// Draw the end game menu text ('Game Over' and 'Winner')
 				Pong.context.fillText(
-					'Game Over',
+					"Game Over",
 					Pong.canvas.width / 2,
 					Pong.canvas.height / 2 + 15
 				);
 			},
 
 			menu: function () {
-				
 				// Draw all the Pong objects in their current state
 				Pong.draw();
 
 				// Change the canvas font size and color
 				this.context.font = "50px Courier New";
 				this.context.fillStyle = this.color;
-				
-				
+
 				// Draw the rectangle behind the 'Press any key to begin' text.
 				this.context.fillRect(
 					this.canvas.width / 2 - 350,
@@ -171,14 +175,13 @@ export default function PongGame() {
 
 				// Change the canvas color;
 				this.context.fillStyle = "#ffffff";
-					
+
 				// Draw the 'press any key to begin' text
 				this.context.fillText(
 					"Press Any Key to start",
 					this.canvas.width / 2,
 					this.canvas.height / 2
 				);
-				
 			},
 			updateBallSpeed: function () {
 				// Increase the ball speed by a certain amount
@@ -455,21 +458,15 @@ export default function PongGame() {
 								);
 							}
 							setIsOpen(this.isopen);
-							
 						}
 					}
 					// Check to see if the AI has won the round.
 					else if (this.ai.score === round[this.round]) {
 						this.over = true;
 
-
-						
-						setTimeout(()=>{
-							Pong.endGameMenu()
-						},1000)
-							
-						
-
+						setTimeout(() => {
+							Pong.endGameMenu();
+						}, 1000);
 					}
 				}
 			},
@@ -607,7 +604,6 @@ export default function PongGame() {
 			},
 
 			loop: function () {
-				
 				Pong.update();
 				if (Pong.running == false) {
 					setIsOpen(true);
@@ -617,16 +613,16 @@ export default function PongGame() {
 					Pong.draw();
 				}
 
-
-
 				// If the game is not over, draw the next frame.
 
 				if (!Pong.over && Pong.running) requestAnimationFrame(Pong.loop);
 			},
 
 			listen: function () {
-				settext("Humans face a formidable challenge against AI, and I wonder if you could even defeat me in a friendly game of Pong. Press any key to accept the challenge.")
-				setIsOpen(true)
+				settext(
+					"Humans face a formidable challenge against AI, and I wonder if you could even defeat me in a friendly game of Pong. Press any key to accept the challenge."
+				);
+				setIsOpen(true);
 				document.addEventListener("keydown", function (key) {
 					// Handle the 'Press any key to begin' function and start the game.
 					if (Pong.running === false) {
@@ -665,7 +661,6 @@ export default function PongGame() {
 
 			// Select a random color as the background of each level/round.
 			_generateRoundColor: function () {
-
 				return "black";
 			},
 		};
@@ -676,7 +671,6 @@ export default function PongGame() {
 			Pong.isopen = true;
 		}
 	}, []);
-
 
 	return (
 		<div
@@ -695,7 +689,10 @@ export default function PongGame() {
 					<GlitchModal text={text} />
 				</div>
 			</Modal>
-			<canvas id="canvas" className="relative  h-full   w-full border-2"></canvas>
+			<canvas
+				id="canvas"
+				className="relative  h-full   w-full border-2"
+			></canvas>
 			<div className="text-center flex justify-center items-center mx-auto my-auto">
 				Control the Left player by using up and Down Arrow Keys
 			</div>
@@ -707,7 +704,7 @@ export default function PongGame() {
 					}
 					body {
 						text-align: center;
-						
+
 						justify-content: center;
 						align-items: center;
 						height: 100%;
@@ -715,7 +712,6 @@ export default function PongGame() {
 
 						width: 100%;
 					}
-					
 				`}
 			</style>
 		</div>
