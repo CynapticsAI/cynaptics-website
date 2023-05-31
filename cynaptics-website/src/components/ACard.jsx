@@ -54,7 +54,7 @@ export default function ACard({ ele }) {
 					}
 					.nft {
 						user-select: none;
-						width: 400px;
+						max-width: 400px;
 						margin: 5rem auto;
 						border: 1px solid #ffffff;
 						background-color: #ffffff;
