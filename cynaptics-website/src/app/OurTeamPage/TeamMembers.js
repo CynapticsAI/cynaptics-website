@@ -94,11 +94,12 @@ export const TeamMembers = [
 	},
 	{
 		"id":40,
-		"name": "Saad Ahmed",
+		"name": "Sairaj Loke",
 		"position": "Member",
-		"email": "mems200005036@iiti.ac.in",
-		"linkedin": "",
-		"github": "",
+		"email": "cse210001035@iiti.ac.in",
+		"linkedin": "https://www.linkedin.com/in/sairaj-loke-24370b237",
+		"github": "https://github.com/SairajLoke",
+		"image": require(`../../../public/images/Members/Sairaj Loke.jpg`),
 		
 	},
 	{

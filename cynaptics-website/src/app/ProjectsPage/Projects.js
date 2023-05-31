@@ -11,9 +11,9 @@ export const Projects = [
         desc2:'<div>The Frontend program:</div><div><div><div>The frontend program is purely an implementation of FLASK using python and html. <div>To support the styles we have used BOOTSTRAP, CSS</div><div>The structuring of the frontend into html and python files has been accomplished using a library of FLASK called JENGO.</div><div>While debugging for user-friendly purposes, another library called WERKZEUG</div><div>A database called face.db is made in order to store user info. However, the images uploaded is not stored here for the purpose of easy access by the OpenCV.</div>A different folder called Faces replaces the known_faces during deployment of code.</div></div></div><div><br></div>',
         github_link:"https://github.com/CynapticsAI/Face_Recog",
         video:'/videos/projects/project1/video1.mp4',
-        display_image:require('../../../public/images/Projects/Project1/display_image.jpg'),
-        image1:require('../../../public/images/Projects/Project1/image1.jpg'),
-        image2:require('../../../public/images/Projects/Project1/image2.jpg'),
+        display_image:require('../../../public/images/Projects/project1/display_image.jpg'),
+        image1:require('../../../public/images/Projects/project1/image1.jpg'),
+        image2:require('../../../public/images/Projects/project1/image2.jpg'),
         
     },
     {
