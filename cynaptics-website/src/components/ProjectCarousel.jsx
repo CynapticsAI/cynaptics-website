@@ -139,7 +139,7 @@ Listeners
 					{Projects.map((ele, index) => {
 						return (
 							
-								<div className="carousel-item border-2 !rounded-full" key={ele.id}>
+								<div className="carousel-item border-2 " key={ele.id}>
 									<Link
 								className="w-full flex justify-center text-center bg-black border-2"
 								href={`/ProjectsPage/${
