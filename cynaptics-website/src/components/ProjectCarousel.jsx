@@ -118,7 +118,7 @@ Listeners
 			scrollDirection += deltaY;
 
 			if (scrollDirection === -1 || scrollDirection === 1) {
-				progress += scrollDirection * 20;
+				progress += scrollDirection * 10;
 				animate();
 			}
 
@@ -135,46 +135,46 @@ Listeners
 	return (
 		<>
 			<div id="body" className="!overflow-x-hidden">
-				
 				<div className="carousel !overflow-x-hidden">
 					{Projects.map((ele, index) => {
 						return (
-							<div className="carousel-item border-2" key={ele.id}>
-								<div className="carousel-box hover:border-2 transition-all fade-in-out bg-black shadow-[10px_10px_10px_10px] shadow-white text-center">
-									
-									
-										<div className="!mx-auto title !bg-black !w-full !bottom-0 md:pt-auto text-center flex flex-col my-auto items-center">	
-										<div className="md:text-xl text-sm p-2">
-									        {ele.project_title}
-										</div>
-										<Link
-										className="w-full flex justify-center text-center bg-black border-2"
-										href={`/ProjectsPage/${ele.project_title
-											} + ${ele.id.toString()}`}
-									>
-											<div className=" border-2 text-sm md:text-xl bg-gray-100 hover:bg-gray-100 rounded-md text-black w-fit h-fit mx-auto my-2 p-2">
-											Read More
+							
+								<div className="carousel-item border-2 !rounded-full" key={ele.id}>
+									<Link
+								className="w-full flex justify-center text-center bg-black border-2"
+								href={`/ProjectsPage/${
+									ele.project_title
+								} + ${ele.id.toString()}`}
+							>
+									<div className="carousel-box hover:border-2  bg-black shadow-[10px_10px_10px_10px] shadow-white text-center relative overflow-hidden group !transition-all !fade-in-out">
+										<div className="!mx-auto title !bg-black !w-full  md:pt-auto text-center flex flex-col my-auto items-center lg::absolute !bottom-0 lg:!bottom-[-300px] lg:rounded-t-[40px] lg:!h-fit group-hover:!bottom-[0] z-[1100] !transition-all !fade-in-out">
+											<div className="md:text-xl text-sm p-5 ">
+												<div className="font-bold">
+												{ele.project_title}
+												</div>
+												<br/>
+												<div className="hidden lg:block">
+												{parse(ele.desc1.slice(0,200))} ...
+												</div>
 											</div>
-											</Link>
+
+											
 										</div>
-									
-									<div className="num">{ele.id}</div>
-									<Image
-										placeholder="blur"
-										width={500}
-										height={500}
-										className=""
-										blurDataURL="https://i.pinimg.com/236x/5b/55/34/5b55347cbc59b8849f75454d77c0d828.jpg"
-										src={ele.display_image}
-										alt="loading..."
-									/>
+
+										<Image
+											placeholder="blur"
+											
+											className="h-full w-full"
+											src={ele.display_image}
+											alt="loading..."
+										/>
+									</div>
+									</Link>
 								</div>
-							</div>
+							
 						);
 					})}
 				</div>
-
-				
 
 				<div className="cursor"></div>
 				<div className="cursor cursor2"></div>
@@ -192,17 +192,16 @@ Listeners
 							overflow: hidden;
 							pointer-events: none;
 						}
-						@media only screen and (max-width:800px){
+						@media only screen and (max-width: 800px) {
 							.carousel {
 								position: relative;
 								z-index: 1;
 								height: 100vh;
 								overflow: hidden;
 								pointer-events: none;
-							}				
-
+							}
 						}
-						
+
 						.carousel-item {
 							--items: ${Projects.length};
 							--width: clamp(200px, 30vw, 400px);
@@ -216,14 +215,13 @@ Listeners
 							z-index: var(--zIndex);
 							width: 400px;
 							height: 500px;
-							
+
 							border-radius: 10px;
 							top: 10%;
 							left: 37%;
 							user-select: none;
 							transform-origin: 50% 170%;
-							
-							
+
 							pointer-events: all;
 							transform: translate(var(--x), var(--y)) rotate(var(--rot));
 							transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
@@ -289,7 +287,7 @@ Listeners
 							color: #fff;
 							bottom: 20px;
 							background: black;
-							
+
 							transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
 							font-size: clamp(20px, 3vw, 30px);
 							text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);

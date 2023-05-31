@@ -24,12 +24,12 @@ export default function ACard({ ele }) {
 								/>
 							</div>
 
-							<h2 className="text-white mt-5 font-extrabold text-xl">{ele.title.length<25?ele.title:(ele.title.slice(0,25).toString() + " ...")} </h2>
+							<h2 className="text-white mt-5 font-extrabold text-xl">{ele.title} </h2>
 							<div className="description !text-gray-100 font-bold">
-								<div className="text-red-500">Achievements :</div> <div>{ele.Achievements.length<25?ele.Achievements:(ele.Achievements.slice(0,25).toString() + " ...")}</div>
+								<div className="text-red-500">Achievements :</div> <div>{ele.Achievements}</div>
 							</div>
 							<div className="description !text-gray-100 font-bold">
-								<div className="text-red-500">Domain Worked On :</div> <div>{ele.domain.length<25?ele.domain:(ele.domain.slice(0,25).toString() + " ...")} </div>
+								<div className="text-red-500">Domain Worked On :</div> <div>{ele.domain} </div>
 							</div>
 							
 							<hr />
