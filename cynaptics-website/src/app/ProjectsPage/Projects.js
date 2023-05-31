@@ -52,7 +52,7 @@ export const Projects = [
         desc1:'A simple Rock-Paper-Scissors game using CV in python For IITISOC-21<div>Rules and procedure to play the interactive game:</div><div>-> While playing the game, make sure that the background is plain (a white wall, a notebook for a background, etc.).</div><div>-> It is preffered to make clear and upright gestures to get best prediction accuracy.</div><div>-> The gesture should lie completely inside the designated box on the right side.</div><div>-> At any time, press "q" to quit the game.</div><div>-> Keep up the volume to enjoy the retro music alongside (^-^) !</div>',
         github_link:"https://github.com/CynapticsAI/ML18_Rock-Paper-Scissors-using-CV",
         display_image:require('../../../public/images/Projects/project5/display_image.png'),
-        image1:require('../../../public/images/Projects/Project5/image1.jpg'),
+        image1:require('../../../public/images/Projects/project5/image1.jpg'),
         
         
     },
