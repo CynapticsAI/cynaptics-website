@@ -165,7 +165,7 @@ Listeners
 										height={500}
 										className=""
 										blurDataURL="https://i.pinimg.com/236x/5b/55/34/5b55347cbc59b8849f75454d77c0d828.jpg"
-										src={ele.project_image}
+										src={ele.display_image}
 										alt="loading..."
 									/>
 								</div>

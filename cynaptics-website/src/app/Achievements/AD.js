@@ -15,7 +15,7 @@ export const AD = [
         id: 2,
         Achievements: "Absolute Silver Rank 4",
         title: "Inter IIT'23 High-Prep DevRev: Expert Answers in a Flash Improving Domain-Specific QA",
-        desc: "Task 1 Given a question and a set of paragraphs, predict if the question can be  answered with the given paragraphs. If yes, return the paragraph that answers the  question. Each question and paragraph is associated with a specific theme. This  could be “Sports”, “English” or “Mathematics” etc. A question of a theme can be  answered by one of the paragraphs in that theme Task 2 For the given questions, also predict the exact answer from the  predicted paragraph. Predict the start_index and the answer_text field for the  given question. Note: Both the tasks will be marked individually. However, to  perform better in Task 2, your model needs to perform better in Task 1 <div className='text-red-500 underline-offset-2'>For the entire PS check out the link: <a href='https://interiit-tech.org/images/ps/High_Devrev.pdf' className='underline'>PS Link</a></div>",
+        desc: "Task 1 Given a question and a set of paragraphs, predict if the question can be  answered with the given paragraphs. If yes, return the paragraph that answers the  question. Each question and paragraph is associated with a specific theme. This  could be “Sports”, “English” or “Mathematics” etc. A question of a theme can be  answered by one of the paragraphs in that theme Task 2 For the given questions, also predict the exact answer from the  predicted paragraph. Predict the start_index and the answer_text field for the  given question. Note: Both the tasks will be marked individually. However, to  perform better in Task 2, your model needs to perform better in Task 1 <div className='text-red-500 underline-offset-2'>For the entire PS check out the link: <a href='https://interiit-tech.org/images/ps/High_Devrev.pdf' className='underline'>PS Link</a></div><br/><div>Our team successfully developed a highly accurate Question-Answering Pipeline, achieving an accuracy rate of over 90%. This advanced pipeline efficiently handles inquiries within a specific theme by retrieving the most relevant context paragraph. It then proceeds to search for the answer within that paragraph. To meet the space and time constraints of the competition, we utilized the powerful combination of Delade and Cross Encoder Models for paragraph retrieval, along with the Electra Small Model for question answering. These models were chosen based on their effectiveness and ability to deliver optimal performance within the given limitations.</div>",
         people_involved:"<div>Abhijit Panda<br>Aryan Rastogi<br>Atharva Mohite<br>Krish Agrawal<br>Parth Bhore<br>Prajakta Darade<br>Pranjal Gadge<br>Rupal Shah<br>Tanisha Sahu<br>Yatharth Gupta</div>",
         domain:"Natural Language Processing",
         github_link: "https://github.com/CynapticsAI/DevRev-InterIIT_2023",
@@ -35,28 +35,7 @@ export const AD = [
         image: require('../../../public/images/Achievements/achievement3.jpg'),
 
     },
-    {
-        id: 4,
-        Achievements: "Rank 1",
-        title: "IITISoC'22 Image Denoising",
-        desc: "With CCTV images not being very clear on zooming there is a great demand for image denoising models. Build a model which takes input of noisy RGB images and outputs denoised images. Carefully study the kind of noise CCTV images have and target accordingly.",
-        people_involved:"<div>Khushi Sawla<br>Krish Agrawal<br>Rupal Shah</div>",
-        domain:"AI/ML",
-        github_link: "https://github.com/CynapticsAI/IITISoC-22-Image-Denoising",
-        image: require('../../../public/images/Achievements/achievement4.jpg'),
-
-    },
-    {
-        id: 5,
-        Achievements: "rank 1",
-        title: "IITISoC'22",
-        desc: "In this presentation, we will be demonstrating a Computer Vision demo using YOLOv5 on the American Sign Language Dataset including 26 classes.The model identifies signs in real time as well as with input image or audio and builds bounding boxes showing label with confidence value..The model is showcased using streamlit which can take input as an image.",
-        people_involved:"<div>Prajakta Darade<br>Samip Shah<br>Saral Sethi<br>Tanisha Sahu</div>",
-        domain:"AI/ML",
-        github_link: "https://github.com/CynapticsAI/IITISoC-22-Sign-Language-Translator",
-        image: require('../../../public/images/Achievements/achievement5.jpg'),
-
-    },
+    
     
     
     

@@ -12,22 +12,76 @@ export default function EachProjectpage({ params }) {
 	const CurrentProject = Projects.filter((ele) => {
 		return ele.id == index;
 	});
-	
+
 	return (
-		<div>
+		<div className="">
 			<section className="text-gray-100 body-font">
-  <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-    <Image placeholder="blur" className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src={CurrentProject[0].project_image}/>
-    <div className="text-center lg:w-2/3 w-full">
-      <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">{CurrentProject[0].project_title}</h1>
-      <p className="mb-8 leading-relaxed">{CurrentProject[0].project_description}</p>
-      <div className="flex justify-center">
-        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-      </div>
-    </div>
-  </div>
-</section>
+				<div className="container mx-auto flex px-5 py-24  items-center justify-center flex-col">
+					{CurrentProject[0].video ? (
+						<video loop autoPlay playsInline controls>
+							<source src={CurrentProject[0].video} type="video/mp4" />
+						</video>
+					) : (
+						<Image className=" object-center rounded" alt="project_image" src={CurrentProject[0].display_image} />
+					)}
+
+
+					<h1 className="title-font sm:text-4xl text-3xl  mt-24 font-bold text-white">{CurrentProject[0].project_title}</h1>
+
+					<section className="text-gray-100 body-font">
+						<div className="container mx-auto flex px-5 justify-center py-24 md:flex-row flex-col items-center">
+							{CurrentProject[0].desc1 && (
+								<div className="lg:flex-grow md:w-1/2 lg:pr-10 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+
+									<div className="mb-8 leading-relaxed">{parse(CurrentProject[0].desc1)}</div>
+
+								</div>
+							)}
+							{CurrentProject[0].image1 && (
+								<div className="lg:max-w-lg lg:w-full flex justify-center mx-auto mb-10 md:mb-0">
+									<Image className="object-cover object-center rounded" alt="project_image" src={CurrentProject[0].image1} />
+								</div>
+							)}
+
+
+
+						</div>
+					</section>
+
+					<section className="text-gray-100 body-font">
+						<div className="container mx-auto flex px-5 justify-center  md:flex-row flex-col items-center">
+							{CurrentProject[0].image2 && (
+								<div className="lg:max-w-lg lg:w-full flex justify-center mx-auto mb-10 md:mb-0">
+									<Image className="object-cover object-center rounded" alt="project_image" src={CurrentProject[0].image2} />
+								</div>
+							)}
+							{CurrentProject[0].desc2 && (
+								<div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+
+									<div className="mb-8 leading-relaxed">{parse(CurrentProject[0].desc2)}</div>
+
+								</div>
+							)}
+
+
+						</div>
+					</section>
+					<div className="flex justify-center">
+					<button className="inline-flex text-white bg-rose-500 border-0 py-2 px-6 focus:outline-none hover:bg-rose-600 rounded text-lg"><Link target={'_blank'} href={CurrentProject[0].github_link}>Github Repo</Link></button>
+					
+				</div>
+
+				</div>
+				
+			</section>
+			<style jsx>
+				{`
+				a{
+					color:red;
+					
+				}
+				`}
+			</style>
 		</div>
 	);
 }
