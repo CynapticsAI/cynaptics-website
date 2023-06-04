@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Our Events",
+    title: "Our Events",
 };
 
 export default function RootLayout({ children }) {
-  return <div className="">{children}</div>;
+    return <div className="">{children}</div>;
 }

@@ -1,46 +1,46 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "src/app/ProjectsPage/page.jsx",
+        "src/app/page.jsx",
+        "src/app/ProjectsPage/layout.jsx",
+        "src/app/EventsPage/page.jsx",
+        "src/app/EventsPage/layout.jsx",
+        "src/app/AboutUsPage/page.jsx",
+        "src/app/OurTeamPage/page.jsx",
+        "src/app/OurTeamPage/layout.jsx",
+        "src/components/Model.jsx",
+        "src/app/ProjectsPage/[EachProject]/layout.jsx",
+        "src/app/ProjectsPage/[EachProject]/page.jsx",
+        "src/components/Navbar.jsx",
+        "src/components/OffCanvasNavbar.jsx"
     ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/app/ProjectsPage/page.jsx",
-    "src/app/page.jsx",
-    "src/app/ProjectsPage/layout.jsx",
-    "src/app/EventsPage/page.jsx",
-    "src/app/EventsPage/layout.jsx",
-    "src/app/AboutUsPage/page.jsx",
-    "src/app/OurTeamPage/page.jsx",
-    "src/app/OurTeamPage/layout.jsx",
-    "src/components/Model.jsx",
-    "src/app/ProjectsPage/[EachProject]/layout.jsx",
-    "src/app/ProjectsPage/[EachProject]/page.jsx",
-    "src/components/Navbar.jsx",
-    "src/components/OffCanvasNavbar.jsx"
-  ],
-  "exclude": ["node_modules"]
+    "exclude": ["node_modules"]
 }
