@@ -2,28 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
-  
   overflow: overlay;
   font-family: "RobotoMono", monospace;
   color: #ffffff; /* Set your desired foreground color */
   height: 100%;
   animation: bg1 ease-in-out infinite 20000ms;
-  
 }
 
-#PongGamePage{
-  all:revert;
+#PongGamePage {
+  all: revert;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: black;
   flex-direction: column;
-  
 }
-
 
 .center {
   position: absolute;
@@ -31,7 +25,6 @@ body {
   left: 50%;
   transform: translate(0%, 0%);
 }
-
 
 .loadingsScreen {
   position: absolute;
@@ -48,25 +41,18 @@ body {
   width: 7px;
   background-color: transparent;
   border-radius: 40px;
-  
 }
 
-
-::-webkit-scrollbar-track-piece{
+::-webkit-scrollbar-track-piece {
   background-color: transparent;
 }
 
-
-::-webkit-scrollbar-corner{
-
+::-webkit-scrollbar-corner {
 }
-::-webkit-scrollbar-track{
-
+::-webkit-scrollbar-track {
 }
-::-webkit-scrollbar-button{
-
+::-webkit-scrollbar-button {
 }
-
 
 ::-webkit-scrollbar-thumb {
   width: 5px;
@@ -83,20 +69,18 @@ body {
 
 .smenu {
   left: 0%;
-
 }
 
-#EachEvent  li{
-  color:red !important;
-  margin:10px 10px;
+#EachEvent li {
+  color: red !important;
+  margin: 10px 10px;
 }
 
-#EachEvent a{
-  color:red;
+#EachEvent a {
+  color: red;
   margin-right: 10px;
-  border-bottom:2px solid red;
+  border-bottom: 2px solid red;
 }
-
 
 .ReactModal__Overlay {
   opacity: 0;
@@ -107,90 +91,79 @@ body {
 .ReactModal__Overlay--after-open {
   opacity: 1;
   transform: translateY(0px);
-  transform:scale(1.1);
+  transform: scale(1.1);
 }
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
   transform: translateY(-100px);
-  transform:scale(0.9);
+  transform: scale(0.9);
 }
-
 
 @keyframes bg1 {
   0% {
-    background: url('../../public/images/Backgrounds/Frame21.jpg');
+    background: url("../../public/images/Backgrounds/Frame21.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
 
   10% {
-    background: url('../../public/images/Backgrounds/Frame22.jpg');
+    background: url("../../public/images/Backgrounds/Frame22.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   20% {
-    background: url('../../public/images/Backgrounds/Frame23.jpg');
+    background: url("../../public/images/Backgrounds/Frame23.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   30% {
-    background: url('../../public/images/Backgrounds/Frame24.jpg');
+    background: url("../../public/images/Backgrounds/Frame24.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   40% {
-    background: url('../../public/images/Backgrounds/Frame25.jpg');
+    background: url("../../public/images/Backgrounds/Frame25.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   50% {
-    background: url('../../public/images/Backgrounds/Frame26.jpg');
+    background: url("../../public/images/Backgrounds/Frame26.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   60% {
-    background: url('../../public/images/Backgrounds/Frame27.jpg');
+    background: url("../../public/images/Backgrounds/Frame27.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   70% {
-    background: url('../../public/images/Backgrounds/Frame28.jpg');
+    background: url("../../public/images/Backgrounds/Frame28.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   80% {
-    background: url('../../public/images/Backgrounds/Frame29.jpg');
+    background: url("../../public/images/Backgrounds/Frame29.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   90% {
-    background: url('../../public/images/Backgrounds/Frame210.jpg');
+    background: url("../../public/images/Backgrounds/Frame210.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 
   100% {
-    background: url('../../public/images/Backgrounds/Frame211.jpg');
+    background: url("../../public/images/Backgrounds/Frame211.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
   }
 }
