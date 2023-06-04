@@ -48,11 +48,14 @@ body {
   background-color: transparent;
 }
 
-::-webkit-scrollbar-corner {}
+::-webkit-scrollbar-corner {
+}
 
-::-webkit-scrollbar-track {}
+::-webkit-scrollbar-track {
+}
 
-::-webkit-scrollbar-button {}
+::-webkit-scrollbar-button {
+}
 
 ::-webkit-scrollbar-thumb {
   width: 5px;
@@ -168,13 +171,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-
 .blocImg {
   width: 100%;
   height: var(--blocImgSize);
@@ -183,15 +179,15 @@ body {
   padding: 10px;
 }
 
-.blocImg>img {
+.blocImg > img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
 }
 
-.blocImg>img::after {
-  content: '';
+.blocImg > img::after {
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -210,7 +206,7 @@ body {
   display: inline-block;
   white-space: normal;
   vertical-align: top;
-  transition: all .3s;
+  transition: all 0.3s;
 
   -webkit-box-shadow: var(--shadowColor);
   -moz-box-shadow: var(--shadowColor);
@@ -222,7 +218,7 @@ body {
   transform: scale(1);
 }
 
-.creaBlock>figcaption {
+.creaBlock > figcaption {
   position: absolute;
   left: 0;
   top: 0;
@@ -231,7 +227,7 @@ body {
   color: white;
   padding: 25px;
   font-size: 16px;
-  opacity: .8;
+  opacity: 0.8;
   text-align: left;
 }
 
@@ -245,7 +241,7 @@ body {
   text-align: left;
   overflow: hidden;
   background-color: transparent;
-  transition: var(--background-color) .6s;
+  transition: var(--background-color) 0.6s;
 }
 
 .creaBlock img {
@@ -257,39 +253,42 @@ body {
 /* FIN CREA BLOCK */
 
 .creaBlock {
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .creaBlock .lineSeparator {
   background-color: #00bcd4;
 }
 
-
 /* BOX 1 */
 
 .creaBlockPrez:nth-child(1) {
   z-index: 1;
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .creaBlockPrez:nth-child(1):hover {
   transform: scale(1.1);
 }
 
-.creaBlockPrez:nth-child(1):hover~.creaBlockPrez:nth-child(2) {
-  transform: scale(.83) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(1):hover ~ .creaBlockPrez:nth-child(2) {
+  transform: scale(0.83) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
-.creaBlockPrez:nth-child(1):hover~.creaBlockPrez:nth-child(3) {
-  transform: scale(.88) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(1):hover ~ .creaBlockPrez:nth-child(3) {
+  transform: scale(0.88) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
-.creaBlockPrez:nth-child(1):hover~.creaBlockPrez:nth-child(4) {
-  transform: scale(.93) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(1):hover ~ .creaBlockPrez:nth-child(4) {
+  transform: scale(0.93) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
-.creaBlockPrez:nth-child(1):hover~.creaBlockPrez:nth-child(5) {
-  transform: scale(.98) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(1):hover ~ .creaBlockPrez:nth-child(5) {
+  transform: scale(0.98) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
 /* BOX 2 */
@@ -297,24 +296,27 @@ body {
 .creaBlockPrez:nth-child(2) {
   z-index: 2;
   margin-left: calc(-6 * var(--marginSize));
-  transform: scale(.94);
-  animation: displayCreations .5s linear .4s forwards;
+  transform: scale(0.94);
+  animation: displayCreations 0.5s linear 0.4s forwards;
 }
 
 .creaBlockPrez:nth-child(2):hover {
   transform: scale(1.1);
 }
 
-.creaBlockPrez:nth-child(2):hover~.creaBlockPrez:nth-child(3) {
-  transform: scale(.88) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(2):hover ~ .creaBlockPrez:nth-child(3) {
+  transform: scale(0.88) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
-.creaBlockPrez:nth-child(2):hover~.creaBlockPrez:nth-child(4) {
-  transform: scale(.93) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(2):hover ~ .creaBlockPrez:nth-child(4) {
+  transform: scale(0.93) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
-.creaBlockPrez:nth-child(2):hover~.creaBlockPrez:nth-child(5) {
-  transform: scale(.98) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(2):hover ~ .creaBlockPrez:nth-child(5) {
+  transform: scale(0.98) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
 /* BOX 3 */
@@ -322,19 +324,21 @@ body {
 .creaBlockPrez:nth-child(3) {
   z-index: 3;
   margin-left: calc(-6 * var(--marginSize));
-  transform: scale(.98);
+  transform: scale(0.98);
 }
 
 .creaBlockPrez:nth-child(3):hover {
   transform: scale(1.1);
 }
 
-.creaBlockPrez:nth-child(3):hover~.creaBlockPrez:nth-child(4) {
-  transform: scale(.93) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(3):hover ~ .creaBlockPrez:nth-child(4) {
+  transform: scale(0.93) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
-.creaBlockPrez:nth-child(3):hover~.creaBlockPrez:nth-child(5) {
-  transform: scale(.98) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(3):hover ~ .creaBlockPrez:nth-child(5) {
+  transform: scale(0.98) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
 /* BOX 4 */
@@ -349,8 +353,9 @@ body {
   transform: scale(1.1);
 }
 
-.creaBlockPrez:nth-child(4):hover~.creaBlockPrez:nth-child(5) {
-  transform: scale(.98) translateX(var(--blockTranslateX)) rotateY(var(--blockRotateY));
+.creaBlockPrez:nth-child(4):hover ~ .creaBlockPrez:nth-child(5) {
+  transform: scale(0.98) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
 }
 
 /* BOX 5 */
@@ -373,7 +378,7 @@ body {
   height: 4px;
   border-radius: 5px;
   margin: 40px 0 25px 0;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .creaBlockPrez:nth-child(1) .lineSeparator {
@@ -398,8 +403,6 @@ body {
 
 /* –––––––––––––––––––– */
 
-
-
 .creationsBlocUl {
   white-space: nowrap;
   text-align: center;
@@ -416,7 +419,7 @@ body {
   }
 
   .creaBlockPrez {
-    transform: scale(.9) !important;
+    transform: scale(0.9) !important;
   }
 
   .creationsBlocUl {
@@ -443,7 +446,7 @@ main {
   height: 100vh;
 }
 
-main>div {
+main > div {
   width: 100%;
 }
 

@@ -11,7 +11,9 @@ export default function Footer() {
   return (
     <footer
       className={`${
-        pathname == "/EventsPage" || pathname=="/ProjectsPage" ? "fixed bottom-0" : ""
+        pathname == "/EventsPage"
+          ? "fixed bottom-0"
+          : ""
       }text-white body-font  shadow-[3px_3px_30px_3px] w-screen 
 		shadow-blue-600 border-black bg-black bottom-0  ${
       pathname === "/PongGamePage"
