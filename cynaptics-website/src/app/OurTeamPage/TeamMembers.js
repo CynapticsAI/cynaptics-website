@@ -356,7 +356,7 @@ export const TeamMembers = [
         branch: "EE",
         email: "ee220002006@iiti.ac.in",
         linkedin: "https://www.linkedin.com/in/aman-poddar-55050b26a",
-        github: "",
+        github: "https://github.com/AmanPoddar04",
         image: require(`../../../public/images/Members/Aman Poddar.jpg`),
     },
     {

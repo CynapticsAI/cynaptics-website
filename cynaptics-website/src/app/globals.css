@@ -105,67 +105,72 @@ body {
 
 @keyframes bg1 {
     0% {
-        background: url("../../public/images/Backgrounds/Frame21.jpg");
+        background: url("../../public/images/Backgrounds/Frame21.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     10% {
-        background: url("../../public/images/Backgrounds/Frame22.jpg");
+        background: url("../../public/images/Backgrounds/Frame22.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     20% {
-        background: url("../../public/images/Backgrounds/Frame23.jpg");
+        background: url("../../public/images/Backgrounds/Frame23.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     30% {
-        background: url("../../public/images/Backgrounds/Frame24.jpg");
+        background: url("../../public/images/Backgrounds/Frame24.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     40% {
-        background: url("../../public/images/Backgrounds/Frame25.jpg");
+        background: url("../../public/images/Backgrounds/Frame25.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     50% {
-        background: url("../../public/images/Backgrounds/Frame26.jpg");
+        background: url("../../public/images/Backgrounds/Frame26.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     60% {
-        background: url("../../public/images/Backgrounds/Frame27.jpg");
+        background: url("../../public/images/Backgrounds/Frame27.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     70% {
-        background: url("../../public/images/Backgrounds/Frame28.jpg");
+        background: url("../../public/images/Backgrounds/Frame28.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     80% {
-        background: url("../../public/images/Backgrounds/Frame29.jpg");
+        background: url("../../public/images/Backgrounds/Frame29.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     90% {
-        background: url("../../public/images/Backgrounds/Frame210.jpg");
+        background: url("../../public/images/Backgrounds/Frame210.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
+    95% {
+        background: url("../../public/images/Backgrounds/Frame211.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
     100% {
-        background: url("../../public/images/Backgrounds/Frame211.jpg");
+        background: url("../../public/images/Backgrounds/Frame212.webp");
         background-size: cover;
         background-repeat: no-repeat;
     }
