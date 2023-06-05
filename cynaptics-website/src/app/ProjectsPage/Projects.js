@@ -3,7 +3,7 @@
 
 export const Projects = [
     {
-        id: 7,
+        id: 1,
         Achievements: "rank 1",
         project_title: "Sign Language Translator",
         desc1: "In this presentation, we will be demonstrating a Computer Vision demo using YOLOv5 on the American Sign Language Dataset including 26 classes.The model identifies signs in real time as well as with input image or audio and builds bounding boxes showing label with confidence value..The model is showcased using streamlit which can take input as an image.",
@@ -16,7 +16,7 @@ export const Projects = [
     },
 
     {
-        id: 3,
+        id: 2,
         project_title:
             "Bosch's Model Extraction Attack For Video Classification",
         display_desc:
@@ -27,7 +27,7 @@ export const Projects = [
         image1: require("../../../public/images/Projects/project3/image1.png"),
     },
     {
-        id: 4,
+        id: 3,
         project_title: "AI CHAT BOT",
         desc1: "This is a simple AI Chat Bot, build using rasa framework. Rasa provides flexible conversational AI for building text and voice-based assistants.<div>For Frontend we have used rasa’s standard frontend.</div><div>This chat bot give answer to any general questions related to IIT Indore. This can give answers to questions like about iiti, faculties/Professor, departments, placement, hostels, campus, events, medical facilities, sport facilities, international relations and many other questions.</div>",
 
@@ -36,7 +36,7 @@ export const Projects = [
         image1: require("../../../public/images/Projects/project4/image1.png"),
     },
     {
-        id: 2,
+        id: 4,
         project_title: "Image Captioning-Video Summarizer",
         desc1: '<div className="text-3xl my-5">Overview</div>Image captioning using attention based encoder-decoder model.The idea is discussed in <a href="https://arxiv.org/abs/1502.03044" className="underline text-red-500">Show, Attend and Tell: Neural Image Caption Generation with Visual Attention</a>. Recurrent Neural Networks (RNN) are used for varied number of applications including machine translation. The Encoder-Decoder architecture is utilized for such settings where a varied-length input sequence is mapped to the varied-length output sequence. The same network can also be used for image captioning. We used a ResNet with pretrained weights as encoder to make feature vectors from the input images and GRU an variant of RNN as decoder.Now for Video Summarization using OpenCV library we will capture frames in video at specific time interval(1 frame per 2 seconds) and we will generate captions to all these frames using above said Image captioning model and retain only those captions which have a low similarity score with the immediate previous caption and that Threshold similarity score is 0.5.Then we perform Abstractive Summarization using T5 base Transformer model',
         desc2: '<div className="text-3xl my-5">Implementation</div>In the image_captioning_.ipynb we download the datasets and all of the preprocessing training and evaluation takes place.<div>>Dataset Used: MS-COCO(subset containing 15000 randomly shuffled images)</div><div>Vocabulary: The vocabulary consists of mapping between words and indices(we limited the size of vocabulary to 5000 instead of 10000 as discussed in paper to save memory)</div><div>Encoder: ResNet without the final classification layer with pretrained weights. we could also try trainig the encoder instead of loading pretrained weights.</div><div>Decoder: GRU(Gated recurrent unit) is used as decoder with Bahdanau attention. Using attention based architechture we can observe which parts of images were identified for generating words(or captions). 2 GRUs are stacked on top of each other and 3 fully connected layers for predictions with 0.25 droupout at every stage in decoder.</div><div>Caption Generation: Based on highest probability/greedy search.</div><div>Training: Teacher forcing is used to reduce training time for the RNN.</div><div>Score: Maximum cosine similarity between the 5 true captions and the predicted caption. Mean cosine similarity of 50 random images : 0.82622829</div><div></div>Video to frames: Using OpenCV</div><div>Transformer used(for Summarization): T5 base</div>',
@@ -71,7 +71,7 @@ export const Projects = [
         image1: require("../../../public/images/Projects/project6/image1.jpg"),
     },
     {
-        id: 1,
+        id: 7,
         project_title: "Face Recognition",
         desc1: "<div>The Backend program :</div><p >The face_rec_video.py file and has been run on jupyter notebook as shown in Test_Video.</p><p >A folder containing known faces to be trained is also uploaded.</p><p >A test video of the face_recognition is also uploaded.</p><p >We have currently implemented face recognition using a library named &apos;face_recognition&apos; and &apos;OpenCV&apos;</p><p >The basic methodology is still quite the same as compared to the standard FaceNet and YOLO application put together:</p><div><div><div> <div>1)Get a database of known images and train the model using functions in &apos;face_recognition&apos;.</div> <div>2)Take input of a live video feed(requires webcam).</div><div>3)Implement &apos;cnn&apos; model to extract features from bounding box.</div><div>4)Compare the features extracted using functions in &apos;face_recognition&apos; with a certain tolerance level for %match.</div><div>5)Display the matched name if tolerance is passed.</div></div></div></div>",
         desc2: "<div>The Frontend program:</div><div><div><div>The frontend program is purely an implementation of FLASK using python and html. <div>To support the styles we have used BOOTSTRAP, CSS</div><div>The structuring of the frontend into html and python files has been accomplished using a library of FLASK called JENGO.</div><div>While debugging for user-friendly purposes, another library called WERKZEUG</div><div>A database called face.db is made in order to store user info. However, the images uploaded is not stored here for the purpose of easy access by the OpenCV.</div>A different folder called Faces replaces the known_faces during deployment of code.</div></div></div><div><br></div>",

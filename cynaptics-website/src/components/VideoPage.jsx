@@ -13,12 +13,12 @@ export default function VideoPage() {
             </Slide>
             <div className="grid md:grid-cols-2  group m-10 md:my-10  relative shadow-[3px_3px_30px_3px] md:shadow-[0px_0px_0px_0px] shadow-blue-600">
                 <Slide left>
-                    <div className=" flex justify-center md:rounded-tr-full md:rounded-br-full shadow-[3px_3px_30px_3px] shadow-blue-600">
+                    <div className=" flex justify-center  shadow-[3px_3px_30px_3px] shadow-blue-600">
                         <video
                             loop
                             muted
                             autoPlay
-                            className="md:rounded-tr-full md:rounded-br-full"
+                            className=""
                         >
                             <source
                                 src="/videos/quick draw.mp4"
@@ -64,12 +64,12 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
                     </div>
                 </Slide>
                 <Slide right>
-                    <div className="md:m-10 flex justify-center md:rounded-tl-full md:rounded-bl-full shadow-[3px_3px_30px_3px] shadow-blue-600">
+                    <div className="md:m-10 flex justify-center  shadow-[3px_3px_30px_3px] shadow-blue-600">
                         <video
                             loop
                             muted
                             autoPlay
-                            className="md:rounded-tl-full md:rounded-bl-full"
+                            className=""
                         >
                             <source
                                 src="/videos/semantris.mp4"
@@ -81,12 +81,12 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
             </div>
             <div className="grid md:grid-cols-2  group m-10 md:my-auto relative shadow-[3px_3px_30px_3px] md:shadow-[0px_0px_0px_0px] shadow-blue-600">
                 <Slide left>
-                    <div className="md:m-10 flex md:rounded-tr-full md:rounded-br-full justify-center md:shadow-[3px_3px_30px_3px] md:shadow-blue-600">
+                    <div className="md:m-10 flex  justify-center md:shadow-[3px_3px_30px_3px] md:shadow-blue-600">
                         <video
                             loop
                             muted
                             autoPlay
-                            className="md:rounded-tr-full md:rounded-br-full"
+                            className=""
                         >
                             <source
                                 src="/videos/thisfacedoesnotexist.mp4"
@@ -133,13 +133,13 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
                 <Slide right>
                     <div
                         id="card_video"
-                        className="md:m-10  flex justify-center md:rounded-tl-full md:rounded-bl-full z-[-1] shadow-[3px_3px_30px_3px] shadow-blue-600"
+                        className="md:m-10  flex justify-center  z-[-1] shadow-[3px_3px_30px_3px] shadow-blue-600"
                     >
                         <video
                             loop
                             muted
                             autoPlay
-                            className="md:rounded-tl-full md:rounded-bl-full"
+                            className=""
                         >
                             <source
                                 type="video/mp4"
