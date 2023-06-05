@@ -212,7 +212,7 @@ export default function ProjectCarousel() {
                                     <div className="Card__media">
                                         <Image
                                             className="Card__image !h-full !w-full lg:group-hover:blur-md"
-                                            alt="Card image description"
+                                            alt={ele.project_title}
                                             placeholder="blur"
                                             width="400"
                                             height="400"

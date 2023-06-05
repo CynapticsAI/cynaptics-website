@@ -5,8 +5,8 @@ import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
 const MAX_VISIBILITY = 3;
 
-const Card = ({ src, key }) => (
-    <div className="card" key={key}>
+const Card = ({ src }) => (
+    <div className="card" >
         <Image height={700} src={src} alt={"Loading..."} placeholder="blur" />
     </div>
 );
@@ -158,7 +158,9 @@ export default function ThreedCarousel({ CurrentEvent }) {
                         .filter((ele) => ele.slice(0, 5) == "image")
                         .map((ele, index) => {
                             return (
-                                <Card key={index} src={CurrentEvent[0][ele]} />
+                                <div key={index}>
+                                <Card  src={CurrentEvent[0][ele]} />
+                                </div>
                             );
                         })}
                 </Carousel>

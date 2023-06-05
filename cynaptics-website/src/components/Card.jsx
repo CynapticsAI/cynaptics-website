@@ -6,20 +6,20 @@ import { AiFillGithub } from "react-icons/ai";
 import Link from "next/link";
 import Fade from "react-reveal/Fade";
 
-export default function Card({ ele, index, className }) {
+export default function Card({ ele, className }) {
     var currentTime = new Date();
     var year = currentTime.getFullYear();
     useEffect(() => {
         const buttons = document.querySelectorAll(
-            `.card-buttons${index} button`
+            `.card-buttons${ele.id} button`
         );
-        const sections = document.querySelectorAll(`.card-section${index}`);
-        const card = document.querySelector(`.card${index}`);
+        const sections = document.querySelectorAll(`.card-section${ele.id}`);
+        const card = document.querySelector(`.card${ele.id}`);
 
         const handleButtonClick = (e) => {
             const targetSection = e.target.getAttribute("data-section");
             const section = document.querySelector(targetSection);
-            targetSection !== `#about${index}`
+            targetSection !== `#about${ele.id}`
                 ? card.classList.add("is-active")
                 : card.classList.remove("is-active");
             card.setAttribute("data-state", targetSection);
@@ -32,14 +32,14 @@ export default function Card({ ele, index, className }) {
         buttons.forEach((btn) => {
             btn.addEventListener("click", handleButtonClick);
         });
-    }, [index]);
+    }, [ele.id]);
 
     return (
-        <div className={`my-10  `} id={index}>
+        <div className={`my-10  `} id={ele.id}>
             <Fade bottom>
                 <div
-                    className={`card${index}  card ${className}`}
-                    data-state={`#about${index}`}
+                    className={`card${ele.id}  card ${className}`}
+                    data-state={`#about${ele.id}`}
                 >
                     <div className="card-header">
                         <div className="card-cover"></div>
@@ -61,8 +61,8 @@ export default function Card({ ele, index, className }) {
                     </div>
                     <div className="card-main">
                         <div
-                            className={`card-section${index} is-active`}
-                            id={`about${index}`}
+                            className={`card-section${ele.id} is-active`}
+                            id={`about${ele.id}`}
                         >
                             <div className="card-content">
                                 <div className="card-subtitle !text-black">
@@ -107,8 +107,8 @@ export default function Card({ ele, index, className }) {
                         </div>
 
                         <div
-                            className={`card-section${index} card-section`}
-                            id={`contact${index}`}
+                            className={`card-section${ele.id} card-section`}
+                            id={`contact${ele.id}`}
                         >
                             <div className="card-content">
                                 <div className="card-subtitle !text-black">
@@ -133,15 +133,15 @@ export default function Card({ ele, index, className }) {
                                 </div>
                             </div>
                         </div>
-                        <div className={`card-buttons${index} card-buttons`}>
+                        <div className={`card-buttons${ele.id} card-buttons`}>
                             <button
-                                data-section={`#about${index}`}
+                                data-section={`#about${ele.id}`}
                                 className="is-active"
                             >
                                 ABOUT
                             </button>
 
-                            <button data-section={`#contact${index}`}>
+                            <button data-section={`#contact${ele.id}`}>
                                 CONTACT
                             </button>
                         </div>
@@ -167,7 +167,7 @@ export default function Card({ ele, index, className }) {
                             margin: auto;
                             overflow-y: auto;
                             position: relative;
-                            z-index: 1;
+                            z-ele.id: 1;
                             overflow-x: hidden;
                             background-color: rgba(255, 255, 255, 1);
                             display: flex;
@@ -328,7 +328,7 @@ export default function Card({ ele, index, className }) {
                         .card-social a:last-child {
                             margin-right: 0;
                         }
-                        .card-buttons${index} {
+                        .card-buttons${ele.id} {
                             display: flex;
                             background-color: #fff;
                             margin-top: auto;
@@ -336,7 +336,7 @@ export default function Card({ ele, index, className }) {
                             bottom: 0;
                             left: 0;
                         }
-                        .card-buttons${index} button {
+                        .card-buttons${ele.id} button {
                             flex: 1 1 auto;
                             user-select: none;
                             background: 0;
@@ -351,16 +351,16 @@ export default function Card({ ele, index, className }) {
                             outline: 0;
                             border-bottom: 3px solid transparent;
                         }
-                        .card-buttons${index} button.is-active,
-                        .card-buttons${index} button:hover {
+                        .card-buttons${ele.id} button.is-active,
+                        .card-buttons${ele.id} button:hover {
                             color: #2b2c48;
                             border-bottom: 3px solid #8a84ff;
                             background: #ffff71;
                         }
-                        .card-section${index} {
+                        .card-section${ele.id} {
                             display: none;
                         }
-                        .card-section${index}.is-active {
+                        .card-section${ele.id}.is-active {
                             display: block;
                             animation: fadeIn 0.6s both;
                         }
@@ -396,7 +396,7 @@ export default function Card({ ele, index, className }) {
                             padding-left: 60px;
                             padding-right: 20px;
                             padding-bottom: 30px;
-                            z-index: 1;
+                            z-ele.id: 1;
                         }
                         .card-item:last-child {
                             padding-bottom: 5px;

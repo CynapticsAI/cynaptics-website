@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Card from "../../components/Card";
 import { TeamMembers } from "./TeamMembers";
-
+import React from "react";
 export const metadata = {
     title: "Our Team",
 };
@@ -22,9 +22,9 @@ export default function OurTeamPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3">
                 {TeamMembers.map((ele, index) => {
                     return (
-                        <>
-                            {ele.position != "Club Head" && (
-                                <div key={ele.id}>
+                        <React.Fragment key={ele.id}>
+                            {ele.position !== "Club Head" && (
+                                <div>
                                     <Card
                                         className={`${
                                             ele.position.includes("Head") &&
@@ -34,11 +34,11 @@ export default function OurTeamPage() {
                                             "!ring-[10px] !ring-blue-500 !ring-opacity-70"
                                         }`}
                                         ele={ele}
-                                        index={ele.id}
+                                        
                                     />
                                 </div>
                             )}
-                        </>
+                        </React.Fragment>
                     );
                 })}
             </div>

@@ -11,7 +11,7 @@ import { Events } from "./Events";
 export default function EventsPage() {
     useEffect(() => {
         let x = document.getElementById("EventImage").height;
-        console.log("x", x);
+        
         const $menu = document.querySelector(".menu");
         const $items = document.querySelectorAll(".menu--item");
         const $images = document.querySelectorAll(".menu--item img");
