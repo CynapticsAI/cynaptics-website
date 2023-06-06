@@ -41,6 +41,6 @@
         "src/app/ProjectsPage/[EachProject]/page.jsx",
         "src/components/Navbar.jsx",
         "src/components/OffCanvasNavbar.jsx"
-    ],
+, "src/app/layout.jsx"    ],
     "exclude": ["node_modules"]
 }

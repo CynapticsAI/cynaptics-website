@@ -5,7 +5,7 @@ import Slide from "react-reveal/Slide";
 export default function VideoPage() {
     useEffect(() => {}, []);
     return (
-        <div className="mx-10  translate-y-[-130px] md:translate-y-0 py-10 md:py-auto overflow-x-hidden ">
+        <div className="  translate-y-[-130px] md:translate-y-0 py-10 md:py-auto overflow-x-hidden ">
             <Slide bottom>
                 <h1 className="text-center font-bold  text-2xl md:text-5xl md:pb-16">
                     See What AI/ML Can Do
@@ -14,12 +14,7 @@ export default function VideoPage() {
             <div className="grid md:grid-cols-2  group m-10 md:my-10  relative shadow-[3px_3px_30px_3px] md:shadow-[0px_0px_0px_0px] shadow-blue-600">
                 <Slide left>
                     <div className=" flex justify-center  shadow-[3px_3px_30px_3px] shadow-blue-600">
-                        <video
-                            loop
-                            muted
-                            autoPlay
-                            className=""
-                        >
+                        <video loop muted autoPlay className="">
                             <source
                                 src="/videos/quick draw.mp4"
                                 type="video/mp4"
@@ -65,12 +60,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
                 </Slide>
                 <Slide right>
                     <div className="md:m-10 flex justify-center  shadow-[3px_3px_30px_3px] shadow-blue-600">
-                        <video
-                            loop
-                            muted
-                            autoPlay
-                            className=""
-                        >
+                        <video loop muted autoPlay className="">
                             <source
                                 src="/videos/semantris.mp4"
                                 type="video/mp4"
@@ -82,12 +72,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
             <div className="grid md:grid-cols-2  group m-10 md:my-auto relative shadow-[3px_3px_30px_3px] md:shadow-[0px_0px_0px_0px] shadow-blue-600">
                 <Slide left>
                     <div className="md:m-10 flex  justify-center md:shadow-[3px_3px_30px_3px] md:shadow-blue-600">
-                        <video
-                            loop
-                            muted
-                            autoPlay
-                            className=""
-                        >
+                        <video loop muted autoPlay className="">
                             <source
                                 src="/videos/thisfacedoesnotexist.mp4"
                                 type="video/mp4"
@@ -135,12 +120,7 @@ In "Blocks" mode, you might see a group of words like "lion," "tiger," "panther,
                         id="card_video"
                         className="md:m-10  flex justify-center  z-[-1] shadow-[3px_3px_30px_3px] shadow-blue-600"
                     >
-                        <video
-                            loop
-                            muted
-                            autoPlay
-                            className=""
-                        >
+                        <video loop muted autoPlay className="">
                             <source
                                 type="video/mp4"
                                 src="/videos/pix2pix.mp4"

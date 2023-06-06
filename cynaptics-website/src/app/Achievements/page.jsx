@@ -6,7 +6,7 @@ import Bounce from "react-reveal/Bounce";
 export default function page() {
     return (
         <div className="overflow-hidden">
-            <h1 className="text-center my-20 font-bold lg:text-5xl text-3xl">
+            <h1 className="text-center mt-20 md:my-20 mx-10 font-bold lg:text-5xl text-3xl">
                 Achievements By The Club Members
             </h1>
             <div className="md:grid-cols-2 grid lg:grid-cols-3 overflow-hidden">

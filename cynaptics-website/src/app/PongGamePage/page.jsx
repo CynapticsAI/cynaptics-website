@@ -22,6 +22,7 @@ export default function PongGame() {
             top: "50%",
             left: "50%",
             height: "fit-content",
+            width:'80%',
             transform: "translate(-50%, -50%)",
             background: "transparent",
             overflow: "hidden",
@@ -664,9 +665,15 @@ export default function PongGame() {
             },
 
             listen: function () {
-                settext(
-                    "Humans face a formidable challenge against AI, and I wonder if you could even defeat me in a friendly game of Pong. Press any key to accept the challenge."
-                );
+                if(innerWidth<1000){
+                    settext('Sorry For The Trouble Faced As Game Mode For Mobile Version Will Be Available Soon')
+                }
+                else{
+                    settext(
+                        "Humans face a formidable challenge against AI, and I wonder if you could even defeat me in a friendly game of Pong. Press any key to accept the challenge."
+                    );
+                }
+                
                 setIsOpen(true);
                 document.addEventListener("keydown", function (key) {
                     // Handle the 'Press any key to begin' function and start the game.
@@ -726,7 +733,13 @@ export default function PongGame() {
                 closeTimeoutMS={500}
                 isOpen={IsOpen}
                 onRequestClose={() => {
-                    setIsOpen(false);
+                    if(innerWidth<1000){
+                        setIsOpen(true);
+                    }
+                    else{
+                        setIsOpen(false);
+                    }
+                    
                 }}
                 style={customStyles}
             >

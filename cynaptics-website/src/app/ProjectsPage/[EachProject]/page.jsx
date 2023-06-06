@@ -33,12 +33,12 @@ export default function EachProjectpage({ params }) {
                         />
                     )}
 
-                    <h1 className="title-font sm:text-4xl text-3xl  mt-24 font-bold text-white">
+                    <h1 className="title-font sm:text-4xl text-3xl text-center md:text-start mt-10 md:mt-24 font-bold text-white">
                         {CurrentProject[0].project_title}
                     </h1>
 
                     <section className="text-gray-100 body-font">
-                        <div className="container mx-auto flex px-5 justify-center py-24 md:flex-row flex-col items-center">
+                        <div className="container mx-auto flex px-5 justify-center py-10 md:py-24  md:flex-row flex-col items-center">
                             {CurrentProject[0].desc1 && (
                                 <div className="lg:flex-grow md:w-1/2 lg:pr-10 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
                                     <div className="mb-8 leading-relaxed">

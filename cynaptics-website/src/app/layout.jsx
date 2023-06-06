@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
@@ -22,14 +23,15 @@ export const metadata = {
     ],
 };
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+
+
+export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
                 <meta
                     property="twitter:image"
                     content={`https://avatars.githubusercontent.com/u/62688806?s=200&v=4`}
@@ -57,7 +59,8 @@ export default function RootLayout({
                 <meta property="og:image:type" content="jpg" />
                 <meta property="og:url" content={process.env.SITE_URL} />
             </head>
-            <body className="!z-[1000] !bg-black">
+            <body className={`!z-[1000] !bg-black  `}>
+                
                 <Navbar />
                 <div className="z-[1000] ">{children}</div>
                 <Footer />

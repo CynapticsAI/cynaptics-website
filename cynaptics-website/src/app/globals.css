@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+
 body {
     overflow-y: overlay;
     overflow-x: hidden;
-   font-family: 'Fira Sans','Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     color: #ffffff;
-    /* Set your desired foreground color */
     height: 100%;
     animation: bg1 ease-in-out infinite 20000ms;
 }
@@ -473,6 +476,6 @@ main > div {
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
-
-
+#ProjectsCarousel{
+    font-family: 'Roboto', sans-serif;
+}

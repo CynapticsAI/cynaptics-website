@@ -34,7 +34,6 @@ export default function OurTeamPage() {
                                             "!ring-[10px] !ring-blue-500 !ring-opacity-70"
                                         }`}
                                         ele={ele}
-                                        
                                     />
                                 </div>
                             )}
