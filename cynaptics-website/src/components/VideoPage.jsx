@@ -5,7 +5,7 @@ import Slide from "react-reveal/Slide";
 export default function VideoPage() {
     useEffect(() => {}, []);
     return (
-        <div className="m-0 p-0 translate-y-[-130px] md:translate-y-0 py-10 md:py-auto overflow-hidden ">
+        <div className="mx-10  translate-y-[-130px] md:translate-y-0 py-10 md:py-auto overflow-x-hidden ">
             <Slide bottom>
                 <h1 className="text-center font-bold  text-2xl md:text-5xl md:pb-16">
                     See What AI/ML Can Do

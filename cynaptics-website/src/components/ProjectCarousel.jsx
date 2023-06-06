@@ -3,11 +3,13 @@ import { Projects } from "@/app/ProjectsPage/Projects";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
-
+import parse from 'html-react-parser'
+import gsap from "gsap";
 const ProjectCarousel = () => {
 	const [startX, setStartX] = useState(null);
 	const [endX, setEndX] = useState(null);
 	const carouselRef = useRef(null);
+	let [activeIndex, setActiveIndex] = useState(0);
 
 	useEffect(() => {
 		const body = document.querySelector("body");
@@ -18,6 +20,7 @@ const ProjectCarousel = () => {
 		  Events
 		*/
 		const handleMouseWheel = (e) => {
+
 			count[0].removeAttribute("on");
 			count[0].removeAttribute("open");
 			changeLayer(e);
@@ -52,36 +55,7 @@ const ProjectCarousel = () => {
 
 
 
-		const handleSwipe = () => {
-			const distance = endX - startX;
-			if (distance > 0) {
-				// Swipe right
-				if (count.length > 1) {
-					const lastCard = count[count.length - 1];
-					lastCard.style.transform = 'translateX(100%)';
-					lastCard.style.transition = 'transform 0.5s ease';
 
-					setTimeout(() => {
-						lastCard.style.transform = '';
-						grid.insertBefore(lastCard, count[0]);
-						lastCard.style.transition = '';
-					}, 500);
-				}
-			} else if (distance < 0) {
-				// Swipe left
-				if (count.length > 1) {
-					const firstCard = count[0];
-					firstCard.style.transform = 'translateX(-100%)';
-					firstCard.style.transition = 'transform 0.5s ease';
-
-					setTimeout(() => {
-						firstCard.style.transform = '';
-						grid.appendChild(firstCard);
-						firstCard.style.transition = '';
-					}, 500);
-				}
-			}
-		};
 
 		grid.addEventListener("mousewheel", handleMouseWheel);
 		grid.addEventListener("mousemove", handleMouseMove);
@@ -97,119 +71,174 @@ const ProjectCarousel = () => {
 			count[0].removeAttribute("on");
 			grid.appendChild(count[0]);
 		}
-	}, []);
+	}, [endX, startX]);
+
+	
+
+
 
 	return (
 		<div className="!w-full !min-h-[550px] flex justify-center items-center my-auto !text-black">
-			
-				<div className="hidden lg:flex w-full h-full  justify-center">
-					<div id="grid" className="lg:flex justify-center ">
-						{Projects.map((ele) => {
-							return (
-								<>
+
+			<div className="hidden lg:flex w-full h-full  justify-center">
+				<div id="grid" className="lg:flex justify-center " ref={carouselRef}>
+					{Projects.map((ele, index) => {
+						return (
+							<>
 
 
-									<div
-										key={ele.id}
-										className="layer hidden lg:flex 
-            flex-col lg:flex-row items-center my-auto !border-2 group !border-black break-words  !justify-center !lg:justify-start lg:!rounded-[40px] !rounded-[20px]"
-									>
-										<div className="w-[400px]">
-											<Image
-												className=" w-[200px] h-[200px] lg:w-[350px] lg:h-[300px] mx-auto rounded-xl  transition-all fade-in-out lg:ml-6"
-												src={ele.display_image}
-												alt={ele.project_title}
-											/>
+								<div
+									key={ele.id}
+									className={`layer hidden lg:flex 
+              flex-col lg:flex-row items-center my-auto !border-2 group !border-black break-words  !justify-center !lg:justify-start lg:!rounded-[40px] !rounded-[20px] ${activeIndex === (index) ? "active" : ""
+										}`}
+								>
+									<div id="left-btn" className="w-[20px] rounded-tr-full rounded-br-full h-[300px] bg-orange-500 ">
+
+									</div>
+									<div className="w-[400px]">
+										<Image
+											className=" w-[200px] h-[200px] lg:w-[350px] lg:h-[300px] mx-auto rounded-xl  transition-all fade-in-out lg:ml-6 border-2 border-black"
+											src={ele.display_image}
+											alt={ele.project_title}
+										/>
+									</div>
+									<div className=" font-bold lg:mx-10 lg:flex flex-col items-center  lg:my-auto   lg:w-[90%] lg:h-[100%] break-words relative">
+										<div className=" lg:pt-auto !text-center items-baseline justify-center lg:justify-start lg:!text-start pb-2   !break-all flex flex-wrap   text-wrap   text-xl mx-2">
+											{ele.project_title}
 										</div>
-										<div className=" font-bold lg:mx-10 lg:flex flex-row items-center  lg:my-auto   lg:w-[90%] lg:h-[100%] break-words ">
-											<div className="pt-10 lg:pt-auto !text-center items-baseline justify-center lg:justify-start lg:!text-start pb-2   !break-all flex flex-wrap   text-wrap lg:text-5xl  text-xl mx-2">
-												{ele.project_title}
-											</div>
-											<div className=" lg:p-2  lg:text-lg !text-md w-fit lg:fixed lg:translate-y-[125px]  h-fit mx-auto border-2 bg-gradient-to-tr from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all fade-in-out text-white rounded-md p-4">
+										<div className=" lg:pt-auto !text-center items-baseline justify-center lg:justify-start lg:!text-start pb-2   !break-all flex flex-wrap  !text-black opacity-70 font-thin text-wrap   text-sm mx-2">
+											{parse(ele.display_desc ? ele.display_desc : ele.desc1)}
+										</div>
+										<div id="Know_More" className=" lg:p-2  lg:text-lg !text-md w-fit lg:fixed bottom-[355px] lg:translate-y-[125px]  h-fit mx-auto border-2 bg-gradient-to-tr from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all fade-in-out text-white rounded-md p-4 hover:!ring-orange-500 !ring-opacity-50 hover:!ring-4">
 											<Link
-                                    aria-label="The link of the Respective project"
-                                    className="w-full flex justify-center text-center  "
-                                    href={`/ProjectsPage/${
-                                        ele.project_title
-                                    } + ${ele.id.toString()}`}
-                                >
+												aria-label="The link of the Respective project"
+												className="w-full flex justify-center text-center  "
+												href={`/ProjectsPage/${ele.project_title
+													} + ${ele.id.toString()}`}
+											>
 												Know More
 											</Link>
-											</div>
 										</div>
 									</div>
+								</div>
 
 
-									
-								</>
-							);
-						})}
-					</div>
+
+							</>
+						);
+					})}
 				</div>
-				<div className="lg:hidden w-full h-full  justify-center flex">
-					<div id="grid" className="lg:flex justify-center !h-full">
-						{Projects.map((ele) => {
-							return (
-								<>
+			</div>
+			<div className="lg:hidden w-full h-full  justify-center flex">
+				<div id="grid" className="lg:flex justify-center !h-full">
+					{Projects.map((ele) => {
+						return (
+							<>
 
 
-									
 
 
-									<div
-										key={ele.id}
-										className=" lg:hidden 
-            flex-col lg:flex-row items-center !bg-white px-10 !border-2 group !border-black break-words  !justify-center  !rounded-[20px] py-10 my-10"
-									>
-										<div className="w-full">
-											<Image
-												className=" w-[200px] h-[200px] lg:w-[350px] lg:h-[300px] mx-auto rounded-xl  transition-all fade-in-out lg:ml-6"
-												src={ele.display_image}
-												alt={ele.project_title}
-											/>
+
+								<div
+									key={ele.id}
+									className=" lg:hidden 
+            flex-col lg:flex-row items-center !bg-white px-10 !border-2 group !border-black break-words  !justify-center  !rounded-[20px] pb-10 my-10"
+								>
+									<div id="left-btn" className="max-w-[300px] rounded-br-full rounded-bl-full h-[20px] bg-orange-500 border-2 border-red-500 mx-auto mb-5"></div>
+									<div className="w-full">
+										<Image
+											className=" w-[200px] h-[200px] lg:w-[350px] lg:h-[300px] mx-auto rounded-xl  transition-all fade-in-out lg:ml-6"
+											src={ele.display_image}
+											alt={ele.project_title}
+										/>
+									</div>
+									<div className=" font-bold lg:mx-10 flex flex-col items-center justify-center  lg:my-auto   lg:w-[90%] lg:h-[100%] break-words ">
+										<div className="pt-10 lg:pt-auto !text-center items-baseline justify-center lg:justify-start lg:!text-start pb-2   !break-all flex flex-wrap   text-wrap lg:text-5xl  text-xl mx-2">
+											{ele.project_title}
 										</div>
-										<div className=" font-bold lg:mx-10 lg:flex flex-row items-center  lg:my-auto   lg:w-[90%] lg:h-[100%] break-words ">
-											<div className="pt-10 lg:pt-auto !text-center items-baseline justify-center lg:justify-start lg:!text-start pb-2   !break-all flex flex-wrap   text-wrap lg:text-5xl  text-xl mx-2">
-												{ele.project_title}
-											</div>
-											<div className=" lg:p-2  lg:text-lg !text-md w-fit lg:fixed lg:translate-y-[125px]  h-fit mx-auto border-2 bg-gradient-to-tr from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all fade-in-out text-white rounded-md p-4">
+										<div id="Know_More" className=" lg:p-2  lg:text-lg !text-md w-fit lg:fixed lg:translate-y-[125px]  h-fit !mx-auto border-2 bg-gradient-to-tr from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all fade-in-out text-white rounded-md p-4 hover:!ring-orange-500 !ring-opacity-50 hover:!ring-4 mt-10">
 											<Link
-                                    aria-label="The link of the Respective project"
-                                    className="w-full flex justify-center text-center  "
-                                    href={`/ProjectsPage/${
-                                        ele.project_title
-                                    } + ${ele.id.toString()}`}
-                                >
+												aria-label="The link of the Respective project"
+												className="w-full flex justify-center text-center  "
+												href={`/ProjectsPage/${ele.project_title
+													} + ${ele.id.toString()}`}
+											>
 												Know More
 											</Link>
-											</div>
 										</div>
 									</div>
-								</>
-							);
-						})}
-					</div>
+								</div>
+							</>
+						);
+					})}
 				</div>
-			
+
+			</div>
+
 			<style jsx>
 				{`
+				.blog-slider__pagination {
+					display: flex;
+					justify-content: center;
+					margin-top: 1rem;
+				  }
+				  #left-btn{
+					background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+					animation: changeclr 2s ease-in-out infinite;
+				  }
+				  @keyframes changeclr{
+					0% {
+						background-position: 0% 50%;
+					}
+					100% {
+						background-position: 100% 50%;
+					}
+				  }
+				  .blog-slider__pagination-item {
+					width: 8px;
+					height: 8px;
+					background-color: orange;
+					border-radius: 50%;
+					margin: 0 0.5rem;
+					cursor: pointer;
+					transition: background-color 0.3s ease;
+				  }
+		
+				  .blog-slider__pagination-item.active {
+					background-color: white;
+				  }
 					#grid {
 						width: 70%;
 						height: 450px;
 						position:relative;
 						cursor: pointer;
 					}
-
+					#Know_More{
+						display: inline-flex;
+	 					background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+	 					padding: 15px 35px;
+	 					border-radius: 50px;
+	 					color: #fff;
+	 					box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+	 					text-decoration: none;
+	 					font-weight: 500;
+	 					justify-content: center;
+	 					text-align: center;
+	 					letter-spacing: 1px;
+					}
 					.layer {
-						position: absolute;
-						width: 100%;
-						height: 100%;
-						left: 0%;
-						background: #fff;
-						border-radius: 5px;
-						transition: 1s all ease;
-
-						align-items: center;
+						width: 95%;
+	 					position: absolute;
+	 					max-width: 800px;
+						 
+	 					margin: auto;
+	 					background: #fff;
+	 					box-shadow: 0px 14px 80px rgba(34, 35, 58, 2);
+	 					padding: 25px 0px;
+	 					border-radius: 25px;
+	 					height: 400px;
+	 					transition: all 0.3s;
 					}
 
 					.layer::after {
@@ -217,7 +246,7 @@ const ProjectCarousel = () => {
 						font-size: 1.5rem;
 
 						font-weight: 500;
-						transition: 1s all ease;
+						transition: 10s all ease;
 					}
 
 					.layer::before {
@@ -230,15 +259,15 @@ const ProjectCarousel = () => {
 						border-radius: 250px;
 						left: 2.5rem;
 						transition: 2s all ease;
-						transform-origin: center;
+						
 					}
 
 					.layer[on="true"] {
 						z-index: 999 !important;
 						opacity: 1 !important;
-						top: -2.5px !important;
+						
 						box-shadow: 0 0 200px #000000 50 !important;
-						transform: scale(1.05) !important;
+						
 					}
 
 					.layer[open="true"] {
@@ -246,7 +275,7 @@ const ProjectCarousel = () => {
 						align-items: flex-start;
 						transition: 0.5s all ease;
 						box-shadow: 0 0 200px #000000 80 !important;
-						animation: openLayer 0.0001s ease both;
+						animation: openLayer 1.5s ease both;
 					}
 
 					.layer[open="true"]::before {
@@ -263,8 +292,8 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(1) {
-						transition: 0.1s all ease;
-						top: 10px;
+						transition: 0.5s all ease;
+						top: 0px;
 						z-index: 3;
 						width: 95%;
 						left: 2.5%;
@@ -273,7 +302,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(2) {
-						transition: 0.2s all ease;
+						transition: 1s all ease;
 						top: 20px;
 						z-index: 2;
 						width: 90%;
@@ -282,7 +311,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(3) {
-						transition: 0.3s all ease;
+						transition: 1.5s all ease;
 						top: 30px;
 						z-index: 1;
 						width: 85%;
@@ -291,7 +320,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(4) {
-						transition: 0.4s all ease;
+						transition: 2s all ease;
 						top: 40px;
 						z-index: 0;
 						width: 80%;
@@ -301,7 +330,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(5) {
-						transition: 0.5s all ease;
+						transition: 2.5s all ease;
 						top: 50px;
 						z-index: -1;
 						width: 75%;
@@ -310,7 +339,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(6) {
-						transition: 0.6s all ease;
+						transition: 3s all ease;
 						top: 60px;
 						z-index: -2;
 						width: 70%;
@@ -319,7 +348,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(7) {
-						transition: 0.7s all ease;
+						transition: 3.5s all ease;
 						top: 70px;
 						z-index: -3;
 						width: 65%;
@@ -328,7 +357,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(8) {
-						transition: 0.8s all ease;
+						transition: 4s all ease;
 						top: 80px;
 						z-index: -4;
 						width: 60%;
@@ -337,7 +366,7 @@ const ProjectCarousel = () => {
 					}
 
 					.layer:nth-child(9) {
-						transition: 0.9s all ease;
+						transition: 4.5s all ease;
 						top: 90px;
 						z-index: -5;
 						width: 55%;

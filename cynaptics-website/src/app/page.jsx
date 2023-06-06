@@ -5,7 +5,7 @@ import Model from "@/components/Model";
 
 export default function Home() {
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <div className="bg-black bg-opacity-30 ">
                 <div className="absolute h-full w-full z-[-100]">
                     <Model />
@@ -23,7 +23,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className=" ">
+                <div className="!overflow-x-hidden ">
                     <VideoPage />
                 </div>
             </div>

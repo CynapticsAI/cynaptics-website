@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 body {
-    overflow: overlay;
-    font-family: "RobotoMono", monospace;
+    overflow-y: overlay;
+    overflow-x: hidden;
+   font-family: 'Fira Sans','Roboto', sans-serif;
     color: #ffffff;
     /* Set your desired foreground color */
     height: 100%;
@@ -470,3 +471,8 @@ main > div {
 #toggleFullScreen:hover {
     transform: scale(0.9);
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+
