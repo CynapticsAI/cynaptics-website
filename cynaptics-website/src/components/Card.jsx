@@ -52,7 +52,7 @@ export default function Card({ ele, className }) {
                                 alt="avatar"
                             />
                         </div>
-                        <h1 className="card-fullname !text-black">
+                        <h1 className={`card-fullname flex flex-wrap !text-wrap !break-all !text-black  `}>
                             {ele.name}
                         </h1>
                         <h2 className="card-jobtitle !text-black ">
@@ -189,7 +189,7 @@ export default function Card({ ele, className }) {
                             height: 550px;
                         }
                         .card.is-active .card-header {
-                            height: 80px;
+                            height: 100%;
                         }
                         .card.is-active .card-cover {
                             height: 100px;

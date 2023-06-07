@@ -247,7 +247,7 @@ export const TeamMembers = [
     },
     {
         id: 29,
-        name: "Pradeep Kumar Rebbavarapu",
+        name: "Pradeep Kumar.R",
         position: "Member",
         branch: "CSE",
         email: "cse220001058@iiti.ac.in",

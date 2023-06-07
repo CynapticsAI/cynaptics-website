@@ -81,7 +81,7 @@ export default function Navbar() {
             const scrollableHeight = scrollHeight - clientHeight;
             // Calculate the scroll position as a percentage
             const scrollPercentage = (scrollTop / scrollableHeight) * 100;
-            console.log((scrollPercentage * document.documentElement.clientWidth) / 100)
+            
             // Calculate the width of the scrollbar based on the scroll percentage
             const scrollbarWidth = (scrollPercentage * document.documentElement.clientWidth) / 100;
 
