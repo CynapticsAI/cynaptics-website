@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode
+    children: React.ReactNode;
 }) {
     return (
-      <div className="">
-        <div className="">{children}</div>
-      </div>
+        <div className="">
+            <div className="">{children}</div>
+        </div>
     );
 }

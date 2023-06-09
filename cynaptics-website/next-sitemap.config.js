@@ -1,5 +1,9 @@
 module.exports = {
-    siteUrl: process.env.SITE_URL || 'http://localhost:3000',
-    generateRobotsTxt: true, // (optional)
+    siteUrl:
+        process.env.SITE_URL || "https://cynaptics-website-ivory.vercel.app",
+    generateRobotsTxt: true,
+    generateIndexSitemap: false,
+
+    // (optional)
     // ...other options
-  }
+};
