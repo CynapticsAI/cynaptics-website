@@ -68,23 +68,30 @@ export default function Card({ ele, className }) {
                                 <div className="card-subtitle !text-black">
                                     ABOUT
                                 </div>
-                                <p className="card-desc">
-                                    I am a{" "}
-                                    {parseInt(year.toString().slice(2, 4)) -
-                                        parseInt(ele.email.slice(-20, -18)) ==
-                                        1 && "2nd"}{" "}
-                                    {parseInt(year.toString().slice(2, 4)) -
-                                        parseInt(ele.email.slice(-20, -18)) ==
-                                        2 && "3rd"}{" "}
-                                    {parseInt(year.toString().slice(2, 4)) -
-                                        parseInt(ele.email.slice(-20, -18)) ==
-                                        3 && "4th"}{" "}
-                                    Year Student, Currently Pursuing My B.Tech
-                                    In{" "}
-                                    <span className="uppercase">
-                                        {ele.branch}
-                                    </span>
-                                </p>
+                                {ele.position === "alumni" ? (
+                                    <p className="card-desc">
+Allow me to introduce myself. I am {ele.name}, a graduate from the class of {ele.passout_year}. 
+                                    </p>
+                                ) : (
+                                    <p className="card-desc">
+                                        I am a{" "}
+                                        {parseInt(year.toString().slice(2, 4)) -
+                                            parseInt(ele.email.slice(-20, -18)) ==
+                                            1 && "2nd"}{" "}
+                                        {parseInt(year.toString().slice(2, 4)) -
+                                            parseInt(ele.email.slice(-20, -18)) ==
+                                            2 && "3rd"}{" "}
+                                        {parseInt(year.toString().slice(2, 4)) -
+                                            parseInt(ele.email.slice(-20, -18)) ==
+                                            3 && "4th"}{" "}
+                                        Year Student, Currently Pursuing My B.Tech
+                                        In{" "}
+                                        <span className="uppercase">
+                                            {ele.branch}
+                                        </span>
+                                    </p>
+                                )}
+
                             </div>
                             <div className="card-social">
                                 <Link className="mx-2" href={ele.github}>
@@ -482,7 +489,7 @@ export default function Card({ ele, className }) {
                         }
                     `}
                 </style>
-            </Fade>
-        </div>
+            </Fade >
+        </div >
     );
 }

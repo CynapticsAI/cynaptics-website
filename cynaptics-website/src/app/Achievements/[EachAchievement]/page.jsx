@@ -17,47 +17,59 @@ export default function page({ params }) {
         <div>
             <section className="text-gray-100 body-font mx-10">
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
-                    <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-wrap text-wrap flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center break-all">
-                        <LightSpeed left>
-                            <h1 className="title-font sm:text-4xl text-3xl mb-4  text-white font-extrabold ">
-                                {parse(CurrentAchievement[0].title)}
-                            </h1>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <div className="mb-3 leading-relaxed  ">
-                                {parse(CurrentAchievement[0].desc)}
-                            </div>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <h3 className="font-bold text-3xl leading-relaxed my-5">
-                                Achievement:
-                            </h3>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <div className="mb-3 leading-relaxed">
-                                {parse(CurrentAchievement[0].Achievements)}
-                            </div>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <h3 className="font-bold text-3xl leading-relaxed my-5">
-                                People Involved:
-                            </h3>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <div className="mb-3 leading-relaxed">
-                                {parse(CurrentAchievement[0].people_involved)}
-                            </div>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <h3 className="font-bold text-3xl leading-relaxed my-5">
-                                Domain Worked On:
-                            </h3>
-                        </LightSpeed>
-                        <LightSpeed left>
-                            <div className="mb-3 leading-relaxed">
-                                {parse(CurrentAchievement[0].domain)}
-                            </div>
-                        </LightSpeed>
+                    <div className="lg:flex-grow md:w-1/2 lg:pr-24  md:pr-16 flex flex-wrap text-wrap flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                        {CurrentAchievement[0].title && (
+                            <LightSpeed left>
+                                <h1 className="title-font sm:text-4xl text-3xl mb-4 break-all lg:break-words  text-white font-extrabold ">
+                                    {parse(CurrentAchievement[0].title)}
+                                </h1>
+                            </LightSpeed>
+                        )}
+                        {CurrentAchievement[0].desc && (
+                            <LightSpeed left>
+                                <div className="mb-3 leading-relaxed  ">
+                                    {parse(CurrentAchievement[0].desc)}
+                                </div>
+                            </LightSpeed>
+                        )}
+
+                        {CurrentAchievement[0].Achievements && (
+                            <><LightSpeed left>
+                                <h3 className="font-bold text-3xl leading-relaxed my-5">
+                                    Achievement:
+                                </h3>
+                            </LightSpeed><LightSpeed left>
+                                    <div className="mb-3 leading-relaxed">
+                                        {parse(CurrentAchievement[0].Achievements)}
+                                    </div>
+                                </LightSpeed></>
+                        )}
+
+                        {CurrentAchievement[0].people_involved && (
+                            <><LightSpeed left>
+                                <h3 className="font-bold text-3xl leading-relaxed my-5">
+                                    People Involved:
+                                </h3>
+                            </LightSpeed><LightSpeed left>
+                                    <div className="mb-3 leading-relaxed">
+                                        {parse(CurrentAchievement[0].people_involved)}
+                                    </div>
+                                </LightSpeed></>
+                        )}
+
+
+                        {CurrentAchievement[0].domain && (
+                            <><LightSpeed left>
+                                <h3 className="font-bold text-3xl leading-relaxed my-5">
+                                    Domain Worked On:
+                                </h3>
+                            </LightSpeed><LightSpeed left>
+                                    <div className="mb-3 leading-relaxed">
+                                        {parse(CurrentAchievement[0].domain)}
+                                    </div>
+                                </LightSpeed></>
+                        )}
+
 
                         <div className="flex justify-center flex-row flex-wrap break-keep">
                             {CurrentAchievement[0].github_link && (

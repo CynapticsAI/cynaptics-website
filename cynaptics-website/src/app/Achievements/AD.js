@@ -37,4 +37,12 @@ export const AD = [
         deployed_link: "https://api-generator.netlify.app/",
         image: require("../../../public/images/Achievements/achievement3.jpg"),
     },
+    {
+        id: 4,
+        Achievements: "Silver Medal",
+        title: "BRIDGE_I2I INTER_IIT 2021",
+        desc: "Members of Cynaptics Club Lead a Team of 10 Members, for IITI's participation in BRIDGEi2i Automatic Headline & Sentiment Generation competetion Inter-IIT 2021.<div>We Were Awarded Silver Medal</div>",
+        
+        image: require("../../../public/images/Achievements/achievement4.jpg"),
+    },
 ];
